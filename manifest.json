@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+
+  "name": "var_masterpiece",
+  "description": "Turn a var_dump into artwork",
+  "version": "1.0",
+  
+  "permissions": [
+    "contextMenus"
+  ],
+  
+  "background": {
+    "scripts": ["addContexMenu.js"]
+  },
+  
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["var_dump.css"],
+      "js": ["jquery.js", "var_dump.js"],
+	  "map":["jquery-2.0.3.min.map"]
+    }
+  ]
+}
