@@ -1,6 +1,6 @@
 #var_dump
 
-var_dumps --> var_painting
+var_dumps --> var_paintings
 
 ##What is var_dump
 
