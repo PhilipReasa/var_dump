@@ -2,13 +2,14 @@ function TreeNode(content){
 	this.level = 0;
 	this.children = new Array();
 	this.parent = undefined;
-	this.content = content;
+	this.content = new ContentItem(content);
 }
 
 TreeNode.prototype.addChild = function(child){
-	this.children.push(child);
-	child.parent = this;
+	if(!DEBUG){child.parent = this;}
 	child.level = this.level + 1;
+	
+	this.children.push(child);
 }
 
 TreeNode.prototype.print = function(text) {
@@ -23,7 +24,7 @@ TreeNode.prototype.print = function(text) {
 		i++;
 	}
 	
-	text += (this.content + "</br>");
+	text += (this.content.print() + "</br>");
 	
 	var i =0;
 	while(i < this.children.length) {

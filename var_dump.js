@@ -1,7 +1,6 @@
 /**
 * Returns string of a var_dump. if no vardumps found, returns false
 */
-
 function whatShoudWeBeautify() {
 	var toReturn = $("body").html();
 	if(toReturn.substring(0,4) == "object".substring(0,4)) {
@@ -19,6 +18,10 @@ function removeTheDump() {
 	$("body").empty()
 }
 
+function splitDump(dump) {
+	return dump.split("\n");
+}
+
 var dump = whatShoudWeBeautify() 
 
 if(dump) {
@@ -26,5 +29,8 @@ if(dump) {
 	
 	var tree = generateTheTree(dump);
 	$('body').append(tree.print());
+	
+	if(DEBUG) {
+		$('body').append(JSON.stringify(tree))
+	}
 }
-

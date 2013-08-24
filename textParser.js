@@ -1,7 +1,3 @@
-function splitDump(dump) {
-	return dump.split("\n");
-}
-
 function generateTheTree(dump, parent) {
 	
 	if(parent == undefined) { //first call
@@ -19,14 +15,15 @@ function generateTheTree(dump, parent) {
 		}
 	
 		var newNode = new TreeNode(dump[i]);
-			
+		parent.addChild(newNode); //we can add here because JS is pass by reference
+		
 		if(doesNewLevelOpen) {
 			var tempDump = dump.slice() //shallow copy is enough
 			newNode = generateTheTree(tempDump.splice(i+1,tempDump.length), newNode)
 			i = whereDoesLevelClose(dump,i); //skip over child stuff
 		}
 		
-		parent.addChild(newNode);
+		
 		i++;
 	}
 	

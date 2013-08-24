@@ -5,10 +5,12 @@
   "description": "Turn a var_dump into artwork",
   "version": "1.0",
   
+  //to use JS to navigate the page
   "permissions": [
     "contextMenus"
   ],
   
+  //to get the right click awesomeness
   "background": {
     "scripts": ["addContexMenu.js"]
   },
@@ -17,7 +19,7 @@
     {
       "matches": ["<all_urls>"],
       "css": ["var_dump.css"],
-      "js": ["requireJS.js","jquery.js", "var_dump.js","jstree.js","textParser.js"],
+      "js": ["globals.js", "jquery.js","content.js","jstree.js","textParser.js", "var_dump.js"], //order determines what can be used when-
 	  "map":["jquery-2.0.3.min.map"]
     }
   ]
