@@ -17,7 +17,7 @@
     {
       "matches": ["<all_urls>"],
       "css": ["var_dump.css"],
-      "js": ["jquery.js", "var_dump.js"],
+      "js": ["requireJS.js","jquery.js", "var_dump.js","jstree.js","textParser.js"],
 	  "map":["jquery-2.0.3.min.map"]
     }
   ]
