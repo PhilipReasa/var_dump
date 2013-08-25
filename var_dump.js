@@ -30,7 +30,7 @@ if(dump) {
 	var tree = generateTheTree(dump);
 	$('body').append(tree.print());
 	
-	if(DEBUG) {
+	if(DEBUG_PRINTJSON) {
 		$('body').append(JSON.stringify(tree))
 	}
 }

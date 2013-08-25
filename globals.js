@@ -1,1 +1,1 @@
-var DEBUG = true;
+var DEBUG_PRINTJSON = false;

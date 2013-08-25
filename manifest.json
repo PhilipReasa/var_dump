@@ -19,8 +19,7 @@
     {
       "matches": ["<all_urls>"],
       "css": ["var_dump.css"],
-      "js": ["globals.js", "jquery.js","content.js","jstree.js","textParser.js", "var_dump.js"], //order determines what can be used when-
-	  "map":["jquery-2.0.3.min.map"]
+      "js": ["globals.js", "jquery.js","content.js","jstree.js","textParser.js", "collapse.js", "var_dump.js"] //order determines what can be used when-
     }
   ]
 }
