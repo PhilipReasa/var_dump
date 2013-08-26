@@ -5,21 +5,15 @@
   "description": "Turn a var_dump into artwork",
   "version": "1.0",
   
-  //to use JS to navigate the page
   "permissions": [
     "contextMenus"
   ],
-  
-  //to get the right click awesomeness
-  "background": {
-    "scripts": ["addContexMenu.js"]
-  },
   
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
       "css": ["var_dump.css"],
-      "js": ["globals.js", "jquery.js","content.js","jstree.js","textParser.js", "collapse.js", "var_dump.js"] //order determines what can be used when-
+      "js": ["globals.js", "jquery.js","content.js","jstree.js","textParser.js", "collapse.js", "var_dump.js"]
     }
   ]
 }

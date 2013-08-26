@@ -13,7 +13,8 @@ function ContentItem(data, caller) {
 		closingQ = data.indexOf("\"", openingQ + 1),
 		openingP = data.indexOf("("),
 		closingP = data.indexOf(")");
-
+	//TODO: make sure that (, ) dont appear inside quotes
+	
 	//http://www.php.net/manual/en/language.types.intro.php
 	//check primitive scalar types
 	if (data.substring(0, 4) == "bool") {
@@ -42,9 +43,9 @@ function ContentItem(data, caller) {
 		this.compound = true;
 		this.extraInfo.push("Number of Elements: " + data.substring(6, closingP));
 	} else if (data.substring(0, 6) == "object") {
-		this.type = "object { ";
+		this.type = "object";
 		this.compound = true;
-		this.html = data.substring(8, data.length);
+		this.html = data.substring(6, data.length);
 		//TODO: Don't think this is complete
 	}
 
@@ -75,28 +76,28 @@ ContentItem.prototype.printOpening = function () {
 	switch(this.type) {
 		case "object":
 			if(this.node.parent.content.compound) {toPrint += '<li>';}
-			toPrint += "<ul class='obj collapible'>"
+			toPrint += "<ul class='obj collapsible'>" + this.html;
 			break;
 		case "array": 
 			if(this.node.parent.content.compound) {toPrint += '<li>';}
-			toPrint += "<ul class='array collapible'>" + this.html + "[" + this.extraInfo[0] + "]";
+			toPrint += "<ul class='array collapsible'>" + this.html + "[" + this.extraInfo[0] + "]";
 			break;
 		case "integer":
 		case "float":
-			toPrint += "<span class='type-number'>" + this.html + "</span>";
+			toPrint += "<span class='num'>" + this.html + "</span>";
 			break;
 		case "bool":
-			toPrint += "<span class='type-boolean'>" + this.html + "</span>";
+			toPrint += "<span class='bool'>" + this.html + "</span>";
 			break;
 		case "string":
-			toPrint += "<span class='type-string'>" + this.html + "</span>";
+			toPrint += "<span class='string'>" + this.html + "</span>";
 			break;
 		case "NULL":
-			toPrint += "<span class='type-bull'>" + this.html + "</span>";
+			toPrint += "<span class='null'>" + this.html + "</span>";
 			break;
 		case "key":
 			if(this.node.parent.content.compound) {toPrint += '<li>';}
-			toPrint += "<span class='property'>" + this.html + "</span>";
+			toPrint += "<span class='prop'>" + this.html + "</span>";
 			
 			break;
 		default:
