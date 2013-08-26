@@ -31,6 +31,7 @@ function generateTheTree(dump, parent) {
 }
 
 function whereDoesLevelClose(dump, i) {
+	//TODO: make sure {, } dont appear inside quotes
 	i ++;
 	var numOfOParens = 0;
 	while(i < dump.length) {
