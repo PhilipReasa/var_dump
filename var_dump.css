@@ -3,6 +3,7 @@
 
 body {
   font-family: sans-serif;
+  line-height:20px;
 }
 
 .prop {
@@ -63,20 +64,22 @@ li {
 
 ul {
   list-style: none;
-  margin: 0 0 0 2em;
+  margin: -18px 0 0 2em;
   padding: 0;
 }
 
-h1 {
-  font-size: 1.2em;
+.hover {
+	background-color:#add8e6;
 }
 
-/* Indent JSON when there's a callback. */
-.callback + #var_dump {
-  padding-left: 1em;
+.OpenClose {
+	cursor:pointer;
 }
 
-.callback {
-  font-family: monospace;
-  color: #A52A2A;
+.hide {
+	display:none;
+}
+
+.clear {
+	clear:both;
 }

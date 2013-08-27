@@ -1,41 +1,20 @@
-// modified from JSONviewer
-// jsonview.com
-
-// Click handler for collapsing and expanding objects and arrays
 function collapse(evt) {
 	var collapser = evt.target;
-   
-	var target = collapser.parentNode.getElementsByClassName('collapsible');
-    
-	if ( ! target.length ) {
-      return;
-    }
-    
-    target = target[0];
+	if(collapser.innerHTML == "- "){
+		$(collapser).siblings("ul").children().addClass('hide');
+		collapser.innerHTML = '+ ';
+	} else {
+		$(collapser).siblings("ul").children().removeClass('hide');
+		collapser.innerHTML = '- ';
+	}
+}
 
-    if ( target.style.display == 'none' ) {
-      target.style.display = '';
-      collapser.innerHTML = '-';
-    } else {
-      target.style.display = 'none';
-      collapser.innerHTML = '+';
-    }
+function hoverIn(evt) {
+	var hovered = evt.target;
+	$(hovered).parent('li').addClass('hover');
 }
-  
-function addCollapser(item) {
-    // This mainly filters out the root object (which shouldn't be collapsible)
-    if ( item.nodeName != 'LI' ) {
-      return;
-    }
-    
-    var collapser = document.createElement('div');
-    collapser.className = 'collapser';
-    collapser.innerHTML = '-';
-    collapser.addEventListener('click', collapse, false);
-    item.insertBefore(collapser, item.firstChild);
-}
-  
-var items = document.getElementsByClassName('collapsible');
-for( var i = 0; i < items.length; i++) {
-    addCollapser(items[i].parentNode);
+
+function hoverOut(evt) {
+	var hovered = evt.target;
+	$(hovered).parent('li').removeClass('hover');
 }

@@ -34,3 +34,7 @@ if(dump) {
 		$('body').append(JSON.stringify(tree))
 	}
 }
+
+$('.OpenClose').bind('click', collapse);
+
+$('li').hover(hoverIn, hoverOut);

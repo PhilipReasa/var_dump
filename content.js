@@ -19,19 +19,19 @@ function ContentItem(data, caller) {
 	//check primitive scalar types
 	if (data.substring(0, 4) == "bool") {
 		this.type = "boolean";
-		this.html = "Boolean: " + data.substring(openingP + 1, closingP);
+		this.html = "<span>Boolean: " + data.substring(openingP + 1, closingP)+"</span>";
 		this.extraInfo.push((data.substring(openingP, closingP) == true));
 	} else if (data.substring(0, 3) == "int") {
 		this.type = "integer";
-		this.html = "integer: " + data.substring(openingP + 1, closingP);
+		this.html = "<span>integer: " + data.substring(openingP + 1, closingP)+"</span>";
 		this.extraInfo.push(parseInt(data.substring(openingP + 1, closingP)));
 	} else if (data.substring(0, 4) == "float") {
 		this.type = "float";
-		this.html = "float: " + data.substring(openingP + 1, closingP);
+		this.html = "<span>float: " + data.substring(openingP + 1, closingP)+"</span>";
 		this.extraInfo.push(parseFloat(data.substring(openingP + 1, closingP)));
 	} else if (data.substring(0, 6) == "string") {
 		this.type = "string";
-		this.html = "string: " + data.substring(openingQ + 1, closingQ);
+		this.html = "<span>string: " + data.substring(openingQ + 1, closingQ)+"</span>";
 		this.extraInfo.push(data.substring(openingQ + 1, closingQ));
 		this.extraInfo.push("Length of String: " + data.substring(7, closingP));
 	}
@@ -39,33 +39,35 @@ function ContentItem(data, caller) {
 	// check compound types
 	else if (data.substring(0, 5) == "array") {
 		this.type = "array";
-		this.html = "array { ";
+		this.html = "<span>array { </span>";
 		this.compound = true;
 		this.extraInfo.push("Number of Elements: " + data.substring(6, closingP));
 	} else if (data.substring(0, 6) == "object") {
 		this.type = "object";
 		this.compound = true;
-		this.html = data.substring(6, data.length);
-		//TODO: Don't think this is complete
+		this.html = "<span>object {</span>";
+		this.extraInfo.push("Object Name: " + data.substring(openingP + 1, closingP));
+		this.extraInfo.push("Object Identifier: " + data.substring(closingP+1, data.indexOf(" ", closingP)));
 	}
 
 	// check special types
 	// ignore resource..'cause I got no clue what those are :Packages
 	else if (data == "NULL") {
 		this.type = "NULL";
-		this.html = "NULL";
+		this.html = "<span>NULL</span>";
 	}
 
 	// check for var dump things
 	else if (data.indexOf("=&gt;") !== -1) {
 		this.type = "key";
-		this.html = data;
+		this.html = "<span>"+data+"</span>";
 	}
 
 	// all other cases
 	else {
 		this.type = "unknown";
-		this.html = data;
+		this.html = "<span>"+data+"</span>";
+		this.compound = true; //for the root case
 	}
 }
 
@@ -76,11 +78,11 @@ ContentItem.prototype.printOpening = function () {
 	switch(this.type) {
 		case "object":
 			if(this.node.parent.content.compound) {toPrint += '<li>';}
-			toPrint += "<ul class='obj collapsible'>" + this.html;
+			toPrint += "<span class='OpenClose'>- </span><ul class='obj collapsible'>" + this.html + "[" + this.extraInfo[0] + "] [" + this.extraInfo[1] + "]";
 			break;
 		case "array": 
 			if(this.node.parent.content.compound) {toPrint += '<li>';}
-			toPrint += "<ul class='array collapsible'>" + this.html + "[" + this.extraInfo[0] + "]";
+			toPrint += "<span class='OpenClose'>- </span><ul class='array collapsible'>" + this.html + "[" + this.extraInfo[0] + "]";
 			break;
 		case "integer":
 		case "float":
@@ -98,7 +100,11 @@ ContentItem.prototype.printOpening = function () {
 		case "key":
 			if(this.node.parent.content.compound) {toPrint += '<li>';}
 			toPrint += "<span class='prop'>" + this.html + "</span>";
-			
+			break;
+		case "unknown":
+			if(this.node.content.html == "root") {
+				toPrint += "<span class='OpenClose'>- </span><ul>Root" 
+			}
 			break;
 		default:
 			toPrint += this.html
@@ -114,14 +120,17 @@ ContentItem.prototype.printClosing = function () {
 	switch(this.type) {
 		case "object":
 			toPrint += "</ul>"
-			if(this.node.parent.content.compound) {toPrint += '</li>';}
+			if(this.node.parent.content.compound) {toPrint += "</li><span class='clear'></span>";}
 			break;
 		case "array": 
 			toPrint += "</ul>";
-			if(this.node.parent.content.compound) {toPrint += '</li>';}
+			if(this.node.parent.content.compound) {toPrint += "</li><span class='clear'></span>";}
 			break;
 		case "key":
 		case "unknown":
+			if(this.node.content.html == "root") {
+				toPrint += "</ul><span class='clear'></span>" 
+			}
 			break;
 		case "integer":
 		case "float":
