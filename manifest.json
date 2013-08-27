@@ -5,6 +5,8 @@
   "description": "Turn a var_dump into artwork",
   "version": "1.0",
   
+  "icons": { "48": "icon48.png"},
+  
   "permissions": [
     "contextMenus"
   ],
@@ -17,7 +19,7 @@
     {
       "matches": ["<all_urls>"],
       "css": ["var_dump.css"],
-      "js": ["globals.js", "jquery.js","content.js","jstree.js","textParser.js", "collapse.js", "var_dump.js"]
+      "js": ["globals.js", "jquery.js","content.js","jstree.js","textParser.js", "collapse.js","var_dump.js"]
     }
   ]
 }

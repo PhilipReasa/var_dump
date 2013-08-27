@@ -95,3 +95,24 @@ ul {
 	text-decoration:underline;
 	cursor:pointer;
 }
+
+.modal {
+	height:500px;
+	overflow-x:auto;
+	overflow-y:auto;
+	width:80%;
+	position:fixed;
+	box-shadow: 0px 0px 10px #888;
+	top:5%;
+	left:5%;
+	padding:5%;
+}
+
+.close {
+	background-color:rgba(146,120,51,.1);
+	width:250px;
+}
+.close:hover {
+	text-decoration:underline;
+	cursor:pointer
+}
