@@ -1,0 +1,106 @@
+//css taken from the JSON view repo 
+// http://jsonview.com/
+.DEADBEEF { //to avoid accidenttal stylings
+	#var_dump {
+		font-family: monospace;
+		font-size: 16px;
+		white-space: pre-wrap;
+		font-family: sans-serif;
+		
+		//elements
+		.prop {
+			font-weight: bold;
+		}
+
+		.null {
+			color: #927433;
+		}
+
+		.bool {
+			color: #555655;
+		}
+
+		.num {
+			color: #0e327d;
+		}
+
+		.string {
+			color: #374666;
+			white-space: pre-wrap;
+		}
+
+		#root{
+			margin: 0 0 0 0;
+		}
+		
+		//structure
+		li {
+			position: relative;
+		}
+
+		ul {
+			list-style: none;
+			margin: -18px 0 0 2em;
+			padding: 0;
+		}
+
+		//utility
+		.OpenClose {
+			cursor:pointer;
+		}
+
+		.hide {
+			display:none;
+		}
+
+		.clear {
+			clear:both;
+		}
+
+		.all {
+			background-color:rgba(146,116,51,.1);
+			width:250px;
+		}
+
+		.closeall{
+			float:right;
+		}
+
+		.closeall:hover {
+			text-decoration:underline;
+			cursor:pointer
+		}
+
+		.openall:hover {
+			text-decoration:underline;
+			cursor:pointer;
+		}
+	}
+	.modal {
+		height:500px;
+		overflow-x:auto;
+		overflow-y:auto;
+		width:80%;
+		position:fixed;
+		box-shadow: 0px 0px 10px #888;
+		top:5%;
+		left:5%;
+		padding:5%;
+	}
+
+	.close {
+		background-color:rgba(146,120,51,.1);
+		width:250px;
+	}
+	.close:hover {
+		text-decoration:underline;
+		cursor:pointer
+	}
+}
+
+
+
+
+
+
+

@@ -57,8 +57,8 @@ chrome.extension.onMessage.addListener(function (message, sender, callback) {
 
 function printModalTree(dump) {
 	dump = getSelectionHtml();
-	var modalOpen = "<div class='modal'><div class='close'>Close</div>";
-	var modalClose = "</div>";
+	var modalOpen = "<div class='DEADBEEF'><div class='modal'><div class='close'>Close</div>";
+	var modalClose = "</div></div>";
 	dump = splitDump(dump);
 	var tree =  generateTheTree(dump);
 	$('body').append(modalOpen + tree.print() + modalClose)
