@@ -1,20 +1,28 @@
 function collapse(evt) {
-	var collapser = evt.target;
+	if(evt.target == undefined) {
+		var collapser = evt //for closeAll fn
+	} else {
+		var collapser = evt.target;
+	}
 	if(collapser.innerHTML == "- "){
-		$(collapser).siblings("ul").children().addClass('hide');
+		$(collapser).siblings("ul").children("li").addClass('hide');
 		collapser.innerHTML = '+ ';
 	} else {
-		$(collapser).siblings("ul").children().removeClass('hide');
+		$(collapser).siblings("ul").children("li").removeClass('hide');
 		collapser.innerHTML = '- ';
 	}
 }
 
-function hoverIn(evt) {
-	var hovered = evt.target;
-	$(hovered).parent('li').addClass('hover');
+function openAll(){
+	$("#var_dump").find('*').removeClass('hide');
+	$(".OpenClose").html("- ");
 }
 
-function hoverOut(evt) {
-	var hovered = evt.target;
-	$(hovered).parent('li').removeClass('hover');
+function closeAll() {
+	var all = $(".OpenClose")
+	var i =0;
+	while(i < all.length) {
+		collapse(all[i]);
+		i++;
+	}
 }

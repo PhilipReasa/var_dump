@@ -3,7 +3,6 @@
 
 body {
   font-family: sans-serif;
-  line-height:20px;
 }
 
 .prop {
@@ -11,19 +10,19 @@ body {
 }
 
 .null {
-  color: red;
+  color: #927433;
 }
 
 .bool {
-  color: blue;
+  color: #555655;
 }
 
 .num {
-  color: blue;
+  color: #0e327d;
 }
 
 .string {
-  color: green;
+  color: #374666;
   white-space: pre-wrap;
 }
 
@@ -32,12 +31,6 @@ body {
   left: -1em;
   cursor: pointer;
   -moz-user-select: none;
-}
-
-.q {
-  display: inline-block;
-  width: 0px;
-  color: transparent;
 }
 
 li {
@@ -68,8 +61,8 @@ ul {
   padding: 0;
 }
 
-.hover {
-	background-color:#add8e6;
+#root{
+	margin: 0 0 0 0;
 }
 
 .OpenClose {
@@ -82,4 +75,23 @@ ul {
 
 .clear {
 	clear:both;
+}
+
+.all {
+	background-color:rgba(146,116,51,.1);
+	width:250px;
+}
+
+.closeall{
+	float:right;
+}
+
+.closeall:hover {
+	text-decoration:underline;
+	cursor:pointer
+}
+
+.openall:hover {
+	text-decoration:underline;
+	cursor:pointer;
 }

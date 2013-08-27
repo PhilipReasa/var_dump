@@ -13,13 +13,12 @@ function ContentItem(data, caller) {
 		closingQ = data.indexOf("\"", openingQ + 1),
 		openingP = data.indexOf("("),
 		closingP = data.indexOf(")");
-	//TODO: make sure that (, ) dont appear inside quotes
 	
 	//http://www.php.net/manual/en/language.types.intro.php
 	//check primitive scalar types
 	if (data.substring(0, 4) == "bool") {
 		this.type = "boolean";
-		this.html = "<span>Boolean: " + data.substring(openingP + 1, closingP)+"</span>";
+		this.html = "<span>boolean: " + data.substring(openingP + 1, closingP)+"</span>";
 		this.extraInfo.push((data.substring(openingP, closingP) == true));
 	} else if (data.substring(0, 3) == "int") {
 		this.type = "integer";
@@ -39,13 +38,13 @@ function ContentItem(data, caller) {
 	// check compound types
 	else if (data.substring(0, 5) == "array") {
 		this.type = "array";
-		this.html = "<span>array { </span>";
+		this.html = "<span>array { ";
 		this.compound = true;
 		this.extraInfo.push("Number of Elements: " + data.substring(6, closingP));
 	} else if (data.substring(0, 6) == "object") {
 		this.type = "object";
 		this.compound = true;
-		this.html = "<span>object {</span>";
+		this.html = "<span>object {";
 		this.extraInfo.push("Object Name: " + data.substring(openingP + 1, closingP));
 		this.extraInfo.push("Object Identifier: " + data.substring(closingP+1, data.indexOf(" ", closingP)));
 	}
@@ -78,17 +77,17 @@ ContentItem.prototype.printOpening = function () {
 	switch(this.type) {
 		case "object":
 			if(this.node.parent.content.compound) {toPrint += '<li>';}
-			toPrint += "<span class='OpenClose'>- </span><ul class='obj collapsible'>" + this.html + "[" + this.extraInfo[0] + "] [" + this.extraInfo[1] + "]";
+			toPrint += "<span class='OpenClose'>- </span><ul class='obj'>" + this.html + "[" + this.extraInfo[0] + "] [" + this.extraInfo[1] + "] </span>";
 			break;
 		case "array": 
 			if(this.node.parent.content.compound) {toPrint += '<li>';}
-			toPrint += "<span class='OpenClose'>- </span><ul class='array collapsible'>" + this.html + "[" + this.extraInfo[0] + "]";
+			toPrint += "<span class='OpenClose'>- </span><ul class='array'>" + this.html + "[" + this.extraInfo[0] + "] </span>";
 			break;
 		case "integer":
 		case "float":
 			toPrint += "<span class='num'>" + this.html + "</span>";
 			break;
-		case "bool":
+		case "boolean":
 			toPrint += "<span class='bool'>" + this.html + "</span>";
 			break;
 		case "string":
@@ -102,8 +101,8 @@ ContentItem.prototype.printOpening = function () {
 			toPrint += "<span class='prop'>" + this.html + "</span>";
 			break;
 		case "unknown":
-			if(this.node.content.html == "root") {
-				toPrint += "<span class='OpenClose'>- </span><ul>Root" 
+			if(this.node.parent == undefined) {
+				toPrint += "<ul id='root'>"//"<span class='OpenClose'>- </span><ul>" + this.html;
 			}
 			break;
 		default:
@@ -129,16 +128,16 @@ ContentItem.prototype.printClosing = function () {
 		case "key":
 		case "unknown":
 			if(this.node.content.html == "root") {
-				toPrint += "</ul><span class='clear'></span>" 
+				toPrint += "</ul>";//<span class='clear'></span>" 
 			}
 			break;
 		case "integer":
 		case "float":
-		case "bool":
+		case "boolean":
 		case "string":
 		case "NULL":
 		default:
-			if(this.node.parent.content.compound) {toPrint += '</li>';}
+			if(this.node.parent.content.compound) {toPrint += "</li><span class='clear'></span>";}
 	}
 	
 	return toPrint;

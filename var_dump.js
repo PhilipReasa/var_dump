@@ -36,5 +36,5 @@ if(dump) {
 }
 
 $('.OpenClose').bind('click', collapse);
-
-$('li').hover(hoverIn, hoverOut);
+$('.openall').bind('click', openAll);
+$('.closeall').bind('click', closeAll);
