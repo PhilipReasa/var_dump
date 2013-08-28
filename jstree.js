@@ -13,8 +13,10 @@ TreeNode.prototype.addChild = function(child){
 }
 
 TreeNode.prototype.print = function(text) {
+	var MassCommandTool = "<div class='all'><span class='openall'>open all +</span>    <span class='closeall'>close all -</span></div>"
+
 	if(text == undefined) {
-		var text = "<div id='var_dump'>";
+		var text = "<div class='" + SPECIAL_CLASS + "'><div id='var_dump'>" + MassCommandTool;
 		var first = true;
 	}
 
@@ -30,7 +32,7 @@ TreeNode.prototype.print = function(text) {
 	text += (this.content.printClosing());
 	
 	if(first) {
-		text += "</div>" //close the #var_dump div
+		text += MassCommandTool + "</div></div>" //close the #var_dump div and special_id div
 	}
 	
 	return text;

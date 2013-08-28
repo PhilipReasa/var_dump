@@ -22,6 +22,15 @@ function splitDump(dump) {
 	return dump.split("\n");
 }
 
+function addListners() {
+	$('.OpenClose').bind('click', collapse);
+	$('.openall').bind('click', openAll);
+	$('.closeall').bind('click', closeAll);
+	$('.close').bind('click', function() {
+		$(".modal").remove();
+	});
+}
+
 var dump = whatShoudWeBeautify() 
 
 if(dump) {
@@ -33,4 +42,45 @@ if(dump) {
 	if(DEBUG_PRINTJSON) {
 		$('body').append(JSON.stringify(tree))
 	}
+}
+
+addListners();
+
+
+//CONTEXT MENUS STUFF
+
+chrome.extension.onMessage.addListener(function (message, sender, callback) {
+    if (message.fn == "printTree") {
+		printModalTree(message.dump);
+    }
+});
+
+function printModalTree(dump) {
+	dump = getSelectionHtml();
+	var modalOpen = "<div class='DEADBEEF'><div class='modal'><div class='close'>Close</div>";
+	var modalClose = "</div></div>";
+	dump = splitDump(dump);
+	var tree =  generateTheTree(dump);
+	$('body').append(modalOpen + tree.print() + modalClose)
+	
+	addListners();
+}
+
+function getSelectionHtml() { //http://stackoverflow.com/a/5670825
+    var html = "";
+    if (typeof window.getSelection != "undefined") {
+        var sel = window.getSelection();
+        if (sel.rangeCount) {
+            var container = document.createElement("div");
+            for (var i = 0, len = sel.rangeCount; i < len; ++i) {
+                container.appendChild(sel.getRangeAt(i).cloneContents());
+            }
+            html = container.innerHTML;
+        }
+    } else if (typeof document.selection != "undefined") {
+        if (document.selection.type == "Text") {
+            html = document.selection.createRange().htmlText;
+        }
+    }
+    return html;
 }
