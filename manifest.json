@@ -25,5 +25,7 @@
       "css": ["var_dump.css"],
       "js": ["globals.js", "jquery.js","content.js","jstree.js","textParser.js", "collapse.js","var_dump.js"]
     }
-  ]
+  ],
+  
+  "options_page": "options.html"
 }
