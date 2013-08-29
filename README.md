@@ -5,6 +5,7 @@ var_dumps --> var_paintings
 ##What is var_dump
 
 var_dump is a work-in-progress chrome extension that will parse a var_dump out of the dom and make it pretty!
+Also, Just FYI, we are now over on the chrome store: [Here!](https://chrome.google.com/webstore/detail/varmasterpiece/chfhddogiigmfpkcmgfpolalagdcamkl).
 
 ##Here's The Deal
 

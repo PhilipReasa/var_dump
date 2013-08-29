@@ -1,27 +1,31 @@
 function collapse(evt) {
-	if(evt.target == undefined) {
-		var collapser = evt //for closeAll fn
+	"use strict";
+	var collapser; //the dom element that was clicked
+	if (evt.target == undefined) {
+		collapser = evt; //for closeAll fn
 	} else {
-		var collapser = evt.target;
+		collapser = evt.target;
 	}
-	if(collapser.innerHTML == "- "){
+	if (collapser.innerHTML == "- ") { //if it is open
 		$(collapser).siblings("ul").children("li").addClass('hide');
 		collapser.innerHTML = '+ ';
-	} else {
+	} else { //closed case
 		$(collapser).siblings("ul").children("li").removeClass('hide');
 		collapser.innerHTML = '- ';
 	}
 }
 
-function openAll(){
-	$("#var_dump").find('*').removeClass('hide');
+function openAll() {
+	"use strict";
+	$("#var_dump").find('*').removeClass('hide'); //remove the hide class frome everything
 	$(".OpenClose").html("- ");
 }
 
 function closeAll() {
-	var all = $(".OpenClose")
-	var i =0;
-	while(i < all.length) {
+	"use strict";
+	var all = $(".OpenClose"), //get all collapsers ...
+		i = 0;
+	while (i < all.length) { //... and close them
 		collapse(all[i]);
 		i++;
 	}
