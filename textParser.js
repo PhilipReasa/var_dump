@@ -54,7 +54,7 @@ function generateTheTree(dump, parent) {
 		isCurrentItemLevelEnd,
 		doesNewLevelOpen,
 		newNode,
-		tempDump;S
+		tempDump;
 	
 	if(parent == undefined) { //first call
 		parent = new TreeNode("root");
