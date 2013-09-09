@@ -1,7 +1,7 @@
 #TODO's
 
 ##Bugs/Broken
-*none known
+*Stop JS Errors
 
 ##Efficiency
 ###Next to Change!
