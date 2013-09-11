@@ -23,7 +23,7 @@ function ContentItem(data, caller) {
 		this.type = "integer";
 		this.html = "<span>integer: " + data.substring(openingP + 1, closingP) + "</span>";
 		this.extraInfo.push(parseInt(data.substring(openingP + 1, closingP), 10));
-	} else if (data.substring(0, 4) == "float") {
+	} else if (data.substring(0, 5) == "float") {
 		this.type = "float";
 		this.html = "<span>float: " + data.substring(openingP + 1, closingP) + "</span>";
 		this.extraInfo.push(parseFloat(data.substring(openingP + 1, closingP)));
@@ -118,16 +118,16 @@ ContentItem.prototype.printClosing = function () {
 	switch (this.type) {
 		case "object":
 			toPrint += "</ul>";
-			if (this.node.parent.content.compound) {toPrint += "</li><span class='clear'></span>"; }
+			if (this.node.parent.content.compound) {toPrint += "</li>"; }
 			break;
 		case "array":
 			toPrint += "</ul>";
-			if(this.node.parent.content.compound) {toPrint += "</li><span class='clear'></span>";}
+			if(this.node.parent.content.compound) {toPrint += "</li>";}
 			break;
 		case "key":
 		case "unknown":
 			if(this.node.content.html == "root") {
-				toPrint += "</ul>";//<span class='clear'></span>" 
+				toPrint += "</ul>";
 			}
 			break;
 		//case "integer":
@@ -136,7 +136,7 @@ ContentItem.prototype.printClosing = function () {
 		//case "string":
 		//case "NULL":
 		default:
-			if(this.node.parent.content.compound) {toPrint += "</li><span class='clear'></span>";}
+			if(this.node.parent.content.compound) {toPrint += "</li>";}
 			break;
 	}
 

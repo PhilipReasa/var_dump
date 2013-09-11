@@ -2,6 +2,7 @@
 
 ##Bugs/Broken
 *Stop JS Errors
+*~~float's dont work!~~
 
 ##Efficiency
 ###Next to Change!
