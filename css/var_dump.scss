@@ -76,7 +76,7 @@
 			cursor:pointer;
 		}
 	}
-	.modal {
+	.modal { 
 		height:500px;
 		overflow-x:auto;
 		overflow-y:auto;
@@ -86,6 +86,8 @@
 		top:5%;
 		left:5%;
 		padding:5%;
+		background-color:white;
+		opacity:.90;
 	}
 
 	.close {
@@ -97,10 +99,3 @@
 		cursor:pointer
 	}
 }
-
-
-
-
-
-
-

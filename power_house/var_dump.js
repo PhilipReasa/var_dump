@@ -69,7 +69,8 @@ function getSelectionHtml() { //http://stackoverflow.com/a/5670825
 		sel = window.getSelection();
         if (sel.rangeCount) {
             container = document.createElement("div");
-            for (i = 0, len = sel.rangeCount; i < len; ++i) {
+			var len = sel.rangeCount
+            for (i = 0; i < len; ++i) {
                 container.appendChild(sel.getRangeAt(i).cloneContents());
             }
             html = container.innerHTML;

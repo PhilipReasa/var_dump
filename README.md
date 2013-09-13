@@ -23,3 +23,6 @@ There are alternatives to making var_dumps readable, such as:
 It is my conviction that a browser plugin is by far the best route to take, but I couldn't find any.
 
 So here is mine. Hope it works for you!
+
+## Versioning
+version.major.feature.bug

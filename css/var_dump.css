@@ -1,44 +1,77 @@
+/* line 4, C:/Phil/Jovial Projects/var_dump/css/var_dump.scss */
 .DEADBEEF #var_dump {
   font-family: monospace;
   font-size: 16px;
   white-space: pre-wrap;
-  font-family: sans-serif; }
-  .DEADBEEF #var_dump .prop {
-    font-weight: bold; }
-  .DEADBEEF #var_dump .null {
-    color: #927433; }
-  .DEADBEEF #var_dump .bool {
-    color: #555655; }
-  .DEADBEEF #var_dump .num {
-    color: #0e327d; }
-  .DEADBEEF #var_dump .string {
-    color: #374666;
-    white-space: pre-wrap; }
-  .DEADBEEF #var_dump #root {
-    margin: 0 0 0 0; }
-  .DEADBEEF #var_dump li {
-    position: relative; }
-  .DEADBEEF #var_dump ul {
-    list-style: none;
-    margin: -18px 0 0 2em;
-    padding: 0; }
-  .DEADBEEF #var_dump .OpenClose {
-    cursor: pointer; }
-  .DEADBEEF #var_dump .hide {
-    display: none; }
-  .DEADBEEF #var_dump .clear {
-    clear: both; }
-  .DEADBEEF #var_dump .all {
-    background-color: rgba(146, 116, 51, 0.1);
-    width: 250px; }
-  .DEADBEEF #var_dump .closeall {
-    float: right; }
-  .DEADBEEF #var_dump .closeall:hover {
-    text-decoration: underline;
-    cursor: pointer; }
-  .DEADBEEF #var_dump .openall:hover {
-    text-decoration: underline;
-    cursor: pointer; }
+  font-family: sans-serif;
+}
+/* line 11, C:/Phil/Jovial Projects/var_dump/css/var_dump.scss */
+.DEADBEEF #var_dump .prop {
+  font-weight: bold;
+}
+/* line 15, C:/Phil/Jovial Projects/var_dump/css/var_dump.scss */
+.DEADBEEF #var_dump .null {
+  color: #927433;
+}
+/* line 19, C:/Phil/Jovial Projects/var_dump/css/var_dump.scss */
+.DEADBEEF #var_dump .bool {
+  color: #555655;
+}
+/* line 23, C:/Phil/Jovial Projects/var_dump/css/var_dump.scss */
+.DEADBEEF #var_dump .num {
+  color: #0e327d;
+}
+/* line 27, C:/Phil/Jovial Projects/var_dump/css/var_dump.scss */
+.DEADBEEF #var_dump .string {
+  color: #374666;
+  white-space: pre-wrap;
+}
+/* line 32, C:/Phil/Jovial Projects/var_dump/css/var_dump.scss */
+.DEADBEEF #var_dump #root {
+  margin: 0 0 0 0;
+}
+/* line 37, C:/Phil/Jovial Projects/var_dump/css/var_dump.scss */
+.DEADBEEF #var_dump li {
+  position: relative;
+}
+/* line 41, C:/Phil/Jovial Projects/var_dump/css/var_dump.scss */
+.DEADBEEF #var_dump ul {
+  list-style: none;
+  margin: -18px 0 0 2em;
+  padding: 0;
+}
+/* line 48, C:/Phil/Jovial Projects/var_dump/css/var_dump.scss */
+.DEADBEEF #var_dump .OpenClose {
+  cursor: pointer;
+}
+/* line 52, C:/Phil/Jovial Projects/var_dump/css/var_dump.scss */
+.DEADBEEF #var_dump .hide {
+  display: none;
+}
+/* line 56, C:/Phil/Jovial Projects/var_dump/css/var_dump.scss */
+.DEADBEEF #var_dump .clear {
+  clear: both;
+}
+/* line 60, C:/Phil/Jovial Projects/var_dump/css/var_dump.scss */
+.DEADBEEF #var_dump .all {
+  background-color: rgba(146, 116, 51, 0.1);
+  width: 250px;
+}
+/* line 65, C:/Phil/Jovial Projects/var_dump/css/var_dump.scss */
+.DEADBEEF #var_dump .closeall {
+  float: right;
+}
+/* line 69, C:/Phil/Jovial Projects/var_dump/css/var_dump.scss */
+.DEADBEEF #var_dump .closeall:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+/* line 74, C:/Phil/Jovial Projects/var_dump/css/var_dump.scss */
+.DEADBEEF #var_dump .openall:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+/* line 79, C:/Phil/Jovial Projects/var_dump/css/var_dump.scss */
 .DEADBEEF .modal {
   height: 500px;
   overflow-x: auto;
@@ -48,10 +81,17 @@
   box-shadow: 0px 0px 10px #888;
   top: 5%;
   left: 5%;
-  padding: 5%; }
+  padding: 5%;
+  background-color: white;
+  opacity: .90;
+}
+/* line 93, C:/Phil/Jovial Projects/var_dump/css/var_dump.scss */
 .DEADBEEF .close {
   background-color: rgba(146, 120, 51, 0.1);
-  width: 250px; }
+  width: 250px;
+}
+/* line 97, C:/Phil/Jovial Projects/var_dump/css/var_dump.scss */
 .DEADBEEF .close:hover {
   text-decoration: underline;
-  cursor: pointer; }
+  cursor: pointer;
+}
