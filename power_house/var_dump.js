@@ -35,21 +35,28 @@ function addListners() {
 	});
 }
 
-var dump = whatShoudWeBeautify(); 
+function bootstrap_vardump() {
+	"use strict"
+	var dump = whatShoudWeBeautify(); 
 
-if(dump) {
-	removeTheDump();
+	if(dump) {
+		removeTheDump();
 	
-	var tree = generateTheTree(dump);
-	$('body').append(tree.print());
+		var tree = generateTheTree(dump);
+		$('body').append(tree.print());
 	
-	if(DEBUG_PRINTJSON) {
-		$('body').append(JSON.stringify(tree));
+		if(DEBUG_PRINTJSON) {
+			$('body').append(JSON.stringify(tree));
+		}
 	}
+
+	addListners();
 }
 
-addListners();
-
+chrome.extension.sendRequest({method: "getColors"}, function(response) {
+	COLORS = response.data;
+	bootstrap_vardump();
+});
 
 //CONTEXT MENUS STUFF
 function getSelectionHtml() { //http://stackoverflow.com/a/5670825

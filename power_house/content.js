@@ -1,5 +1,6 @@
 function ContentItem(data, caller) {
 	"use strict";
+
 	data = data.trim();
 
 	this.raw = data;
@@ -9,7 +10,7 @@ function ContentItem(data, caller) {
 	this.extraInfo = []; //first element is actual value, other elements are extra data
 	this.compound = false;
 	var openingQ = data.indexOf("\""),
-		closingQ = data.indexOf("\"", openingQ + 1),
+		closingQ = data.lastIndexOf("\""), //last index of skips when "'s are in the string
 		openingP = data.indexOf("("),
 		closingP = data.indexOf(")");
 
@@ -17,19 +18,19 @@ function ContentItem(data, caller) {
 	//check primitive scalar types
 	if (data.substring(0, 4) == "bool") {
 		this.type = "boolean";
-		this.html = "<span>boolean: " + data.substring(openingP + 1, closingP) + "</span>";
+		this.html = "<span "+ COLORS["bool"] +">(boolean) " + data.substring(openingP + 1, closingP) + "</span>";
 		this.extraInfo.push((data.substring(openingP, closingP) == true));
 	} else if (data.substring(0, 3) == "int") {
 		this.type = "integer";
-		this.html = "<span>integer: " + data.substring(openingP + 1, closingP) + "</span>";
+		this.html = "<span "+ COLORS["int"] +">(integer) " + data.substring(openingP + 1, closingP) + "</span>";
 		this.extraInfo.push(parseInt(data.substring(openingP + 1, closingP), 10));
 	} else if (data.substring(0, 5) == "float") {
 		this.type = "float";
-		this.html = "<span>float: " + data.substring(openingP + 1, closingP) + "</span>";
+		this.html = "<span "+ COLORS["float"] +">(float) " + data.substring(openingP + 1, closingP) + "</span>";
 		this.extraInfo.push(parseFloat(data.substring(openingP + 1, closingP)));
 	} else if (data.substring(0, 6) == "string") {
 		this.type = "string";
-		this.html = "<span>string: " + data.substring(openingQ + 1, closingQ) + "</span>";
+		this.html = "<span "+ COLORS["string"] +">(string) " + data.substring(openingQ + 1, closingQ) + "</span>";
 		this.extraInfo.push(data.substring(openingQ + 1, closingQ));
 		this.extraInfo.push("Length of String: " + data.substring(7, closingP));
 	}
@@ -37,13 +38,13 @@ function ContentItem(data, caller) {
 	// check compound types
 	else if (data.substring(0, 5) == "array") {
 		this.type = "array";
-		this.html = "<span>array { ";
+		this.html = "<span "+ COLORS["array"] +">(array) ";
 		this.compound = true;
 		this.extraInfo.push("Number of Elements: " + data.substring(6, closingP));
 	} else if (data.substring(0, 6) == "object") {
 		this.type = "object";
 		this.compound = true;
-		this.html = "<span>object {";
+		this.html = "<span "+ COLORS["object"] +">(object) ";
 		this.extraInfo.push("Object Name: " + data.substring(openingP + 1, closingP));
 		this.extraInfo.push("Object Identifier: " + data.substring(closingP + 1, data.indexOf(" ", closingP)));
 	}
@@ -52,13 +53,14 @@ function ContentItem(data, caller) {
 	// ignore resource..'cause I got no clue what those are :Packages
 	else if (data == "NULL") {
 		this.type = "NULL";
-		this.html = "<span>NULL</span>";
+		this.html = "<span "+ COLORS["null"] +">(null) NULL</span>";
 	}
 
 	// check for var dump things
 	else if (data.indexOf("=&gt;") !== -1) {
 		this.type = "key";
-		this.html = "<span>" + data + "</span>";
+		var temp = data.substring(1 /*skip initial [*/, data.length-6 /*skip ]=&gt;*/)
+		this.html = "<span>" + temp + ": " + "</span>";
 	}
 
 	// all other cases
@@ -70,8 +72,8 @@ function ContentItem(data, caller) {
 }
 
 ContentItem.prototype.printOpening = function () {
-	"use strict";
-
+	"use strict";	
+	
 	var toPrint = "";
 	switch (this.type) {
 		case "object":
@@ -83,6 +85,8 @@ ContentItem.prototype.printOpening = function () {
 			toPrint += "<span class='OpenClose'>- </span><ul class='array'>" + this.html + "[" + this.extraInfo[0] + "] </span>";
 			break;
 		case "integer":
+			toPrint += "<span class='num'>" + this.html + "</span>";
+			break;
 		case "float":
 			toPrint += "<span class='num'>" + this.html + "</span>";
 			break;
@@ -130,11 +134,6 @@ ContentItem.prototype.printClosing = function () {
 				toPrint += "</ul>";
 			}
 			break;
-		//case "integer":
-		//case "float":
-		//case "boolean":
-		//case "string":
-		//case "NULL":
 		default:
 			if(this.node.parent.content.compound) {toPrint += "</li>";}
 			break;

@@ -1,40 +1,41 @@
 <!doctype html>
 <html>
 <head>
-<title>Download Filename Controller</title>
+<title>Options</title>
 <script src="options.js"></script>
-<link rel="stylesheet" type="text/css" href="options.css">
+<!--<link rel="stylesheet" type="text/css" href="options.css">-->
 </head>
 <body>
-<table id=rules></table>
-<button id=new>New Rule</button>
-<table hidden>
-<tr id=rule-template hidden>
-  <td class=nowrap><button class=move-up>&uarr;</button>
-    <button class=move-down>&darr;</button></td>
-  <td>
-    <select class=matcher>
-      <option value=hostname>Hostname</option>
-      <option value=url-regex>URL RegExp</option>
-      <option value=default>Default Filename</option>
-      <option value=default-regex>Default Filename RegExp</option>
-      <option value=js>Javascript</option>
-    </select>
-    <input type=text class=match-param>
-    <select class=action>
-      <option value=overwrite>Overwrite default filename</option>
-      <option value=prompt>Prompt if default filename exists</option>
-      <option value=js>Javascript</option>
-    </select>
-    <textarea class=action-js rows=5 cols=83>console.log(item.url)
-console.log(item.filename)
-// http://developer.chrome.com/extensions/downloads.html#type-DownloadItem
-// http://developer.chrome.com/extensions/downloads.html#type-FilenameConflictAction
-suggest('hello.txt', 'overwrite')</textarea></td>
-  <td><span class=nowrap><input type=checkbox class=enabled checked>
-      <label class=enabled-label>Enabled</label></span>
-    <button class=remove>Remove</button></td>
-</tr>
-</table>
+
+Have "close" cascade down: NOT YET IMPLEMENTED </br>
+<input type="radio">Yes</input>
+<input type="radio">No</input>
+</br>
+
+Autorun: NOT YET IMPLEMENTED </br>
+<input type="radio">Yes</input>
+<input type="radio">No</input>
+</br>
+
+Escape potential html: NOT YET IMPLEMENTED </br>
+<input type="radio">Yes</input>
+<input type="radio">No</input>
+</br>
+
+<strong>CSS Rules:</strong> (default is "default")
+</br>
+Int: <input id="int-color" type="text" value="defaut"/></br>
+Float: <input id="float-color" type="text" value="defaut"/></br>
+String: <input id="string-color" type="text" value="defaut"/></br>
+Bool: <input id="bool-color" type="text" value="defaut"/></br>
+Array: <input id="array-color" type="text" value="defaut"/></br>
+Object: <input id="object-color" type="text" value="defaut"/></br>
+Null: <input id="null-color" type="text" value="defaut"/></br>
+
+
+</br>
+</br>
+<input id="save" type="button" value="Save!">
+If you are a css wizard and want to make this page look good, please do! (<a href='https://github.com/Rece/var_dump'>https://github.com/Rece/var_dump</a>)
 </body>
 </html>

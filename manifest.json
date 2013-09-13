@@ -3,7 +3,7 @@
 
   "name": "var_masterpiece",
   "description": "Turn a var_dump into artwork",
-  "version": "1.0.0.3",
+  "version": "1.0.0.4",
   
   "icons": {
 	"16": "images/icon16.png",
@@ -16,7 +16,10 @@
   ],
   
   "background": {
-    "scripts": ["power_house/addContexMenu.js"]
+    "scripts": [
+		"power_house/addContexMenu.js", 
+		"power_house/background.js"
+	]
   },
   
   "content_scripts": [
