@@ -26,3 +26,5 @@ So here is mine. Hope it works for you!
 
 ## Versioning
 version.major.feature.bug
+1.0.0.# -> bug fixes
+1.0.1.0 -> added statistics, some options

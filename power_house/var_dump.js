@@ -44,14 +44,15 @@ function bootstrap_vardump() {
 	
 		var tree = generateTheTree(dump);
 		$('body').append(tree.print());
-	
+		
 		if(DEBUG_PRINTJSON) {
 			$('body').append(JSON.stringify(tree));
 		}
+
+		notifyStats();
 	}
 
 	addListners(); 
-	notifyStats();
 }
 
 chrome.extension.sendRequest({method: "getAllOptions"}, function(response) {
