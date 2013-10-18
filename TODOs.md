@@ -5,6 +5,7 @@
 - [ ] Stop JS Errors on non-dumpable pages
 - [x] float's dont work! -1.0.0.3-
 - [x] quotes withing strings cause chaos -1.0.0.3-
+
 ##Efficiency
 ###Next to Change!
 1. DONE -1.0.0.3- Remove all the clear boths
