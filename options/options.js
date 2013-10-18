@@ -17,7 +17,9 @@ function save_options() {
   localStorage["objectColor"] = objectColor;
   localStorage["arrayColor"] = arrayColor;
   localStorage["nullColor"] = nullColor;
-
+  localStorage["cascade"] = document.getElementById("y-cas").checked
+  localStorage["cascade"] = document.getElementById("y-autoR").checked
+  localStorage["cascade"] = document.getElementById("y-escape").checked
   // let user know options were saved.
   alert('options saved!');
 }
@@ -31,7 +33,10 @@ function restore_options() {
   var objectColor = localStorage["objectColor"]
   var arrayColor = localStorage["arrayColor"]
   var nullColor = localStorage["nullColor"]
-  
+  localStorage["cascade"] = false;
+  localStorage["autoRun"] = true;
+  localStorage["escape"] = false;
+
   //first time restore fix
   intColor = (intColor == undefined)? "default": intColor;
   floatColor = (floatColor == undefined)? "default": floatColor;
@@ -48,9 +53,15 @@ function restore_options() {
   document.getElementById("object-color").value = objectColor;
   document.getElementById("array-color").value = arrayColor;
   document.getElementById("null-color").value = nullColor;
+  document.getElementById("y-cas").checked = (localStorage["cascade"]=="true")?true:false;
+  document.getElementById("n-cas").checked = (localStorage["cascade"]=="false")?true:false;
+  document.getElementById("y-autoR").checked = (localStorage["autoRun"]=="true")?true:false;
+  document.getElementById("n-autoR").checked = (localStorage["autoRun"]=="false")?true:false;
+  document.getElementById("y-escape").checked = (localStorage["escape"]=="true")?true:false;
+  document.getElementById("n-escape").checked = (localStorage["escape"]=="false")?true:false;
 }
 
 document.addEventListener('DOMContentLoaded', function() {
 	restore_options();
 	document.querySelector('#save').addEventListener('click', save_options)
-	});
+});

@@ -13,19 +13,23 @@
 		}
 
 		.null {
-			color: #927433;
+			color: red;
 		}
 
 		.bool {
-			color: #555655;
+			color: purple;
 		}
 
-		.num {
-			color: #0e327d;
+		.int {
+			color: blue;
+		}
+		
+		.float {
+			color: orange;
 		}
 
 		.string {
-			color: #374666;
+			color: green;
 			white-space: pre-wrap;
 		}
 

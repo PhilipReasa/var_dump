@@ -85,10 +85,10 @@ ContentItem.prototype.printOpening = function () {
 			toPrint += "<span class='OpenClose'>- </span><ul class='array'>" + this.html + "[" + this.extraInfo[0] + "] </span>";
 			break;
 		case "integer":
-			toPrint += "<span class='num'>" + this.html + "</span>";
+			toPrint += "<span class='int'>" + this.html + "</span>";
 			break;
 		case "float":
-			toPrint += "<span class='num'>" + this.html + "</span>";
+			toPrint += "<span class='float'>" + this.html + "</span>";
 			break;
 		case "boolean":
 			toPrint += "<span class='bool'>" + this.html + "</span>";

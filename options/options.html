@@ -7,19 +7,19 @@
 </head>
 <body>
 
-Have "close" cascade down: NOT YET IMPLEMENTED </br>
-<input type="radio">Yes</input>
-<input type="radio">No</input>
+Have "close" cascade down:</br>
+(Do you want closing a structure to also close all substructures?) </br>
+<input id ='y-cas' name='cas' type="radio"></input>
+<label for="y-cas" >Yes</label>
+<input id ='n-cas' name='cas' type="radio"></input>
+<label for="n-cas">No</label>
+</br>
 </br>
 
-Autorun: NOT YET IMPLEMENTED </br>
-<input type="radio">Yes</input>
-<input type="radio">No</input>
+Autorun:</br>
+<input type="radio" id="y-autoR" name='autorun'>Yes</input>
+<input type="radio" id="n-autoR" name='autorun'>No</input>
 </br>
-
-Escape potential html: NOT YET IMPLEMENTED </br>
-<input type="radio">Yes</input>
-<input type="radio">No</input>
 </br>
 
 <strong>CSS Rules:</strong> (default is "default")
@@ -31,8 +31,11 @@ Bool: <input id="bool-color" type="text" value="defaut"/></br>
 Array: <input id="array-color" type="text" value="defaut"/></br>
 Object: <input id="object-color" type="text" value="defaut"/></br>
 Null: <input id="null-color" type="text" value="defaut"/></br>
+</br>
 
-
+Escape potential html: NOT YET IMPLEMENTED </br>
+<input type="radio" id="y-escape" name='escape'>Yes</input>
+<input type="radio" id="n-escape" name='excape'>No</input>
 </br>
 </br>
 <input id="save" type="button" value="Save!">

@@ -29,8 +29,8 @@ function addListners() {
 	"use strict";
 	$('.OpenClose').bind('click', collapse);
 	$('.openall').bind('click', openAll);
-	$('.closeall').bind('click', closeAll);
-	$('.close').bind('click', function() {
+	$('.closeall').bind('click', closeAll)
+;	$('.close').bind('click', function() {
 		$(".modal").remove();
 	});
 }
@@ -53,9 +53,13 @@ function bootstrap_vardump() {
 	addListners();
 }
 
-chrome.extension.sendRequest({method: "getColors"}, function(response) {
-	COLORS = response.data;
-	bootstrap_vardump();
+chrome.extension.sendRequest({method: "getAllOptions"}, function(response) {
+	COLORS = response.colors;
+	AUTORUN = response.autorun; 
+	CASCADE = response.cascade;
+	if(response.autorun) {
+		bootstrap_vardump();
+	}
 });
 
 //CONTEXT MENUS STUFF
