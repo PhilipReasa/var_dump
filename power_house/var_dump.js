@@ -50,14 +50,15 @@ function bootstrap_vardump() {
 		}
 	}
 
-	addListners();
+	addListners(); 
+	notifyStats();
 }
 
 chrome.extension.sendRequest({method: "getAllOptions"}, function(response) {
 	COLORS = response.colors;
 	AUTORUN = response.autorun; 
 	CASCADE = response.cascade;
-	if(response.autorun) {
+	if(AUTORUN == "true") {
 		bootstrap_vardump();
 	}
 });
@@ -96,6 +97,11 @@ function printModalTree(dump) {
 	$('body').append(modalOpen + tree.print() + modalClose);
 	
 	addListners();
+	notifyStats();
+}
+
+function notifyStats() {
+	$.get( "http://philipreasa.com/var_masterpiece_api.php");
 }
 
 chrome.extension.onMessage.addListener(function (message, sender, callback) {
