@@ -3,9 +3,14 @@ chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
 	  var colors = getColors();
       sendResponse({data: colors});
     }
+
 	if (request.method == "getAllOptions") {
 	  var toReturn = {};
 	  toReturn["colors"] = getColors();
+
+	  if(localStorage["autorun"] == undefined) {
+		localStorage["autorun"] = true;
+	  }
 
 	  sendResponse({colors: toReturn, autorun:localStorage["autorun"], cascade:localStorage["cascade"]});
     }
