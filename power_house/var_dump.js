@@ -48,8 +48,6 @@ function bootstrap_vardump() {
 		if(DEBUG_PRINTJSON) {
 			$('body').append(JSON.stringify(tree));
 		}
-
-		notifyStats();
 	}
 
 	addListners(); 
@@ -98,11 +96,6 @@ function printModalTree(dump) {
 	$('body').append(modalOpen + tree.print() + modalClose);
 	
 	addListners();
-	notifyStats();
-}
-
-function notifyStats() {
-	$.get( "http://philipreasa.com/var_masterpiece_api.php");
 }
 
 chrome.extension.onMessage.addListener(function (message, sender, callback) {
