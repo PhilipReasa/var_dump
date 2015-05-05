@@ -1,44 +1,66 @@
+/**********************
+* ALL HELPER FUNCTIONS:
+***********************/
+/*
+* Takes the output of a vardump and splits it at each line
+*/
+function splitDump(dump) {
+	"use strict";
+	return dump.split("\n");
+}
+
 /**
 * Returns string of a var_dump. if no vardumps found, returns false
+*
+* Currently takes the niave approach at looking for a var dump right at
+* the begining of the page, and nowhere else.
 */
 function whatShoudWeBeautify() {
 	"use strict";
 	var toReturn = $("body").html();
-	if(toReturn.substring(0,4) == "object".substring(0,4)) {
+	if(toReturn.substring(0,4) === "object".substring(0,4)) {
 		return splitDump(toReturn);
 	}
 	
-	if(toReturn.substring(0,4) == "array".substring(0,4)) {
+	if(toReturn.substring(0,4) === "array".substring(0,4)) {
 		return splitDump(toReturn);
 	}
 	
 	return false;
 }
 
+/*
+* This function just deletes the whole body...should only be used when the first thing detected was a var dump
+*/
 function removeTheDump() {
 	"use strict";
 	$("body").empty();
 }
 
-function splitDump(dump) {
-	"use strict";
-	return dump.split("\n");
-}
-
+/*
+* events for the "open" and "close" buttons in the var dump
+*
+* collapse, openAll, and closeAll functions are saved ni collapse.js
+*/
 function addListners() {
 	"use strict";
 	$('.OpenClose').bind('click', collapse);
 	$('.openall').bind('click', openAll);
-	$('.closeall').bind('click', closeAll)
-;	$('.close').bind('click', function() {
+	$('.closeall').bind('click', closeAll);
+	$('.close').bind('click', function() {
 		$(".modal").remove();
 	});
 }
 
+
+/****************
+* MAIN STUFF
+*****************/
 function bootstrap_vardump() {
-	"use strict"
+	"use strict";
 	var dump = whatShoudWeBeautify(); 
 
+	/*If we think that the whole page is a var dump*/
 	if(dump) {
 		removeTheDump();
 	
@@ -48,9 +70,9 @@ function bootstrap_vardump() {
 		if(DEBUG_PRINTJSON) {
 			$('body').append(JSON.stringify(tree));
 		}
-	}
 
-	addListners(); 
+		addListners();
+	}
 }
 
 chrome.extension.sendRequest({method: "getAllOptions"}, function(response) {
@@ -62,7 +84,9 @@ chrome.extension.sendRequest({method: "getAllOptions"}, function(response) {
 	}
 });
 
-//CONTEXT MENUS STUFF
+/****************
+* CONTEXT MENU STUFF
+*****************/
 function getSelectionHtml() { //http://stackoverflow.com/a/5670825
 	"use strict";
     var html = "",
@@ -88,6 +112,7 @@ function getSelectionHtml() { //http://stackoverflow.com/a/5670825
 }
 
 function printModalTree(dump) {
+	"use strict";
 	dump = getSelectionHtml();
 	var modalOpen = "<div class='DEADBEEF'><div class='modal'><div class='close'>Close</div>";
 	var modalClose = "</div></div>";

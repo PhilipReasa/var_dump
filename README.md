@@ -28,3 +28,4 @@ So here is mine. Hope it works for you!
 version.major.feature.bug
 1.0.0.# -> bug fixes
 1.0.1.0 -> added statistics, some options
+1.0.2.0 -> upgraded options page appearence, new icon
