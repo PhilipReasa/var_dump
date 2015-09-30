@@ -137,8 +137,6 @@ function printModalTree(dump) {
 	addListners();
 }
 
-console.log("asdasd");
-
 //if autorun is set, run! 
 if(AUTORUN === "true") {
 	bootstrap_vardump();
