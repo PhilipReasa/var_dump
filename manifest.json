@@ -6,9 +6,9 @@
   "version": "1.0.2.0",
   
   "icons": {
-	"16": "images/icon2_16.png",
-	"48": "images/icon2_48.png",
-	"128": "images/icon2_128.png"
+	 "16": "images/icon2_16.png",
+	 "48": "images/icon2_48.png",
+	 "128": "images/icon2_128.png"
   },
   
   "permissions": [
@@ -17,24 +17,27 @@
   
   "background": {
     "scripts": [
-		"power_house/addContexMenu.js", 
-		"power_house/background.js"
+		"core/addContexMenu.js", 
+		"core/background.js"
 	]
   },
   
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "css": ["css/var_dump.css"],
+      "css": [
+        "css/var_dump.css",
+        "vendor/font-awesome-4.4.0/css/font-awesome.min.css"
+        ],
       "js": [
-			"power_house/globals.js", 
-			"vendor/jquery.js",
-			"power_house/content.js",
-			"power_house/jstree.js",
-			"power_house/textParser.js",
-			"power_house/collapse.js",
-			"power_house/var_dump.js"
-		]
+  			"core/globals.js", 
+  			"vendor/jquery/jquery.js",
+  			"core/content.js",
+  			"core/jstree.js",
+  			"core/textParser.js",
+  			"core/collapse.js",
+  			"core/var_dump.js"
+		  ]
     }
   ],
   

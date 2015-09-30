@@ -1,12 +1,15 @@
+/*JSHINT info*/
+/* exported openAll, closeAll*/
+ 
 function collapse(evt) {
 	"use strict";
 	var collapser; //the dom element that was clicked
-	if (evt.target == undefined) {
+	if (evt.target === undefined) {
 		collapser = evt; //for closeAll fn
 	} else {
 		collapser = evt.target;
 	}
-	if (collapser.innerHTML == "- ") { //if it is open
+	if (collapser.innerHTML === "- ") { //if it is open
 		$(collapser).siblings("ul").children("li").addClass('hide');
 		collapser.innerHTML = '+ ';
 	} else { //closed case

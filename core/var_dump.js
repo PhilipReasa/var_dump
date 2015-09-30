@@ -1,11 +1,15 @@
-/**********************
+/* JSHINT configuration (tell it about function in other files) */
+/* globals collapse, openAll, closeAll, generateTheTree*/
+/* globals chrome, SPECIAL_CLASS, DEBUG_PRINTJSON, AUTORUN*/
+
+/********************** 
 * ALL HELPER FUNCTIONS:
-***********************/
+***********************/ 
 /*
 * Takes the output of a vardump and splits it at each line
 */
 function splitDump(dump) {
-	"use strict";
+	"use strict"; 
 	return dump.split("\n");
 }
 
@@ -52,6 +56,24 @@ function addListners() {
 	});
 }
 
+function openModalHTML() {
+	"use strict";
+	return "<div class='"+ SPECIAL_CLASS +"'><div class='modal'>";
+}
+
+function closeModalHTML() {
+	"use strict";
+	return "</div></div>";
+}
+
+function headerHTML() {
+	"use strict";
+	return "<div id='header'>" +
+		  		"<div id='expandAll'></div>" +
+				"<div id='closeAll'></div>" +
+				"<div class='close'><i class='fa fa-close'></i></div>" +
+			"</div>";
+}
 
 /****************
 * MAIN STUFF
@@ -75,15 +97,6 @@ function bootstrap_vardump() {
 	}
 }
 
-chrome.extension.sendRequest({method: "getAllOptions"}, function(response) {
-	COLORS = response.colors;
-	AUTORUN = response.autorun; 
-	CASCADE = response.cascade;
-	if(AUTORUN == "true") {
-		bootstrap_vardump();
-	}
-});
-
 /****************
 * CONTEXT MENU STUFF
 *****************/
@@ -97,14 +110,14 @@ function getSelectionHtml() { //http://stackoverflow.com/a/5670825
 		sel = window.getSelection();
         if (sel.rangeCount) {
             container = document.createElement("div");
-			var len = sel.rangeCount
+			var len = sel.rangeCount;
             for (i = 0; i < len; ++i) {
                 container.appendChild(sel.getRangeAt(i).cloneContents());
             }
             html = container.innerHTML;
         }
-    } else if (typeof document.selection != "undefined") {
-        if (document.selection.type == "Text") {
+    } else if (typeof document.selection !== "undefined") {
+        if (document.selection.type === "Text") { 
             html = document.selection.createRange().htmlText;
         }
     }
@@ -114,18 +127,26 @@ function getSelectionHtml() { //http://stackoverflow.com/a/5670825
 function printModalTree(dump) {
 	"use strict";
 	dump = getSelectionHtml();
-	var modalOpen = "<div class='DEADBEEF'><div class='modal'><div class='close'>Close</div>";
-	var modalClose = "</div></div>";
+	var modalOpen = openModalHTML();
+	var header = headerHTML();
+	var modalClose = closeModalHTML();
 	dump = splitDump(dump);
 	var tree =  generateTheTree(dump);
-	$('body').append(modalOpen + tree.print() + modalClose);
+	$('body').append(modalOpen + header + tree.print() + modalClose);
 	
 	addListners();
 }
 
-chrome.extension.onMessage.addListener(function (message, sender, callback) {
+console.log("asdasd");
+
+//if autorun is set, run! 
+if(AUTORUN === "true") {
+	bootstrap_vardump();
+}
+
+chrome.extension.onMessage.addListener(function (message) {
 	"use strict";
-    if (message.fn == "printTree") {
+    if (message.fn === "printTree") {
 		printModalTree(message.dump);
     }
 });

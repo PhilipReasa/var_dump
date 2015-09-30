@@ -1,4 +1,15 @@
-function ContentItem(data, caller) {
+/* JSHINT INFO*/
+/* globals COLORS*/
+/*jshint sub:true*/ //<-- we have JS reserved words as keys intentionally. This prevent warnings due to that
+
+/*
+* Creates all the inline style we need. Currently only colors. If we even need more, it should be done here
+*/
+function createStyleString(color) {
+	return "style='color:" + color + "'";
+}
+
+function ContentItem(data, caller) {  
 	"use strict";
 
 	data = data.trim();
@@ -16,50 +27,50 @@ function ContentItem(data, caller) {
 
 	//http://www.php.net/manual/en/language.types.intro.php
 	//check primitive scalar types
-	if (data.substring(0, 4) == "bool") {
+	if (data.substring(0, 4) === "bool") {
 		this.type = "boolean";
-		this.html = "<span "+ COLORS["bool"] +">(boolean) " + data.substring(openingP + 1, closingP) + "</span>";
-		this.extraInfo.push((data.substring(openingP, closingP) == true));
-	} else if (data.substring(0, 3) == "int") {
+		this.html = "<span " + createStyleString(COLORS["bool"]) +">(boolean) " + data.substring(openingP + 1, closingP) + "</span>";
+		this.extraInfo.push((data.substring(openingP, closingP) === true));
+	} else if (data.substring(0, 3) === "int") {
 		this.type = "integer";
-		this.html = "<span "+ COLORS["int"] +">(integer) " + data.substring(openingP + 1, closingP) + "</span>";
+		this.html = "<span "+ createStyleString(COLORS["int"]) +">(integer) " + data.substring(openingP + 1, closingP) + "</span>";
 		this.extraInfo.push(parseInt(data.substring(openingP + 1, closingP), 10));
-	} else if (data.substring(0, 5) == "float") {
+	} else if (data.substring(0, 5) === "float") {
 		this.type = "float";
-		this.html = "<span "+ COLORS["float"] +">(float) " + data.substring(openingP + 1, closingP) + "</span>";
+		this.html = "<span "+ createStyleString(COLORS["float"]) +">(float) " + data.substring(openingP + 1, closingP) + "</span>";
 		this.extraInfo.push(parseFloat(data.substring(openingP + 1, closingP)));
-	} else if (data.substring(0, 6) == "string") {
+	} else if (data.substring(0, 6) === "string") {
 		this.type = "string";
-		this.html = "<span "+ COLORS["string"] +">(string) " + data.substring(openingQ + 1, closingQ) + "</span>";
+		this.html = "<span "+ createStyleString(COLORS["string"]) +">(string) " + data.substring(openingQ + 1, closingQ) + "</span>";
 		this.extraInfo.push(data.substring(openingQ + 1, closingQ));
 		this.extraInfo.push("Length of String: " + data.substring(7, closingP));
 	}
 
 	// check compound types
-	else if (data.substring(0, 5) == "array") {
+	else if (data.substring(0, 5) === "array") {
 		this.type = "array";
-		this.html = "<span "+ COLORS["array"] +">(array) ";
+		this.html = "<span "+ createStyleString(COLORS["array"]) +">(array) ";
 		this.compound = true;
 		this.extraInfo.push("Number of Elements: " + data.substring(6, closingP));
-	} else if (data.substring(0, 6) == "object") {
+	} else if (data.substring(0, 6) === "object") {
 		this.type = "object";
 		this.compound = true;
-		this.html = "<span "+ COLORS["object"] +">(object) ";
+		this.html = "<span "+ createStyleString(COLORS["object"]) +">(object) ";
 		this.extraInfo.push("Object Name: " + data.substring(openingP + 1, closingP));
 		this.extraInfo.push("Object Identifier: " + data.substring(closingP + 1, data.indexOf(" ", closingP)));
 	}
 
 	// check special types
 	// ignore resource..'cause I got no clue what those are :Packages
-	else if (data == "NULL") {
+	else if (data === "NULL") {
 		this.type = "NULL";
-		this.html = "<span "+ COLORS["null"] +">(null) NULL</span>";
+		this.html = "<span "+ createStyleString(COLORS["null"]) +">(null) NULL</span>";
 	}
 
 	// check for var dump things
 	else if (data.indexOf("=&gt;") !== -1) {
 		this.type = "key";
-		var temp = data.substring(1 /*skip initial [*/, data.length-6 /*skip ]=&gt;*/)
+		var temp = data.substring(1 /*skip initial [*/, data.length-6 /*skip ]=&gt;*/);
 		this.html = "<span>" + temp + ": " + "</span>";
 	}
 
@@ -104,7 +115,7 @@ ContentItem.prototype.printOpening = function () {
 			toPrint += "<span class='prop'>" + this.html + "</span>";
 			break;
 		case "unknown":
-			if (this.node.parent == undefined) {
+			if (this.node.parent === undefined) {
 				toPrint += "<ul id='root'>";
 			}
 			break;
@@ -130,7 +141,7 @@ ContentItem.prototype.printClosing = function () {
 			break;
 		case "key":
 		case "unknown":
-			if(this.node.content.html == "root") {
+			if(this.node.content.html === "root") {
 				toPrint += "</ul>";
 			}
 			break;

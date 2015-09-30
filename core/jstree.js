@@ -1,4 +1,7 @@
-/**
+/* JSHINT info*/
+/* globals ContentItem, DEBUG_PRINTJSON */
+ 
+/*
 *	Creates a tree based structure that will hold the parsed var_dump
 */
 function TreeNode(content){
@@ -25,14 +28,11 @@ TreeNode.prototype.addChild = function(child) {
 */
 TreeNode.prototype.print = function(text) {
 	"use strict";
-	var MassCommandTool,
-		first,
+	var first,
 		i;
-		
-	MassCommandTool = "<div class='all'><span class='openall'>open all +</span>    <span class='closeall'>close all -</span></div>";
 
-	if(text == undefined) {
-		text = "<div class='" + SPECIAL_CLASS + "'><div id='var_dump'>" + MassCommandTool;
+	if(text === undefined) {
+		text = "<div id='var_dump'>";
 		first = true;
 	}
 
@@ -48,7 +48,7 @@ TreeNode.prototype.print = function(text) {
 	text += (this.content.printClosing());
 	
 	if(first) {
-		text += MassCommandTool + "</div></div>"; //close the #var_dump div and special_id div
+		text += "</div>"; //close the #var_dump div
 	}
 	
 	return text;

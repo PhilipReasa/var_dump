@@ -1,4 +1,7 @@
-var contexts = ["selection"];
+/*JSHINT info*/
+/* globals chrome*/ 
+
+var contexts = ["selection"]; 
 
 function varDumpIt(info, tabs) {
 	"use strict";
@@ -7,7 +10,7 @@ function varDumpIt(info, tabs) {
 		"active": true,
         "currentWindow": true
 	},
-	function (tabs) {
+	function () {
 		chrome.tabs.sendMessage(tabs[0].id, {
 			"fn": "printTree",
 			"dump": dump //passing it incase chrome ever does keep the \n's

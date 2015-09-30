@@ -1,3 +1,7 @@
+/* JSHINT info */
+/* exported generateTheTree */
+/* globals TreeNode*/
+
 //return -1 if not found
 function getNextNonQuoteChar(C, data) {
 	"use strict";
@@ -7,14 +11,14 @@ function getNextNonQuoteChar(C, data) {
 		
 	while(i < data.length) {
 		curChar = data.charAt(i);
-		if(curChar ==  C && (numQuotes%2 == 0)) {
+		if(curChar ===  C && (numQuotes%2 === 0)) {
 			break;
-		} else if (curChar == "\"") {
+		} else if (curChar === "\"") {
 			numQuotes ++;
 		}
 		i ++;
 	}
-	if(i == data.length) {
+	if(i === data.length) {
 		i = -1;
 	}
 	return i;
@@ -32,10 +36,10 @@ function whereDoesLevelClose(dump, i) {
 		nextOpenC = getNextNonQuoteChar("{", dump[i]);
 		nextClosedC = getNextNonQuoteChar("}", dump[i]);
 		
-		if(nextOpenC != -1) {
+		if(nextOpenC !== -1) {
 			numOfOParens ++;
-		} else if(nextClosedC != -1) {
-			if(numOfOParens == 0) {
+		} else if(nextClosedC !== -1) {
+			if(numOfOParens === 0) {
 				break;
 			} else {
 				numOfOParens --;
@@ -56,14 +60,14 @@ function generateTheTree(dump, parent) {
 		newNode,
 		tempDump;
 	
-	if(parent == undefined) { //first call
+	if(parent === undefined) { //first call
 		parent = new TreeNode("root");
 	}
 	
 	while(i < dump.length) {
 	
-		isCurrentItemLevelEnd = (dump[i].indexOf("}") == -1)?false:true;
-		doesNewLevelOpen = (dump[i].indexOf("{") == -1)?false:true;
+		isCurrentItemLevelEnd = (dump[i].indexOf("}") === -1)?false:true;
+		doesNewLevelOpen = (dump[i].indexOf("{") === -1)?false:true;
 	
 		if(isCurrentItemLevelEnd) {
 			return parent;

@@ -1,0 +1,1 @@
+var COLORS,AUTORUN,CASCADE,DEBUG_PRINTJSON=!0,SPECIAL_CLASS="VAR_DUMP-DEADBEEF",KEY_TEXT=": ";chrome.extension.sendRequest({method:"getAllOptions"},function(A){COLORS=A.colors,AUTORUN=A.autorun,CASCADE=A.cascade});
