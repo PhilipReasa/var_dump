@@ -1,5 +1,5 @@
 /* JSHINT info*/
-/* globals ContentItem, DEBUG_PRINTJSON */
+/* globals ContentItem */
  
 /*
 *	Creates a tree based structure that will hold the parsed var_dump
@@ -17,7 +17,7 @@ function TreeNode(content){
 */
 TreeNode.prototype.addChild = function(child) {
 	"use strict";
-	if(!DEBUG_PRINTJSON){child.parent = this;}
+	child.parent = this;
 	child.level = this.level + 1;
 	
 	this.children.push(child);

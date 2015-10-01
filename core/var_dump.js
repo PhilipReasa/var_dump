@@ -1,6 +1,6 @@
 /* JSHINT configuration (tell it about function in other files) */
 /* globals collapse, openAll, closeAll, generateTheTree*/
-/* globals chrome, SPECIAL_CLASS, DEBUG_PRINTJSON, AUTORUN*/
+/* globals chrome, SPECIAL_CLASS, DEBUG_PRINTJSON, AUTORUN, COLORS*/
 
 /********************** 
 * ALL HELPER FUNCTIONS:
@@ -75,6 +75,27 @@ function headerHTML() {
 			"</div>";
 }
 
+function getColorVal(color) {
+	if(color === undefined) {
+		return "inherit";
+	} else {
+		return color;
+	}
+}
+
+function generateInlineStyles() {
+	return '' +
+		'<style type="text/css">' +
+			'.VAR_DUMP-DEADBEEF .bool 	{ color:' + getColorVal(COLORS["bool"]) + 	'; } \n' +
+			'.VAR_DUMP-DEADBEEF .int 	{ color:' + getColorVal(COLORS["int"]) + 	'; } \n' +
+			'.VAR_DUMP-DEADBEEF .float { color:' + getColorVal(COLORS["float"]) + 	'; } \n' +
+			'.VAR_DUMP-DEADBEEF .null 	{ color:' + getColorVal(COLORS["null"]) + 	'; } \n' +
+			'.VAR_DUMP-DEADBEEF .array { color:' + getColorVal(COLORS["array"]) + 	'; } \n' +
+			'.VAR_DUMP-DEADBEEF .object { color:' + getColorVal(COLORS["object"]) + '; } \n' +
+			'.VAR_DUMP-DEADBEEF .string { color:' + getColorVal(COLORS["string"]) + '; } \n' +
+		'</style>'
+}
+
 /****************
 * MAIN STUFF
 *****************/
@@ -87,11 +108,8 @@ function bootstrap_vardump() {
 		removeTheDump();
 	
 		var tree = generateTheTree(dump);
+		$('body').append(generateInlineStyles());
 		$('body').append(tree.print());
-		
-		if(DEBUG_PRINTJSON) {
-			$('body').append(JSON.stringify(tree));
-		}
 
 		addListners();
 	}
@@ -132,6 +150,7 @@ function printModalTree(dump) {
 	var modalClose = closeModalHTML();
 	dump = splitDump(dump);
 	var tree =  generateTheTree(dump);
+	$('body').append(generateInlineStyles());
 	$('body').append(modalOpen + header + tree.print() + modalClose);
 	
 	addListners();
@@ -144,7 +163,7 @@ if(AUTORUN === "true") {
 
 chrome.extension.onMessage.addListener(function (message) {
 	"use strict";
-    if (message.fn === "printTree") {
+    if (message.fn == "printTree") { //sent from context menu
 		printModalTree(message.dump);
     }
 });

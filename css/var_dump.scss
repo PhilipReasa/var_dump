@@ -5,7 +5,7 @@
 		white-space: pre-wrap;
 		font-family: sans-serif;
 		
-		//elements
+		//elements default colors
 		.prop {
 			font-weight: bold;
 		}
@@ -31,14 +31,16 @@
 			white-space: pre-wrap;
 		}
 
+	  	.key {
+		  float:left; //so that values appear next to their keys
+		}
+
 		#root{
 			margin: 0 0 0 0;
 		}
 		
 		//structure
-		li {
-			position: relative;
-		}
+
 
 		ul {
 			list-style: none;

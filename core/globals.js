@@ -6,7 +6,6 @@
 var COLORS; 
 var AUTORUN;
 var CASCADE;
-var DEBUG_PRINTJSON = true;
 var SPECIAL_CLASS = "VAR_DUMP-DEADBEEF"; //if you change this, you also must change it in scss
 var KEY_TEXT = ": ";
 
