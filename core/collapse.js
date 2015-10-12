@@ -4,10 +4,12 @@
 function collapse(evt) {
 	"use strict";
 	var collapser = $(this); //the dom element that was clicked
-	if (collapser.hasClass("selected")) { //if it is open
-		collapser.children("li").removeClass('hide');
+	if (collapser.hasClass("closed")) { //if it is open
+		collapser.siblings("ul").children("li").removeClass('hide');
+		collapser.removeClass("closed");
 	} else { //closed case
-		collapser.children("li").addClass('hide');
+		collapser.siblings("ul").children("li").addClass('hide');
+		collapser.addClass("closed");
 	}
 }
 

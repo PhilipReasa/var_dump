@@ -31,7 +31,8 @@
       top: 0;
       left: -20px;
       display: inline-block;
-      cursor: pointer; }
+      cursor: pointer;
+      transition: transform 0.3s ease; }
       .VAR_DUMP-DEADBEEF #var_dump .openClose .fa-angle-down.closed {
         transform: rotate(180deg); }
   .VAR_DUMP-DEADBEEF #var_dump .hide {

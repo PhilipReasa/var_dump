@@ -48,7 +48,7 @@ function removeTheDump() {
 */
 function addListners() {
 	"use strict";
-	$('.OpenClose:before').bind('click', collapse);
+	$('.OpenClose .fa-angle-down').bind('click', collapse);
 	$('.openall').bind('click', openAll);
 	$('.closeall').bind('click', closeAll);
 	$('.close').bind('click', function() {
