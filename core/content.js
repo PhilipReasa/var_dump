@@ -83,13 +83,13 @@ ContentItem.prototype.printOpening = function () {
 	switch (this.type) {
 		case "object":
 			toPrint += ""+
-				"<li class='openClose'><span class='fa fa-angle-down'></span>"+ this.html + "[" + this.extraInfo[0] + "] [" + this.extraInfo[1] + "]" +
+				"<li class='openClose'><span class='openCloseIcon fa fa-angle-down'></span>"+ this.html + "[" + this.extraInfo[0] + "] [" + this.extraInfo[1] + "]" +
 					"<ul>";
 
 			break;
 		case "array":
 			toPrint += "" +
-				"<li class='openClose'><span class='fa fa-angle-down'></span>"+ this.html + "[" + this.extraInfo[0] + "]" +
+				"<li class='openClose'><span class='openCloseIcon fa fa-angle-down'></span>"+ this.html + "[" + this.extraInfo[0] + "]" +
 					"<ul>";
 
 			break;

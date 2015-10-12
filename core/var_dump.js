@@ -48,10 +48,10 @@ function removeTheDump() {
 */
 function addListners() {
 	"use strict";
-	$('.OpenClose .fa-angle-down').bind('click', collapse);
-	$('.openall').bind('click', openAll);
-	$('.closeall').bind('click', closeAll);
-	$('.close').bind('click', function() {
+	$('.OpenClose .openCloseIcon').bind('click', toggleCollapse);
+	$('#expandAll').bind('click', openAll);
+	$('#collapseAll').bind('click', closeAll);
+	$('.closeModal').bind('click', function() {
 		$(".modal").remove();
 	});
 }
@@ -78,9 +78,9 @@ function closeModalHTML() {
 function headerHTML() {
 	"use strict";
 	return "<div id='header'>" +
-		  		"<div id='expandAll'></div>" +
-				"<div id='closeAll'></div>" +
-				"<div class='close'><i class='fa fa-close'></i></div>" +
+		  		"<div id='expandAll'><i class='fa fa-chevron-circle-down'></i> Expand All </div>" +
+				"<div id='collapseAll'><i class='fa fa-chevron-circle-up'></i> Collapse All </div>" +
+				"<div class='closeModal'><i class='fa fa-close'></i></div>" +
 			"</div>";
 }
 

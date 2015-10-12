@@ -1,6 +1,8 @@
 .VAR_DUMP-DEADBEEF { //to avoid accidental styling collisions
+  	font-family: monospace;
+  	font-size:18px;
+
 	#var_dump { //the var dump output
-		font-family: monospace;
 		font-size: 16px;
 		white-space: pre-wrap;
 	  	padding-left:20px; //offsets the negative left of the +/-
@@ -49,7 +51,7 @@
 		.openClose {
 		  	position:relative; //relative, so the the absolutely positioned before element can position based off it
 
-		  	.fa-angle-down { //the span with the carrot
+		  	.openCloseIcon { //the span with the carrot
 				position: absolute;
 				top: 0;
 				left: -20px;
@@ -103,15 +105,24 @@
 		opacity:.90;
 		box-sizing:border-box;
 		overflow:scroll;
-	}
 
-	.close {
-		background-color:rgba(146,120,51,.1);
-		width:250px;
-	}
+	  	#header {
+			height: 25px;
+		  	width:100%;
+		  	border-bottom: 2px solid #BC2D09;
+		  	margin-bottom:10px;
 
-	.close:hover {
-		text-decoration:underline;
-		cursor:pointer
+		  	#expandAll,
+			#collapseAll {
+			  	cursor: pointer;
+				padding-right:20px;
+				float:left;
+			}
+
+			.closeModal  {
+			  	cursor: pointer;
+			  	float:right;
+			}
+		}
 	}
 }
