@@ -3220,6 +3220,15 @@
 		"shouldRunBless": 0,
 		"useLibsass": false
 		},
+	"\/css\/var_dump.css": {
+		"fileType": 16,
+		"ignore": 0,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/css\/var_dump.css",
+		"outputAbbreviatedPath": "No Output Path",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0
+		},
 	"\/img\/icon2_128.png": {
 		"fileType": 32768,
 		"ignore": 0,

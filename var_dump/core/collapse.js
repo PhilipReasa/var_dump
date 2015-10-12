@@ -24,7 +24,7 @@ function collapse($element) {
 }
 
 function collapseAllChildren($start) {
-	var all = $start.find(".OpenClose .openCloseIcon"), //get all collapsers ...
+	var all = $start.find(".openClose .openCloseIcon"), //get all collapsers ...
 		i = 0;
 	while (i < all.length) { //... and close them
 		collapse($(all[i]));

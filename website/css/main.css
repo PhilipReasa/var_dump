@@ -12,7 +12,7 @@ body {
   color: #bc2d09; }
   body a {
     color: black; }
-    body a:hover {
+    body a:hover, body a:visited, body a:active {
       text-decoration: none;
       color: inherit; }
   body nav.navbar-custom {
@@ -36,3 +36,6 @@ body {
 
 .modal-body {
   color: black; }
+
+.var_dump_modal {
+  display: none; }
