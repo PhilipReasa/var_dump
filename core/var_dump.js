@@ -95,13 +95,13 @@ function getColorVal(color) {
 function generateInlineStyles() {
 	return '' +
 		'<style type="text/css">' +
-			'.VAR_DUMP-DEADBEEF .bool 	{ color:' + getColorVal(COLORS["bool"]) + 	'; } \n' +
-			'.VAR_DUMP-DEADBEEF .int 	{ color:' + getColorVal(COLORS["int"]) + 	'; } \n' +
-			'.VAR_DUMP-DEADBEEF .float { color:' + getColorVal(COLORS["float"]) + 	'; } \n' +
-			'.VAR_DUMP-DEADBEEF .null 	{ color:' + getColorVal(COLORS["null"]) + 	'; } \n' +
-			'.VAR_DUMP-DEADBEEF .array { color:' + getColorVal(COLORS["array"]) + 	'; } \n' +
-			'.VAR_DUMP-DEADBEEF .object { color:' + getColorVal(COLORS["object"]) + '; } \n' +
-			'.VAR_DUMP-DEADBEEF .string { color:' + getColorVal(COLORS["string"]) + '; } \n' +
+			'.VAR_DUMP-DEADBEEF #var_dump .bool 	{ color:' + getColorVal(COLORS["bool"]) + 	'; } \n' +
+			'.VAR_DUMP-DEADBEEF #var_dump .int 	{ color:' + getColorVal(COLORS["int"]) + 	'; } \n' +
+			'.VAR_DUMP-DEADBEEF #var_dump .float { color:' + getColorVal(COLORS["float"]) + 	'; } \n' +
+			'.VAR_DUMP-DEADBEEF #var_dump .null 	{ color:' + getColorVal(COLORS["null"]) + 	'; } \n' +
+			'.VAR_DUMP-DEADBEEF #var_dump .array { color:' + getColorVal(COLORS["array"]) + 	'; } \n' +
+			'.VAR_DUMP-DEADBEEF #var_dump .object { color:' + getColorVal(COLORS["object"]) + '; } \n' +
+			'.VAR_DUMP-DEADBEEF #var_dump .string { color:' + getColorVal(COLORS["string"]) + '; } \n' +
 		'</style>'
 }
 
@@ -117,6 +117,7 @@ function bootstrap_vardump() {
 		removeTheDump();
 	
 		var tree = generateTheTree(dump);
+
 		$('body').append(generateInlineStyles());
 
 		$('body').append(openVarDump() + tree.print() + closeVarDump());

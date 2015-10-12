@@ -14,7 +14,7 @@ function getFromLocalStorage(localStorageName) {
 }
 
 function getColors() {
-	var colors = [];
+	var colors = {};
 	colors["int"] 	= getFromLocalStorage("intColor");
 	colors["float"] = getFromLocalStorage("floatColor");
 	colors["string"]= getFromLocalStorage("stringColor");
@@ -29,19 +29,13 @@ function getColors() {
 * The main code
 */
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
-    if (request.method === "getColors") {
-	  var colors = getColors();
-      sendResponse({data: colors});
-    }
-
 	if (request.method === "getAllOptions") {
-	  var toReturn = [];
-	  toReturn.colors = getColors();
+	  colors = getColors();
 
 	  if(localStorage.autorun === undefined) {
 		localStorage.autorun = "true"; //local storage only accepts strings
 	  }
 
-	  sendResponse({colors: toReturn, autorun:localStorage.autorun, cascade:localStorage.cascade});
+	  sendResponse({colors: colors, autorun:localStorage.autorun, cascade:localStorage.cascade});
     }
 });
