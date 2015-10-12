@@ -17,7 +17,7 @@
   
   "background": {
     "scripts": [
-		"core/addContexMenu.js", 
+		"core/addContextMenu.js",
 		"core/background.js"
 	]
   },
@@ -39,6 +39,10 @@
   			"core/var_dump.js"
 		  ]
     }
+  ],
+
+  "web_accessible_resources":[
+    "/vendor/font-awesome/fonts/*"
   ],
   
   "options_page": "options/options.html"
