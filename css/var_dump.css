@@ -2,7 +2,7 @@
   font-family: monospace;
   font-size: 16px;
   white-space: pre-wrap;
-  font-family: sans-serif; }
+  padding-left: 20px; }
   .VAR_DUMP-DEADBEEF #var_dump .prop {
     font-weight: bold; }
   .VAR_DUMP-DEADBEEF #var_dump .null {
@@ -21,11 +21,19 @@
   .VAR_DUMP-DEADBEEF #var_dump #root {
     margin: 0 0 0 0; }
   .VAR_DUMP-DEADBEEF #var_dump ul {
+    margin-left: 40px;
     list-style: none;
-    margin: -18px 0 0 2em;
     padding: 0; }
-  .VAR_DUMP-DEADBEEF #var_dump .OpenClose {
-    cursor: pointer; }
+  .VAR_DUMP-DEADBEEF #var_dump .openClose {
+    position: relative; }
+    .VAR_DUMP-DEADBEEF #var_dump .openClose .fa-angle-down {
+      position: absolute;
+      top: 0;
+      left: -20px;
+      display: inline-block;
+      cursor: pointer; }
+      .VAR_DUMP-DEADBEEF #var_dump .openClose .fa-angle-down.closed {
+        transform: rotate(180deg); }
   .VAR_DUMP-DEADBEEF #var_dump .hide {
     display: none; }
   .VAR_DUMP-DEADBEEF #var_dump .clear {

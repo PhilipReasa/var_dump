@@ -1,6 +1,8 @@
 /* JSHINT INFO*/
 /*jshint sub:true*/ //<-- we have JS reserved words as keys intentionally. This prevent warnings due to that
 
+//a content item is a key value pair. They key is the variable key, and the value is the value of that variable.
+//this value may be a bool, int, float...or array/object.
 function ContentItem(data, caller) {
 	"use strict";
 
@@ -41,13 +43,13 @@ function ContentItem(data, caller) {
 	// check compound types
 	else if (data.substring(0, 5) === "array") {
 		this.type = "array";
-		this.html = "<span class='array'>(array) ";
+		this.html = "<span class='array'>(array)</span>";
 		this.compound = true;
 		this.extraInfo.push("Number of Elements: " + data.substring(6, closingP));
 	} else if (data.substring(0, 6) === "object") {
 		this.type = "object";
 		this.compound = true;
-		this.html = "<span class='object'>(object) ";
+		this.html = "<span class='object'>(object)</span>";
 		this.extraInfo.push("Object Name: " + data.substring(openingP + 1, closingP));
 		this.extraInfo.push("Object Identifier: " + data.substring(closingP + 1, data.indexOf(" ", closingP)));
 	}
@@ -78,40 +80,33 @@ ContentItem.prototype.printOpening = function () {
 	"use strict";	
 	
 	var toPrint = "";
-	if(this.node.parent) {
-		//put everything in a li except for the root
-		toPrint += '<li>';
-	}
 	switch (this.type) {
 		case "object":
 			toPrint += ""+
-				"<span class='OpenClose'>- </span>" +
-				"<ul>" +
-					"<li>"+ this.html + "[" + this.extraInfo[0] + "] [" + this.extraInfo[1] + "]</li>";
+				"<li class='openClose'><span class='fa fa-angle-down'></span>"+ this.html + "[" + this.extraInfo[0] + "] [" + this.extraInfo[1] + "]" +
+					"<ul>";
+
 			break;
 		case "array":
 			toPrint += "" +
-				"<span class='OpenClose'>- </span>" +
-				"<ul>" +
-					"<li>"+ this.html + "[" + this.extraInfo[0] + "] </li>";
+				"<li class='openClose'><span class='fa fa-angle-down'></span>"+ this.html + "[" + this.extraInfo[0] + "]" +
+					"<ul>";
+
 			break;
 		case "integer":
-			toPrint += "<span>" + this.html + "</span>";
-			break;
 		case "float":
-			toPrint += "<span>" + this.html + "</span>";
-			break;
 		case "boolean":
-			toPrint += "<span>" + this.html + "</span>";
-			break;
 		case "string":
-			toPrint += "<span>" + this.html + "</span>";
-			break;
 		case "NULL":
-			toPrint += "<span>" + this.html + "</span>";
+			toPrint += "" +
+				"<li>" +
+					"<span>" + this.html + "</span>" +
+				"</li>";
 			break;
 		case "key":
-			toPrint += "<span>" + this.html + "</span>";
+			toPrint += "" +
+				"<li>" +
+					this.html;
 			break;
 		case "unknown":
 			if (this.node.parent === undefined) {
@@ -135,6 +130,8 @@ ContentItem.prototype.printClosing = function () {
 			toPrint += "</ul>";
 			break;
 		case "key":
+			toPrint += "</li>"
+			break;
 		case "unknown":
 			if(this.node.content.html === "root") {
 				toPrint += "</ul>";

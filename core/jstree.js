@@ -36,17 +36,17 @@ TreeNode.prototype.print = function(text) {
 		first = true;
 	}
 
-	
+
 	text += (this.content.printOpening());
-	
+
 	i =0;
 	while(i < this.children.length) {
 		text = this.children[i].print(text);
 		i++;
 	}
-	
+
 	text += (this.content.printClosing());
-	
+
 	if(first) {
 		text += "</div>"; //close the #var_dump div
 	}

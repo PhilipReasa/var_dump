@@ -27,7 +27,7 @@
       "matches": ["<all_urls>"],
       "css": [
         "css/var_dump.css",
-        "vendor/font-awesome-4.4.0/css/font-awesome.min.css"
+        "vendor/font-awesome/css/font-awesome.min.css"
         ],
       "js": [
   			"core/globals.js", 

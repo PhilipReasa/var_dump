@@ -14,4 +14,9 @@ chrome.extension.sendRequest({method: "getAllOptions"}, function(response) {
 	COLORS = response.colors;
 	AUTORUN = response.autorun; 
 	CASCADE = response.cascade;
+
+	//when the data retrueval is done, see if we should try to run:
+	if(AUTORUN === "true") {
+		bootstrap_vardump();
+	}
 });

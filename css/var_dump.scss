@@ -1,9 +1,9 @@
-.VAR_DUMP-DEADBEEF { //to avoid accidenttal stylings
-	#var_dump {
+.VAR_DUMP-DEADBEEF { //to avoid accidental styling collisions
+	#var_dump { //the var dump output
 		font-family: monospace;
 		font-size: 16px;
 		white-space: pre-wrap;
-		font-family: sans-serif;
+	  	padding-left:20px; //offsets the negative left of the +/-
 		
 		//elements default colors
 		.prop {
@@ -39,18 +39,27 @@
 			margin: 0 0 0 0;
 		}
 		
-		//structure
-
-
 		ul {
-			list-style: none;
-			margin: -18px 0 0 2em;
+		  	margin-left:40px;
+		  	list-style: none;
 			padding: 0;
 		}
 
 		//utility
-		.OpenClose {
-			cursor:pointer;
+		.openClose {
+		  	position:relative; //relative, so the the absolutely positioned before element can position based off it
+
+		  	.fa-angle-down { //the span with the carrot
+				position: absolute;
+				top: 0;
+				left: -20px;
+			  	display: inline-block;
+			  	cursor: pointer;
+
+				&.closed {
+					transform: rotate(180deg);
+				}
+		  	}
 		}
 
 		.hide {

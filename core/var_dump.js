@@ -48,7 +48,7 @@ function removeTheDump() {
 */
 function addListners() {
 	"use strict";
-	$('.OpenClose').bind('click', collapse);
+	$('.OpenClose:before').bind('click', collapse);
 	$('.openall').bind('click', openAll);
 	$('.closeall').bind('click', closeAll);
 	$('.close').bind('click', function() {
@@ -56,14 +56,23 @@ function addListners() {
 	});
 }
 
+function openVarDump() {
+	"use strict";
+	return "<div class='"+SPECIAL_CLASS+"'>"
+}
+
+function closeVarDump() {
+	return "</div>";
+}
+
 function openModalHTML() {
 	"use strict";
-	return "<div class='"+ SPECIAL_CLASS +"'><div class='modal'>";
+	return openVarDump() + "<div class='modal'>";
 }
 
 function closeModalHTML() {
 	"use strict";
-	return "</div></div>";
+	return "</div>" + closeVarDump();
 }
 
 function headerHTML() {
@@ -109,7 +118,8 @@ function bootstrap_vardump() {
 	
 		var tree = generateTheTree(dump);
 		$('body').append(generateInlineStyles());
-		$('body').append(tree.print());
+
+		$('body').append(openVarDump() + tree.print() + closeVarDump());
 
 		addListners();
 	}
@@ -156,14 +166,9 @@ function printModalTree(dump) {
 	addListners();
 }
 
-//if autorun is set, run! 
-if(AUTORUN === "true") {
-	bootstrap_vardump();
-}
-
 chrome.extension.onMessage.addListener(function (message) {
 	"use strict";
-    if (message.fn == "printTree") { //sent from context menu
+    if (message.fn === "printTree") { //sent from context menu
 		printModalTree(message.dump);
     }
 });

@@ -39,7 +39,7 @@ chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
 	  toReturn.colors = getColors();
 
 	  if(localStorage.autorun === undefined) {
-		localStorage.autorun = true;
+		localStorage.autorun = "true"; //local storage only accepts strings
 	  }
 
 	  sendResponse({colors: toReturn, autorun:localStorage.autorun, cascade:localStorage.cascade});

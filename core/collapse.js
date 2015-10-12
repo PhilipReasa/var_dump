@@ -3,18 +3,11 @@
  
 function collapse(evt) {
 	"use strict";
-	var collapser; //the dom element that was clicked
-	if (evt.target === undefined) {
-		collapser = evt; //for closeAll fn
-	} else {
-		collapser = evt.target;
-	}
-	if (collapser.innerHTML === "- ") { //if it is open
-		$(collapser).siblings("ul").children("li").addClass('hide');
-		collapser.innerHTML = '+ ';
+	var collapser = $(this); //the dom element that was clicked
+	if (collapser.hasClass("selected")) { //if it is open
+		collapser.children("li").removeClass('hide');
 	} else { //closed case
-		$(collapser).siblings("ul").children("li").removeClass('hide');
-		collapser.innerHTML = '- ';
+		collapser.children("li").addClass('hide');
 	}
 }
 
