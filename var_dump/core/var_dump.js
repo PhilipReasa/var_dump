@@ -52,7 +52,7 @@ function addListners() {
 	$('#expandAll').bind('click', openAll);
 	$('#collapseAll').bind('click', closeAll);
 	$('.closeModal').bind('click', function() {
-		$(".modal").remove();
+		$(".var_dump_modal").remove();
 	});
 }
 

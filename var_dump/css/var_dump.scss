@@ -1,6 +1,7 @@
 .VAR_DUMP-DEADBEEF { //to avoid accidental styling collisions
   	font-family: monospace;
   	font-size:18px;
+  	color: black; //add default color in case the page being dumped provides one.
 
 	#var_dump { //the var dump output
 		font-size: 16px;

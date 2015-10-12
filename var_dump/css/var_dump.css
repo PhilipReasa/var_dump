@@ -1,6 +1,7 @@
 .VAR_DUMP-DEADBEEF {
   font-family: monospace;
-  font-size: 18px; }
+  font-size: 18px;
+  color: black; }
   .VAR_DUMP-DEADBEEF #var_dump {
     font-size: 16px;
     white-space: pre-wrap;
@@ -77,5 +78,3 @@
       .VAR_DUMP-DEADBEEF .var_dump_modal #header .closeModal {
         cursor: pointer;
         float: right; }
-
-/*# sourceMappingURL=var_dump.css.map */
