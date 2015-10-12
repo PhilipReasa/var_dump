@@ -8,7 +8,7 @@
 
 ##Efficiency
 ###Next to Change!
-1. DONE -1.0.0.3- Remove all the clear boths
+1. DONE -1.0.0.3- Remove all the clear both's
 2. Remove jquery dependence
 3. Consolidate builds into single file
 4. Minify!
