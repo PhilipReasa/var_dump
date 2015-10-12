@@ -30,3 +30,4 @@ version.major.feature.bug
 * 1.0.1.0 -> added statistics, some options
 * 1.0.2.0 -> upgraded options page appearance, new icon
 * 1.1.0.0 -> re-wrote a signmificant portion of code. Better html structure. Slightly better visuals. Removed statistics.
+* 1.1.0.# -> small fixes caused by significant rewrite
