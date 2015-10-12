@@ -5,3 +5,4 @@
 - [x] Color preferences/changes
 - [x] Auto run option
 - [ ] add pre tags to escape potential html
+- [ ] Allow Styling of Keys
