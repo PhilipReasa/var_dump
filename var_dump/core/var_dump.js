@@ -67,7 +67,7 @@ function closeVarDump() {
 
 function openModalHTML() {
 	"use strict";
-	return openVarDump() + "<div class='modal'>";
+	return openVarDump() + "<div class='var_dump_modal'>";
 }
 
 function closeModalHTML() {

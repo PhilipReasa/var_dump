@@ -1,0 +1,1 @@
+$(function(){var o=navigator.userAgent.toLowerCase().indexOf("chrome")>-1;o||$("#notChrome").modal("show"),"function"==typeof bootstrap_vardump&&alert("var_dump detected")});

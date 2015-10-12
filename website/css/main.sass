@@ -1,0 +1,54 @@
+//VARIABLES
+$small: 10px
+$medium: 30px
+$font-stack: 'Roboto', sans-serif
+$ruby-red: rgb(188, 45, 9)
+
+//UTILITIES
+.pad-left-s
+	padding-left: $small
+
+.pad-top-m
+	padding-top: $medium
+
+.margin-top-m
+	margin-top: $medium
+
+//GENERAL STYLING
+body
+	font-family: $font-stack
+	color: $ruby-red
+
+	a 
+		color: black
+
+		&:hover
+			text-decoration: none
+			color: inherit
+
+	nav.navbar-custom
+		border-bottom: 2px solid $ruby-red
+		border-radius: 0px
+
+		.probity 
+			padding: 15px
+
+	#example
+		padding: $medium
+		word-wrap: break-word
+		background-color: lightgray
+
+	.btn.btn-defualt
+		border-color: $ruby-red
+		background-color: transparent
+		width: 100%
+		font-size: 18px
+		transition: all 0.3s ease
+
+		&:hover 
+			background-color: $ruby-red
+			color: white
+		
+
+.modal-body 
+	color: black

@@ -52,7 +52,7 @@
     .VAR_DUMP-DEADBEEF #var_dump .openall:hover {
       text-decoration: underline;
       cursor: pointer; }
-  .VAR_DUMP-DEADBEEF .modal {
+  .VAR_DUMP-DEADBEEF .var_dump_modal {
     max-height: 80%;
     width: 80%;
     position: fixed;
@@ -64,17 +64,17 @@
     opacity: .90;
     box-sizing: border-box;
     overflow: scroll; }
-    .VAR_DUMP-DEADBEEF .modal #header {
+    .VAR_DUMP-DEADBEEF .var_dump_modal #header {
       height: 25px;
       width: 100%;
       border-bottom: 2px solid #BC2D09;
       margin-bottom: 10px; }
-      .VAR_DUMP-DEADBEEF .modal #header #expandAll,
-      .VAR_DUMP-DEADBEEF .modal #header #collapseAll {
+      .VAR_DUMP-DEADBEEF .var_dump_modal #header #expandAll,
+      .VAR_DUMP-DEADBEEF .var_dump_modal #header #collapseAll {
         cursor: pointer;
         padding-right: 20px;
         float: left; }
-      .VAR_DUMP-DEADBEEF .modal #header .closeModal {
+      .VAR_DUMP-DEADBEEF .var_dump_modal #header .closeModal {
         cursor: pointer;
         float: right; }
 

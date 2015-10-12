@@ -1,0 +1,38 @@
+.pad-left-s {
+  padding-left: 10px; }
+
+.pad-top-m {
+  padding-top: 30px; }
+
+.margin-top-m {
+  margin-top: 30px; }
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: #bc2d09; }
+  body a {
+    color: black; }
+    body a:hover {
+      text-decoration: none;
+      color: inherit; }
+  body nav.navbar-custom {
+    border-bottom: 2px solid #bc2d09;
+    border-radius: 0px; }
+    body nav.navbar-custom .probity {
+      padding: 15px; }
+  body #example {
+    padding: 30px;
+    word-wrap: break-word;
+    background-color: lightgray; }
+  body .btn.btn-defualt {
+    border-color: #bc2d09;
+    background-color: transparent;
+    width: 100%;
+    font-size: 18px;
+    transition: all 0.3s ease; }
+    body .btn.btn-defualt:hover {
+      background-color: #bc2d09;
+      color: white; }
+
+.modal-body {
+  color: black; }
