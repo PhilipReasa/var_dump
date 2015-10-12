@@ -1,0 +1,38 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'Open Sans', sans-serif; }
+
+.well {
+  box-shadow: inset 0px 0px 10px 0px #d3d3d3;
+  border-radius: 5px;
+  background-color: #E8E8E8;
+  padding: 20px;
+  margin-bottom: 20px; }
+  .well:first-of-type {
+    margin-top: 20px; }
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px; }
+
+h1 {
+  text-align: center;
+  font-size: 22px; }
+
+h2 {
+  font-size: 18px;
+  color: black;
+  margin: 2px; }
+
+h3 {
+  font-size: 14px;
+  font-weight: light;
+  color: gray;
+  margin-top: 2px; }
+
+.label {
+  width: 70px;
+  display: inline-block; }
