@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ea05fea3-0e65-4702-9e6b-ead0b785bf4a" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/var_dump/core/addContexMenu.js" afterPath="$PROJECT_DIR$/var_dump/core/addContextMenu.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/var_dump/fonts/FontAwesome.otf" afterPath="$PROJECT_DIR$/var_dump/vendor/font-awesome/fonts/FontAwesome.otf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/var_dump/fonts/fontawesome-webfont.eot" afterPath="$PROJECT_DIR$/var_dump/vendor/font-awesome/fonts/fontawesome-webfont.eot" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/var_dump/fonts/fontawesome-webfont.svg" afterPath="$PROJECT_DIR$/var_dump/vendor/font-awesome/fonts/fontawesome-webfont.svg" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/var_dump/fonts/fontawesome-webfont.ttf" afterPath="$PROJECT_DIR$/var_dump/vendor/font-awesome/fonts/fontawesome-webfont.ttf" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/var_dump/fonts/fontawesome-webfont.woff" afterPath="$PROJECT_DIR$/var_dump/vendor/font-awesome/fonts/fontawesome-webfont.woff" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/var_dump/fonts/fontawesome-webfont.woff2" afterPath="$PROJECT_DIR$/var_dump/vendor/font-awesome/fonts/fontawesome-webfont.woff2" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_archived builds/var_dump 1.1.0.0.zip" afterPath="$PROJECT_DIR$/_archived builds/var_dump 1.1.0.0.zip" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenShots/after small.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenShots/before small.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/screenShots/screenshot4.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var_dump.zip" afterPath="$PROJECT_DIR$/var_dump.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var_dump/vendor/font-awesome/css/font-awesome.min.css" afterPath="$PROJECT_DIR$/var_dump/vendor/font-awesome/css/font-awesome.min.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var_dump/manifest.json" afterPath="$PROJECT_DIR$/var_dump/manifest.json" />
     </list>
     <ignored path="var_masterpiece.iws" />
     <ignored path=".idea/workspace.xml" />
