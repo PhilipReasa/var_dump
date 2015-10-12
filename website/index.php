@@ -17,7 +17,7 @@
 <body>
 	<nav class="navbar navbar-custom">
 	  	<div class="container-fluid">
-			<a class="navbar-brand" href="#">
+			<a class="navbar-brand" target="_blank" href="https://chrome.google.com/webstore/detail/varmasterpiece/chfhddogiigmfpkcmgfpolalagdcamkl/related">
 				<img class="pull-left" alt="Brand" height="20px" src="img/icon2_128_tightcrop.png">
 		  		<span class="pad-left-s">Var Masterpiece</span>
 			</a>
@@ -50,6 +50,12 @@
 		<div class="row margin-top-m">
 			<div class="col-sm-8 col-sm-offset-2">
 				<button id="showVarDump" class="btn btn-defualt"> Make Beautifull </button>
+			</div>
+		</div>
+
+		<div class="row margin-top-m">
+			<div class="col-sm-8 col-sm-offset-2">
+				<a href="https://chrome.google.com/webstore/detail/varmasterpiece/chfhddogiigmfpkcmgfpolalagdcamkl/related" target="_blank" class="btn btn-defualt"> Get the Chrome Extension </a>
 			</div>
 		</div>
 		
