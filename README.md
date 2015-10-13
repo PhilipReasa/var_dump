@@ -1,7 +1,7 @@
 #var_dump
 
 var_dumps --> var_masterpieces!
-[http://varmasterpiece.probitytechnology.com](varMasterpiece.probitytechnology.com)
+[varmasterpiece.probitytechnology.com](http://varMasterpiece.probitytechnology.com)
 
 ##What is var_dump
 
