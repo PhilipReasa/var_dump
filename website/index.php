@@ -28,10 +28,10 @@
 	  	<div class="container-fluid">
 			<a class="navbar-brand" target="_blank" href="https://chrome.google.com/webstore/detail/varmasterpiece/chfhddogiigmfpkcmgfpolalagdcamkl/related">
 				<img class="pull-left" alt="Brand" height="20px" src="img/icon2_128_tightcrop.png">
-		  		<span class="pad-left-s">Var Masterpiece</span>
+		  		<span class="pad-left-s black-text">Var Masterpiece</span>
 			</a>
 
-	  		<a class="probity pull-right" target="_blank" href="http://www.probitytechnology.com">
+	  		<a class="probity pull-right black-text" target="_blank" href="http://www.probitytechnology.com">
 				Probity Technology
 	  		</a>
     	</div>

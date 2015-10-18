@@ -8,16 +8,13 @@
   margin-top: 30px; }
 
 .black-text {
-  color: black; }
+  color: black !important; }
 
 body {
   font-family: "Roboto", sans-serif;
   color: #bc2d09; }
-  body a {
-    color: black; }
-    body a:hover, body a:visited, body a:active, body a:focus {
-      text-decoration: none;
-      color: black; }
+  body a:hover, body a:visited, body a:active, body a:focus {
+    text-decoration: none; }
   body .btn {
     color: #bc2d09; }
     body .btn a {
