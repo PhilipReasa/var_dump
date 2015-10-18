@@ -14,6 +14,9 @@ $ruby-red: rgb(188, 45, 9)
 .margin-top-m
 	margin-top: $medium
 
+.black-text
+	color: black
+
 //GENERAL STYLING
 body
 	font-family: $font-stack
@@ -24,9 +27,16 @@ body
 
 		&:hover,
 		&:visited,
-		&:active
+		&:active,
+		&:focus
 			text-decoration: none
-			color: inherit
+			color: black
+
+	.btn
+		color: $ruby-red
+
+		a
+			color: $ruby-red
 
 	nav.navbar-custom
 		border-bottom: 2px solid $ruby-red

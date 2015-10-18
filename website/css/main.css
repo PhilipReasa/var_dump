@@ -7,14 +7,21 @@
 .margin-top-m {
   margin-top: 30px; }
 
+.black-text {
+  color: black; }
+
 body {
   font-family: "Roboto", sans-serif;
   color: #bc2d09; }
   body a {
     color: black; }
-    body a:hover, body a:visited, body a:active {
+    body a:hover, body a:visited, body a:active, body a:focus {
       text-decoration: none;
-      color: inherit; }
+      color: black; }
+  body .btn {
+    color: #bc2d09; }
+    body .btn a {
+      color: #bc2d09; }
   body nav.navbar-custom {
     border-bottom: 2px solid #bc2d09;
     border-radius: 0px; }
