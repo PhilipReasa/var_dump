@@ -6,3 +6,5 @@
 - [x] Auto run option
 - [ ] add pre tags to escape potential html
 - [ ] Allow Styling of Keys
+- [ ] Allow user to turn on and off typing (Per suggestion of Will Huey)
+- [ ] Allow user to choose font. 
