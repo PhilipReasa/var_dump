@@ -70,7 +70,7 @@
 
 		<div class="row margin-top-m">
 			<div class="col-sm-8 col-sm-offset-2">
-				<a href="https://chrome.google.com/webstore/detail/varmasterpiece/chfhddogiigmfpkcmgfpolalagdcamkl/related" target="_blank" class="btn btn-defualt"> Get the Chrome Extension </a>
+				<a href="https://chrome.google.com/webstore/detail/varmasterpiece/chfhddogiigmfpkcmgfpolalagdcamkl" target="_blank" class="btn btn-defualt"> Get the Chrome Extension </a>
 			</div>
 		</div>
 		

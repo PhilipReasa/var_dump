@@ -36,6 +36,12 @@ chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
 		localStorage.autorun = "true"; //local storage only accepts strings
 	  }
 
-	  sendResponse({colors: colors, autorun:localStorage.autorun, cascade:localStorage.cascade});
+	  sendResponse({
+	  	colors: colors, 
+	  	font: localStorage.fontFamily, 
+	  	autorun:localStorage.autorun, 
+	  	cascade:localStorage.cascade, 
+	  	showDataType: localStorage.dataType
+	  });
     }
 });

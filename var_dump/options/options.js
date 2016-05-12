@@ -9,6 +9,7 @@ function save_options() {
   var objectColor = document.getElementById("object-color").value;
   var arrayColor = document.getElementById("array-color").value;
   var nullColor = document.getElementById("null-color").value;
+  var fontFamily = document.getElementById("font-family").value;
   
   localStorage["intColor"] = intColor;
   localStorage["floatColor"] = floatColor;
@@ -17,6 +18,8 @@ function save_options() {
   localStorage["objectColor"] = objectColor;
   localStorage["arrayColor"] = arrayColor;
   localStorage["nullColor"] = nullColor;
+  localStorage["fontFamily"] = fontFamily;
+  localStorage["dataType"] = document.getElementById("y-dataType").checked;
   localStorage["cascade"] = document.getElementById("y-cas").checked;
   localStorage["autorun"] = document.getElementById("y-autoR").checked;
 
@@ -33,6 +36,7 @@ function restore_options() {
   var objectColor = localStorage["objectColor"];
   var arrayColor = localStorage["arrayColor"];
   var nullColor = localStorage["nullColor"];
+  var fontFamily = localStorage["fontFamily"];
 
   //first time restore fix
   intColor = (intColor == undefined)? "default": intColor;
@@ -42,6 +46,7 @@ function restore_options() {
   objectColor = (objectColor == undefined)? "default": objectColor;
   arrayColor = (arrayColor == undefined)? "default": arrayColor;
   nullColor = (nullColor == undefined)? "default": nullColor;
+  fontFamily = (fontFamily == undefined)? "default": nullColor;
 
   document.getElementById("int-color").value = intColor;
   document.getElementById("float-color").value = floatColor;
@@ -50,6 +55,8 @@ function restore_options() {
   document.getElementById("object-color").value = objectColor;
   document.getElementById("array-color").value = arrayColor;
   document.getElementById("null-color").value = nullColor;
+  document.getElementById("y-dataType").checked = (localStorage["dataType"]==="true");
+  document.getElementById("n-dataType").checked = (localStorage["dataType"]==="false");
   document.getElementById("y-cas").checked = (localStorage["cascade"]==="true");
   document.getElementById("n-cas").checked = (localStorage["cascade"]==="false");
   document.getElementById("y-autoR").checked = (localStorage["autorun"]==="true");
