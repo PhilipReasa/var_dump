@@ -32,3 +32,6 @@ version.major.feature.bug
 * 1.0.2.0 -> upgraded options page appearance, new icon
 * 1.1.0.0 -> re-wrote a signmificant portion of code. Better html structure. Slightly better visuals. Removed statistics.
 * 1.1.0.# -> small fixes caused by significant rewrite
+* 1.1.0.5 -> Removed font awesome dependency to fix bug reported on chrome web store
+
+
