@@ -79,3 +79,8 @@
       .VAR_DUMP-DEADBEEF .var_dump_modal #header .closeModal {
         cursor: pointer;
         float: right; }
+  .VAR_DUMP-DEADBEEF .svgIcon img,
+  .VAR_DUMP-DEADBEEF img.svgIcon {
+    height: 15px; }
+  .VAR_DUMP-DEADBEEF .rotate180 {
+    transform: rotate(180deg); }

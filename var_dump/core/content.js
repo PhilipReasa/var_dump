@@ -1,5 +1,6 @@
 /* JSHINT INFO*/
 /*jshint sub:true*/ //<-- we have JS reserved words as keys intentionally. This prevent warnings due to that
+/*globals chrome */
 
 //a content item is a key value pair. They key is the variable key, and the value is the value of that variable.
 //this value may be a bool, int, float...or array/object.
@@ -78,19 +79,21 @@ function ContentItem(data, caller) {
 
 ContentItem.prototype.printOpening = function () {
 	"use strict";	
+
+	var expandCollapseImgSrc = chrome.extension.getURL("images/angle-arrow-down.svg");
 	
 	var toPrint = "";
 	switch (this.type) {
 		case "object":
 			toPrint += ""+
-				"<li class='openClose'><span class='openCloseIcon fa fa-angle-down'></span>"+ this.html + "[" + this.extraInfo[0] + "] [" + this.extraInfo[1] + "]" +
-					"<ul>";
+				"<li class='openClose'><span class='svgIcon openCloseIcon'><img src='" + expandCollapseImgSrc + "'></span>" + 
+				this.html + "[" + this.extraInfo[0] + "] [" + this.extraInfo[1] + "]" +	"<ul>";
 
 			break;
 		case "array":
 			toPrint += "" +
-				"<li class='openClose'><span class='openCloseIcon fa fa-angle-down'></span>"+ this.html + "[" + this.extraInfo[0] + "]" +
-					"<ul>";
+				"<li class='openClose'><span class='svgIcon openCloseIcon'><img src='" + expandCollapseImgSrc + "'></span>" +
+				this.html + "[" + this.extraInfo[0] + "]" + "<ul>";
 
 			break;
 		case "integer":
@@ -130,7 +133,7 @@ ContentItem.prototype.printClosing = function () {
 			toPrint += "</ul>";
 			break;
 		case "key":
-			toPrint += "</li>"
+			toPrint += "</li>";
 			break;
 		case "unknown":
 			if(this.node.content.html === "root") {

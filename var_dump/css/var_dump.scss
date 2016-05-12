@@ -127,4 +127,14 @@
 			}
 		}
 	}
+
+	//utility
+	.svgIcon img,
+	img.svgIcon {
+		height: 15px
+	}
+
+	.rotate180 {
+		transform: rotate(180deg);
+	}
 }
