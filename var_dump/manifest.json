@@ -26,8 +26,7 @@
     {
       "matches": ["<all_urls>"],
       "css": [
-        "css/var_dump.css",
-        "vendor/font-awesome/css/font-awesome.min.css"
+        "css/var_dump.css"
         ],
       "js": [
   			"core/globals.js", 
@@ -42,7 +41,7 @@
   ],
 
   "web_accessible_resources":[
-    "/vendor/font-awesome/fonts/*"
+    "/images/*"
   ],
   
   "options_page": "options/options.html"
