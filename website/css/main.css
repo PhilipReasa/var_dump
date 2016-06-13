@@ -37,7 +37,8 @@ body {
     background-color: transparent;
     width: 100%;
     font-size: 18px;
-    transition: all 0.3s ease; }
+    transition: all 0.3s ease;
+    color: #bc2d09; }
     body .btn.btn-defualt:hover {
       background-color: #bc2d09;
       color: white; }
