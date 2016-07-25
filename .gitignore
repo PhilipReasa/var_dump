@@ -1,2 +1,6 @@
 **/.codekit-cache/
 **/config.codekit
+**/.sass-cache/
+growth.xlsx
+.idea/
+*.DS_Store
