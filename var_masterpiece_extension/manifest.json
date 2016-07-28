@@ -3,7 +3,7 @@
 
   "name": "var_masterpiece",
   "description": "Turn a var_dump into a readable, parsable, foldable piece of art!",
-  "version": "1.1.0.5",
+  "version": "1.1.2",
   
   "icons": {
 	 "16": "images/icon2_16.png",
