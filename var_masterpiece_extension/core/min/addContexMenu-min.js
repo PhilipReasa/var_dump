@@ -1,0 +1,1 @@
+function varDumpIt(e,t){"use strict";var c=e.selectionText;chrome.tabs.query({active:!0,currentWindow:!0},function(){chrome.tabs.sendMessage(t[0].id,{fn:"printTree",dump:c})})}var contexts=["selection"];chrome.contextMenus.create({title:"var_dump here",contexts:[contexts[0]],onclick:varDumpIt});

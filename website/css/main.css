@@ -13,11 +13,15 @@
 body {
   font-family: "Roboto", sans-serif;
   color: #bc2d09; }
+  body .main-content {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto; }
   body a:hover, body a:visited, body a:active, body a:focus {
     text-decoration: none; }
   body .btn {
     color: #bc2d09; }
-    body .btn a {
+    body .btn a:hover, body .btn a:visited, body .btn a:active, body .btn a:focus {
       color: #bc2d09; }
   body nav.navbar-custom {
     border-bottom: 2px solid #bc2d09;
@@ -33,7 +37,8 @@ body {
     background-color: transparent;
     width: 100%;
     font-size: 18px;
-    transition: all 0.3s ease; }
+    transition: all 0.3s ease;
+    color: #bc2d09; }
     body .btn.btn-defualt:hover {
       background-color: #bc2d09;
       color: white; }

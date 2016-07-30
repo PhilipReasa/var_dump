@@ -3,6 +3,7 @@ $small: 10px
 $medium: 30px
 $font-stack: 'Roboto', sans-serif
 $ruby-red: rgb(188, 45, 9)
+$content-width: 1200px
 
 //UTILITIES
 .pad-left-s
@@ -22,6 +23,11 @@ body
 	font-family: $font-stack
 	color: $ruby-red
 
+	.main-content
+		max-width: $content-width
+		margin-left: auto
+		margin-right: auto
+
 	a 
 		&:hover,
 		&:visited,
@@ -33,7 +39,11 @@ body
 		color: $ruby-red
 
 		a
-			color: $ruby-red
+			&:hover, 
+			&:visited,
+			&:active,
+			&:focus
+				color: $ruby-red
 
 	nav.navbar-custom
 		border-bottom: 2px solid $ruby-red
@@ -53,6 +63,7 @@ body
 		width: 100%
 		font-size: 18px
 		transition: all 0.3s ease
+		color: $ruby-red
 
 		&:hover 
 			background-color: $ruby-red
