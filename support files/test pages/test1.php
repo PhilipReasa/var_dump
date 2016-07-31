@@ -1,4 +1,4 @@
-<?
+<?php
 class foo
 {
     var $ExtensionName = "Var_Masterpiece";
@@ -15,3 +15,5 @@ class foo
 
 $a = new foo;
 var_dump($a);
+
+
