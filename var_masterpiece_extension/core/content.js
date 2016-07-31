@@ -38,7 +38,7 @@ function ContentItem(data, caller) {
 		this.type = "string";
 		this.html = "<span class='string'>(string) " + data.substring(openingQ + 1, closingQ) + "</span>";
 		this.extraInfo.push(data.substring(openingQ + 1, closingQ));
-		this.extraInfo.push("Length of String: " + data.substring(7, closingP));
+		this.extraInfo.push(data.substring(7, closingP));
 	}
 
 	// check compound types
