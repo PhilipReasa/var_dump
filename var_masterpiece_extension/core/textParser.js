@@ -74,6 +74,25 @@ function generateTheTree(dump, parent) {
 		}
 	
 		newNode = new TreeNode(dump[i]);
+
+		/* UGLY FIX. COULD USE SOME LOVE
+		 * if there is a new line in the middle of a string, things can get really messy.
+		 * we sperate based on the new lines, so they completley mess up our parsing. 
+		 * here we use the expected length of the string to detect when we only got a "partial"
+		 * string, and then continue to look for the rest of it. */
+		if(newNode.content.type === "string") {
+			//the string is not as long as it should be
+			if(parseInt(newNode.content.extraInfo[1]) !== newNode.content.extraInfo[0].length) {
+				//add in the next node (assuming it is actually part of the same string)
+				dump[i] = dump[i] + "\n" + dump[i + 1];
+
+				//remove the next node ftom our list of nodes
+				dump.splice(i+1, 1);
+
+				continue; //try again
+			} 
+		}
+
 		parent.addChild(newNode); //we can add here because JS is pass by reference
 		
 		if(doesNewLevelOpen) {
