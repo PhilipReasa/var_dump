@@ -56,7 +56,7 @@ function ContentItem(data, caller) {
 	}
 
 	// check special types
-	// ignore resource..'cause I got no clue what those are :P
+	// ignore resources...'cause I got no clue what those are :P
 	else if (data === "NULL") {
 		this.type = "NULL";
 		this.html = "<span class='null'>(null) NULL</span>";
