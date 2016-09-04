@@ -1,0 +1,34 @@
+object(foo)#1 (9) {
+  ["ExtensionName"]=>
+  string(15) "Var_Masterpiece"
+  ["AuthorName"]=>
+  string(12) "Philip Reasa"
+  ["ExtensionAbilities"]=>
+  array(5) {
+    [0]=>
+    string(22) "Tree Nesting Structure"
+    [1]=>
+    string(31) "Custimizable Data Type Coloring"
+    [2]=>
+    string(14) "Colapse/Expand"
+    [3]=>
+    string(17) "Automatically Run"
+    [4]=>
+    string(17) "Run Within A Page"
+  }
+  ["GitHub"]=>
+  string(49) "Contribute here: https://github.com/Rece/var_dump"
+  ["TestAssociativeArrays"]=>
+  array(1) {
+    ["testing"]=>
+    string(9) "It works!"
+  }
+  ["TestBooleans"]=>
+  bool(true)
+  ["TestInts"]=>
+  int(1)
+  ["TestFloats"]=>
+  float(1.004)
+  ["TestNulls"]=>
+  NULL
+}

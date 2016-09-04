@@ -5,40 +5,27 @@
 /********************** 
 * ALL HELPER FUNCTIONS:
 ***********************/ 
-/*
-* Takes the output of a vardump and splits it at each line
-*/
-function splitDump(dump) {
-	"use strict"; 
-	return dump.split("\n");
-}
 
 /**
 * Returns string of a var_dump. if no vardumps found, returns false
 *
 * Currently takes the niave approach at looking for a var dump right at
-* the begining of the page, and nowhere else.
+* the begining of the page, and nowhere else. Only looks for arrays and objects
+* 
+* returns string if var dump found, false otherwise
 */
 function whatShoudWeBeautify() {
 	"use strict";
 	var toReturn = $("body").html();
-	if(toReturn.substring(0,4) === "object".substring(0,4)) {
-		return splitDump(toReturn);
+	if(toReturn.substring(0,6) === "object") {
+		return toReturn;
 	}
 	
-	if(toReturn.substring(0,4) === "array".substring(0,4)) {
-		return splitDump(toReturn);
+	if(toReturn.substring(0,5) === "array") {
+		return toReturn;
 	}
 	
 	return false;
-}
-
-/*
-* This function just deletes the whole body...should only be used when the first thing detected was a var dump
-*/
-function removeTheDump() {
-	"use strict";
-	$("body").empty();
 }
 
 /*
@@ -62,6 +49,7 @@ function openVarDump() {
 }
 
 function closeVarDump() {
+	"use strict"
 	return "</div>";
 }
 
@@ -85,6 +73,7 @@ function headerHTML() {
 }
 
 function getColorVal(color) {
+	"use strict";
 	if(color === undefined) {
 		return "inherit";
 	} else {
@@ -93,6 +82,7 @@ function getColorVal(color) {
 }
 
 function generateInlineStyles() {
+	"use strict";
 	return '' +
 		'<style type="text/css">' +
 			'.VAR_DUMP-DEADBEEF #var_dump .bool 	{ color:' + getColorVal(COLORS["bool"]) + 	'; } \n' +
@@ -112,24 +102,23 @@ function bootstrap_vardump() {
 	"use strict";
 	var dump = whatShoudWeBeautify(); 
 
-	/*If we think that the whole page is a var dump*/
-	if(dump) {
-		removeTheDump();
-	
-		var tree = generateTheTree(dump);
-
-		$('body').append(generateInlineStyles());
-
-		$('body').append(openVarDump() + tree.print() + closeVarDump());
-
-		addListners();
+	//If we think that the whole page is a var dump
+	if(dump) {	
+		printModalTree(dump);
 	}
 }
 
 /****************
 * CONTEXT MENU STUFF
 *****************/
-function getSelectionHtml() { //http://stackoverflow.com/a/5670825
+/**
+* Function to grab the slected text from the user.
+* A little more complex than normal, because we need to
+* preserve the \n's that we see. They are important for
+* parsing the var dump, and chrome has a bug that kills them
+* //http://stackoverflow.com/a/5670825
+*/
+function getSelectionHtml() { 
 	"use strict";
     var html = "",
 		sel,
@@ -153,23 +142,28 @@ function getSelectionHtml() { //http://stackoverflow.com/a/5670825
     return html;
 }
 
+/**
+* Given var dump text, this will create a modal with the var dump
+* tree inside.
+*/
 function printModalTree(dump) {
 	"use strict";
-	dump = getSelectionHtml();
+
+	//generate our html
 	var modalOpen = openModalHTML();
 	var header = headerHTML();
 	var modalClose = closeModalHTML();
-	dump = splitDump(dump);
 	var tree =  generateTheTree(dump);
+
+	//add out html / styles / listeners to the page
 	$('body').append(generateInlineStyles());
 	$('body').append(modalOpen + header + tree.print() + modalClose);
-	
 	addListners();
 }
 
 chrome.extension.onMessage.addListener(function (message) {
 	"use strict";
     if (message.fn === "printTree") { //sent from context menu
-		printModalTree(message.dump);
+		printModalTree(getSelectionHtml());
     }
 });
