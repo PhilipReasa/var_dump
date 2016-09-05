@@ -16,7 +16,7 @@
 */
 function whatShoudWeBeautify() {
 	"use strict";
-	var toReturn = $("body").html();
+	var toReturn = $("body").html().trim();
 	if(toReturn.substring(0,6) === "object") {
 		return toReturn;
 	}
@@ -39,7 +39,7 @@ function addListners() {
 	$('#expandAll').bind('click', openAll);
 	$('#collapseAll').bind('click', closeAll);
 	$('.closeModal').bind('click', function() {
-		$(".var_dump_modal").remove();
+		$(".VAR_DUMP-DEADBEEF").remove();
 	});
 }
 
@@ -84,7 +84,7 @@ function getColorVal(color) {
 function generateInlineStyles() {
 	"use strict";
 	return '' +
-		'<style type="text/css">' +
+		'<style class="VAR_DUMP-DEADBEEF" type="text/css">' +
 			'.VAR_DUMP-DEADBEEF #var_dump .bool 	{ color:' + getColorVal(COLORS["bool"]) + 	'; } \n' +
 			'.VAR_DUMP-DEADBEEF #var_dump .int 	{ color:' + getColorVal(COLORS["int"]) + 	'; } \n' +
 			'.VAR_DUMP-DEADBEEF #var_dump .float { color:' + getColorVal(COLORS["float"]) + 	'; } \n' +
@@ -149,15 +149,25 @@ function getSelectionHtml() {
 function printModalTree(dump) {
 	"use strict";
 
+	dump = dump.trim();
+
+	var varDumpObject;
+	try {
+		varDumpObject = parseVarDump(dump);
+	} catch(e) {
+		console.log(dump);
+		console.log(e);
+		return;
+	}
+
 	//generate our html
 	var modalOpen = openModalHTML();
 	var header = headerHTML();
 	var modalClose = closeModalHTML();
-	var tree =  generateTheTree(dump);
 
 	//add out html / styles / listeners to the page
 	$('body').append(generateInlineStyles());
-	$('body').append(modalOpen + header + tree.print() + modalClose);
+	$('body').append(modalOpen + header + printVarDump(varDumpObject) + modalClose);
 	addListners();
 }
 
