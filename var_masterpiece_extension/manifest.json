@@ -3,7 +3,7 @@
 
   "name": "var_masterpiece",
   "description": "Turn a var_dump into a readable, parsable, foldable piece of art!",
-  "version": "1.1.3",
+  "version": "1.2.0",
   
   "icons": {
 	 "16": "images/icon2_16.png",
@@ -31,9 +31,8 @@
       "js": [
   			"core/globals.js", 
   			"vendor/jquery/jquery.js",
-  			"core/content.js",
-  			"core/jstree.js",
-  			"core/textParser.js",
+  			"core/varDumpProcessing.js",
+  			"core/var_dump_grammer.js",
   			"core/collapse.js",
   			"core/var_dump.js"
 		  ]
