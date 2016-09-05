@@ -31,6 +31,7 @@ So here is mine. Hope it works for you!
 [semver](http://semver.org/): MAJOR.MINOR.PATCH
 
 * 1.1.2 -> updated manifest description.
+* 1.2.0 -> rewrote parser to use formal grammar + PEGjs
 
 ### OLD
 version.major.feature.bug
