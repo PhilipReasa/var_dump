@@ -40,7 +40,7 @@ function printObject(object) {
                     "<span class='object'>(object) " +
                         "<span class='objectName'>" + objectName + " </span>" +
                         "<span class='objectRefernce'>[Object ID: " + reference + "]</span>" +
-                        "<span class='propertyCount'>[Number of Properties: " + propertyCount + "]</span>"
+                        "<span class='propertyCount'>[Number of Properties: " + propertyCount + "]</span>" +
                     "</span>" +
                     "<ul>";
 
@@ -55,7 +55,7 @@ function printObject(object) {
 
                 generatedHTML += "" +
                     "<li>" +
-                        "<span class='key'>" + propertyName + ":</span>" +
+                        "<span class='key'>" + propertyName + ": </span>" +
                         printObject(childObject.value) +
                     "</li>";
             }
