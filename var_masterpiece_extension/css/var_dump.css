@@ -58,12 +58,13 @@
     max-height: 80%;
     width: 80%;
     position: fixed;
-    box-shadow: 0px 0px 10px #888;
+    box-shadow: 0 0 10px #888;
     top: 10%;
     left: 10%;
     padding: 5%;
     background-color: white;
-    opacity: .90;
+    opacity: .95;
+    border-radius: 2px;
     box-sizing: border-box;
     overflow: scroll; }
     .VAR_DUMP-DEADBEEF .var_dump_modal #header {
@@ -79,16 +80,16 @@
       .VAR_DUMP-DEADBEEF .var_dump_modal #header .closeModal {
         cursor: pointer;
         float: right; }
+    .VAR_DUMP-DEADBEEF .var_dump_modal .failedMessage {
+      padding: 5px;
+      background-color: #BC2D09;
+      border-radius: 2px;
+      color: white;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
   .VAR_DUMP-DEADBEEF .svgIcon img,
   .VAR_DUMP-DEADBEEF img.svgIcon {
     height: 15px; }
   .VAR_DUMP-DEADBEEF .rotate180 {
     transform: rotate(180deg); }
 
-.failedMessage {
-  padding: 5px;
-  background-color: #BC2D09;
-  border-radius: 2px;
-  color: white;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
+/*# sourceMappingURL=var_dump.css.map */
