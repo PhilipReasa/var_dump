@@ -84,3 +84,11 @@
     height: 15px; }
   .VAR_DUMP-DEADBEEF .rotate180 {
     transform: rotate(180deg); }
+
+.failedMessage {
+  padding: 5px;
+  background-color: #BC2D09;
+  border-radius: 2px;
+  color: white;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}

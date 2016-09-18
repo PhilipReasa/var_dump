@@ -38,6 +38,10 @@ function addListners() {
 	$('.openClose .openCloseIcon').bind('click', toggleCollapse);
 	$('#expandAll').bind('click', openAll);
 	$('#collapseAll').bind('click', closeAll);
+	addCloseListener();
+}
+
+function addCloseListener() {
 	$('.closeModal').bind('click', function() {
 		$(".VAR_DUMP-DEADBEEF").remove();
 	});
@@ -49,7 +53,7 @@ function openVarDump() {
 }
 
 function closeVarDump() {
-	"use strict"
+	"use strict";
 	return "</div>";
 }
 
@@ -61,6 +65,20 @@ function openModalHTML() {
 function closeModalHTML() {
 	"use strict";
 	return "</div>" + closeVarDump();
+}
+
+function failedHeaderHTML(dump) {
+	"use strict";
+
+    var body = encodeURIComponent(dump);
+    body = body.replace(/'/g, "%27");
+
+	return "<div id='header'>" +
+				"<div class='closeModal'><img class='svgIcon' src='" + chrome.extension.getURL("images/cross-mark-on-a-black-circle-background.svg") + "'></div>" +
+			"</div>" + 
+			"<div class='failedMessage'>We were not able to parse this var_dump. If this is a valid var_dump, please " +
+                "<a href='mailto:varmasterpiece@gmail.com?subject=Parsing%20Error&body=" + body + "'>notify us</a> so we can get this fixed!" +
+            "</div>";
 }
 
 function headerHTML() {
@@ -104,7 +122,7 @@ function bootstrap_vardump() {
 
 	//If we think that the whole page is a var dump
 	if(dump) {	
-		printModalTree(dump);
+		printModalTree(dump, false);
 	}
 }
 
@@ -145,26 +163,37 @@ function getSelectionHtml() {
 /**
 * Given var dump text, this will create a modal with the var dump
 * tree inside.
+*
+* Dump contains the text of the var dump
+* Explicit is a flag to determin if this is an automatic var dump, or an explicitly user
+* triggered call.
 */
-function printModalTree(dump) {
+function printModalTree(dump, explicit) {
 	"use strict";
 
 	dump = dump.trim();
+	var modalOpen = openModalHTML();
+	var modalClose = closeModalHTML();
 
 	var varDumpObject;
 	try {
 		varDumpObject = parseVarDump(dump);
 	} catch(e) {
-		console.log(dump);
-		console.log(e);
-		return;
+		if(!explicit) {
+			//we tried to auto run, but didn't find anything. Die quietly
+			return;
+		} else {
+			//the user tied to pretify a var dump, and we failed to parse it. Take Plan 2
+			var failedHeader = failedHeaderHTML(dump);
+			$('body').append(modalOpen + failedHeader + "<pre>" + dump + "</pre>" + modalClose);
+			addCloseListener();
+			return;
+		}
 	}
 
-	//generate our html
-	var modalOpen = openModalHTML();
+	//generate our header
 	var header = headerHTML();
-	var modalClose = closeModalHTML();
-
+	
 	//add out html / styles / listeners to the page
 	$('body').append(generateInlineStyles());
 	$('body').append(modalOpen + header + printVarDump(varDumpObject) + modalClose);
@@ -174,6 +203,6 @@ function printModalTree(dump) {
 chrome.extension.onMessage.addListener(function (message) {
 	"use strict";
     if (message.fn === "printTree") { //sent from context menu
-		printModalTree(getSelectionHtml());
+		printModalTree(getSelectionHtml(), true);
     }
 });
