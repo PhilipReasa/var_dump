@@ -183,7 +183,7 @@ function printModalTree(dump, explicit) {
 			//we tried to auto run, but didn't find anything. Die quietly
 			return;
 		} else {
-			//the user tied to pretify a var dump, and we failed to parse it. Take Plan 2
+			//the user tied to prettify a var dump, and we failed to parse it. Take Plan 2
 			var failedHeader = failedHeaderHTML(dump);
 			$('body').append(modalOpen + failedHeader + "<pre>" + dump + "</pre>" + modalClose);
 			addCloseListener();
