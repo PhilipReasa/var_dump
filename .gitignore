@@ -2,7 +2,7 @@
 **/.codekit-cache/
 **/config.codekit
 **/.sass-cache/
-.idea/
+**/.idea/
 
 # System Stuff
 *.DS_Store
