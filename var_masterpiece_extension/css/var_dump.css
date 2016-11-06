@@ -66,7 +66,8 @@
     opacity: .95;
     border-radius: 2px;
     box-sizing: border-box;
-    overflow: scroll; }
+    overflow: scroll;
+    z-index: 50; }
     .VAR_DUMP-DEADBEEF .var_dump_modal #header {
       height: 25px;
       width: 100%;
