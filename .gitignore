@@ -7,3 +7,5 @@
 # System Stuff
 *.DS_Store
 
+# Sass artifacts
+*.css.map
