@@ -1,7 +1,19 @@
-.VAR_DUMP-DEADBEEF { //to avoid accidental styling collisions
-  	font-family: monospace;
-  	font-size:18px;
-  	color: black; //add default color in case the page being dumped provides one.
+.VAR_DUMP-DEADBEEF { 
+	//A basic CSS reset to avoid any styling collisions
+	font-family: monospace;
+	font-size:18px;
+	color: black; 
+	padding: 0;
+	margin: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	line-height: 1;
+	
+	* { //Apply the CSS Reset to all elements to give this stylesheet more wieght than any existing stylesheets
+		@extend .VAR_DUMP-DEADBEEF;
+	}
+  		
 
 	#var_dump { //the var dump output
 		font-size: 16px;
@@ -141,7 +153,7 @@
 	//utility
 	.svgIcon img,
 	img.svgIcon {
-		height: 15px
+		height: 15px;
 	}
 
 	.rotate180 {
