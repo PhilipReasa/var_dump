@@ -3,6 +3,8 @@
 var_dumps --> var_masterpieces!
 [varmasterpiece.probitytechnology.com](http://varMasterpiece.probitytechnology.com)
 
+![sample](https://cloud.githubusercontent.com/assets/1691316/20464548/aca2261e-aefd-11e6-8f81-0abba3357a03.gif)
+
 ##What is var_dump
 
 var_dump is a work-in-progress chrome extension that will parse a var_dump out of the DOM and make it pretty!
