@@ -16,16 +16,7 @@ Trying to read var_dumps is a lot like trying to read multiple lines of text wit
 
 Actually, that is exactly what is it.
 
-There are alternatives to making var_dumps readable, such as:
-* importing libraries into php, but that doesn't seem like a good idea.
-  * Not only do you now have unnecessary, third part code running on your web server, 
-  * but it also sets you up to have different things running between your dev and live sites.
-* You could write code above and below all of your var_dumps, but that gets rid of the efficiency.
-* You could use php's debugger and... oh wait, there isn't one
-
-It is my conviction that a browser plugin is by far the best route to take, but I couldn't find any.
-
-So here is mine. Hope it works for you!
+So here is a simple solution to this problem. Hope it works for you!
 
 ## Versioning
 
