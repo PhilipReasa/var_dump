@@ -33,7 +33,8 @@ So here is mine. Hope it works for you!
 * 1.1.2 -> updated manifest description.
 * 1.1.3 -> Hacky fix for issue caused by `\n` in strings
 * 1.2.0 -> rewrote parser to use formal grammar + PEGjs
-* 1.3.0 -> updated grammar. Added elegent error handling 
+* 1.3.0 -> updated grammar. Added elegant error handling
+* 1.3.2 -> improved support of float types
 
 ### OLD
 version.major.feature.bug
