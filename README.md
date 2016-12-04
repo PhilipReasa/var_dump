@@ -3,6 +3,8 @@
 var_dumps --> var_masterpieces!
 [varmasterpiece.probitytechnology.com](http://varMasterpiece.probitytechnology.com)
 
+![sample](https://cloud.githubusercontent.com/assets/1691316/20464548/aca2261e-aefd-11e6-8f81-0abba3357a03.gif)
+
 ##What is var_dump
 
 var_dump is a work-in-progress chrome extension that will parse a var_dump out of the DOM and make it pretty!
@@ -14,16 +16,7 @@ Trying to read var_dumps is a lot like trying to read multiple lines of text wit
 
 Actually, that is exactly what is it.
 
-There are alternatives to making var_dumps readable, such as:
-* importing libraries into php, but that doesn't seem like a good idea.
-  * Not only do you now have unnecessary, third part code running on your web server, 
-  * but it also sets you up to have different things running between your dev and live sites.
-* You could write code above and below all of your var_dumps, but that gets rid of the efficiency.
-* You could use php's debugger and... oh wait, there isn't one
-
-It is my conviction that a browser plugin is by far the best route to take, but I couldn't find any.
-
-So here is mine. Hope it works for you!
+So here is a simple solution to this problem. Hope it works for you!
 
 ## Versioning
 
@@ -34,6 +27,7 @@ So here is mine. Hope it works for you!
 * 1.1.3 -> Hacky fix for issue caused by `\n` in strings
 * 1.2.0 -> rewrote parser to use formal grammar + PEGjs
 * 1.3.0 -> updated grammar. Added elegant error handling
+* 1.3.1 -> fixed a small CSS issue
 * 1.3.2 -> improved support of float types
 
 ### OLD
