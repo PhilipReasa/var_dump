@@ -1,6 +1,5 @@
 .VAR_DUMP-DEADBEEF, .VAR_DUMP-DEADBEEF * {
   font-family: monospace;
-  font-size: 18px;
   color: black;
   padding: 0;
   margin: 0;
@@ -25,6 +24,8 @@
     .VAR_DUMP-DEADBEEF #var_dump .string {
       color: green;
       white-space: pre-wrap; }
+    .VAR_DUMP-DEADBEEF #var_dump .resource {
+      color: saddlebrown; }
     .VAR_DUMP-DEADBEEF #var_dump .key {
       float: left;
       font-weight: bold; }
