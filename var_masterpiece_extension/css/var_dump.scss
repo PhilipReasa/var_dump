@@ -2,8 +2,7 @@
 .VAR_DUMP-DEADBEEF {
 	//A basic CSS reset to avoid any styling collisions
 	font-family: monospace;
-	font-size:18px;
-	color: black; 
+	color: black;
 	padding: 0;
 	margin: 0;
 	border: 0;
@@ -45,6 +44,10 @@
 		.string {
 			color: green;
 			white-space: pre-wrap;
+		}
+
+		.resource {
+			color: saddlebrown;
 		}
 
 	  	.key {

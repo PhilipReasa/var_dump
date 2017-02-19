@@ -29,7 +29,7 @@ function printObject(object) {
     switch (object.type) {
         case "object":
             var objectName = object.className.namespace.join("\\") + object.className.class;
-            var reference = object.reference;
+            var referenceId = object.referenceId;
             var propertyCount = object.properties;
 
             generatedHTML += "" +
@@ -39,7 +39,7 @@ function printObject(object) {
                     "</span>" +
                     "<span class='object'>(object) " +
                         "<span class='objectName'>" + objectName + " </span>" +
-                        "<span class='objectRefernce'>[Object ID: " + reference + "]</span>" +
+                        "<span class='objectRefernce'>[Object ID: " + referenceId + "]</span>" +
                         "<span class='propertyCount'>[Number of Properties: " + propertyCount + "]</span>" +
                     "</span>" +
                     "<ul>";
@@ -111,6 +111,10 @@ function printObject(object) {
 
         case "null":
             generatedHTML += "<span class='null'>(null) NULL</span>";
+            break;
+
+        case "resource":
+            generatedHTML += "<span class='resource'>(resource) " + object.value + "</span>"
             break;
     }
 
