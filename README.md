@@ -29,6 +29,7 @@ So here is a simple solution to this problem. Hope it works for you!
 * 1.3.0 -> updated grammar. Added elegant error handling
 * 1.3.1 -> fixed a small CSS issue
 * 1.3.2 -> improved support of float types
+* 1.3.3 -> updated grammar to support references and resources
 
 ### OLD
 version.major.feature.bug
