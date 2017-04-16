@@ -30,6 +30,7 @@ So here is a simple solution to this problem. Hope it works for you!
 * 1.3.1 -> fixed a small CSS issue
 * 1.3.2 -> improved support of float types
 * 1.3.3 -> updated grammar to support references and resources
+* 1.3.4 -> made manual selections more intelligent/forgiving
 
 ### OLD
 version.major.feature.bug
