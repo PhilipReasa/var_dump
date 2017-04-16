@@ -7,7 +7,6 @@ var COLORS;
 var AUTORUN;
 var CASCADE;
 var SPECIAL_CLASS = "VAR_DUMP-DEADBEEF"; //if you change this, you also must change it in scss
-var KEY_TEXT = ": ";
 
 //load the globals!
 chrome.extension.sendRequest({method: "getAllOptions"}, function(response) {
@@ -15,7 +14,7 @@ chrome.extension.sendRequest({method: "getAllOptions"}, function(response) {
 	AUTORUN = response.autorun; 
 	CASCADE = response.cascade;
 
-	//when the data retrueval is done, see if we should try to run:
+	//when the data retrieval is done, see if we should try to run:
 	if(AUTORUN === "true") {
 		bootstrap_vardump();
 	}

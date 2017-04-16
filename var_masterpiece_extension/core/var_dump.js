@@ -28,6 +28,41 @@ function whatShoudWeBeautify() {
 	return false;
 }
 
+/**
+ * Take a potential var dump and remove any preceding / trailing
+ * chars that are not related to the dump
+ *
+ * returns the cleaned html
+ */
+function removeBadChars(html) {
+	// var dumps must start `array` or `object`
+	var arrayStart = html.indexOf("array");
+	var objectStart = html.indexOf("object");
+
+	var arrayEnd = html.lastIndexOf("]");
+	var objectEnd = html.lastIndexOf("}");
+
+	var start = 0;
+	var end = html.length;
+	if(arrayStart > -1 && objectStart > -1) {
+		start = Math.min(arrayStart, objectStart);
+	} else if (arrayStart > -1) {
+		start = arrayStart;
+	} else if (objectStart > -1) {
+		start = objectStart;
+	}
+
+	if(arrayEnd > -1 && objectEnd > -1) {
+		end = Math.max(arrayEnd, objectEnd);
+	} else if (arrayEnd > -1) {
+		end = arrayEnd;
+	} else if (objectEnd > -1) {
+		end = objectEnd;
+	}
+
+	return html.substr(start, end);
+}
+
 /*
 * events for the "open" and "close" buttons in the var dump
 *
@@ -157,6 +192,7 @@ function getSelectionHtml() {
             html = document.selection.createRange().htmlText;
         }
     }
+
     return html;
 }
 
@@ -202,7 +238,9 @@ function printModalTree(dump, explicit) {
 
 chrome.extension.onMessage.addListener(function (message) {
 	"use strict";
-    if (message.fn === "printTree") { //sent from context menu
-		printModalTree(getSelectionHtml(), true);
+    if (message.fn === "printTree") { // sent from context menu
+		var html = getSelectionHtml();
+		html = removeBadChars(html);
+		printModalTree(html, true);
     }
 });
