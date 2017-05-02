@@ -1,16 +1,16 @@
-#var_dump
+# var_dump
 
 var_dumps --> var_masterpieces!
 [varmasterpiece.probitytechnology.com](http://varMasterpiece.probitytechnology.com)
 
 ![sample](https://cloud.githubusercontent.com/assets/1691316/20464548/aca2261e-aefd-11e6-8f81-0abba3357a03.gif)
 
-##What is var_dump
+## What is var_dump
 
 var_dump is a work-in-progress chrome extension that will parse a var_dump out of the DOM and make it pretty!
 Also, Just FYI, we are now over on the chrome store: [Here!](https://chrome.google.com/webstore/detail/varmasterpiece/chfhddogiigmfpkcmgfpolalagdcamkl).
 
-##Here's The Deal
+## Here's The Deal
 
 Trying to read var_dumps is a lot like trying to read multiple lines of text without punctuation that wraps in a big block and makes you want to cry.
 
