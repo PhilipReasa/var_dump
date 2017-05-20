@@ -1,7 +1,7 @@
 # var_dump
 
 var_dumps --> var_masterpieces!
-[varmasterpiece.probitytechnology.com](http://varMasterpiece.probitytechnology.com)
+[rece.github.io/var_dump](http://rece.github.io/var_dump/)
 
 ![sample](https://cloud.githubusercontent.com/assets/1691316/20464548/aca2261e-aefd-11e6-8f81-0abba3357a03.gif)
 
