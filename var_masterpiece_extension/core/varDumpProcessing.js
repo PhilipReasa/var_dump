@@ -48,14 +48,10 @@ function printObject(object) {
             var childObject;
             for(var i = 0; i < object.values.length; i ++) {
                 childObject = object.values[i];
-                var propertyName = childObject.property.propertyChain.join(":");
-                if(childObject.property.propertyScope) {
-                    propertyName += ":" + childObject.property.propertyScope;
-                }
 
                 generatedHTML += "" +
                     "<li>" +
-                        "<span class='key'>" + propertyName + ": </span>" +
+                        "<span class='key'>" + childObject.key + ": </span>" +
                         printObject(childObject.value) +
                     "</li>";
             }

@@ -53,11 +53,11 @@ function removeBadChars(html) {
 	}
 
 	if(arrayEnd > -1 && objectEnd > -1) {
-		end = Math.max(arrayEnd, objectEnd);
+		end = Math.max(arrayEnd, objectEnd) + 1;
 	} else if (arrayEnd > -1) {
-		end = arrayEnd;
+		end = arrayEnd + 1;
 	} else if (objectEnd > -1) {
-		end = objectEnd;
+		end = objectEnd + 1;
 	}
 
 	return html.substr(start, end);
