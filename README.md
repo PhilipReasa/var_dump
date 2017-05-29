@@ -31,6 +31,7 @@ So here is a simple solution to this problem. Hope it works for you!
 * 1.3.2 -> improved support of float types
 * 1.3.3 -> updated grammar to support references and resources
 * 1.3.4 -> made manual selections more intelligent/forgiving
+* 1.3.5 -> Object keys now more robust. fixed bug with 1.3.4 release
 
 ### OLD
 version.major.feature.bug
