@@ -11,6 +11,7 @@ class foo
     var $TestInts = 1;
     var $TestFloats = 1.004;
     var $TestNulls = NULL;
+    private $Private = true;
 }
 
 $test1 = new foo;
