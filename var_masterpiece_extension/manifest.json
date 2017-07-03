@@ -31,8 +31,9 @@
       "js": [
   			"vendor/jquery/jquery.js",
   			"core/varDumpProcessing.js",
+  			"core/varDumpCollapsingTools.js",
+  			"core/varDumpModalTools.js",
   			"core/var_dump_grammar.js",
-  			"core/collapse.js",
   			"core/var_dump.js"
 		  ]
     }
