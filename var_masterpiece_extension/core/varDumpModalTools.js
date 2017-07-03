@@ -1,98 +1,15 @@
 /**
- * @param settings = {colors, autoRun, cascade, specialClass}
+ * @param settings {{colors, autoRun, cascade, specialClass}}
  * @type {{run, autoRun}}
  */
-const varDumpModalTools = ((settings) => {
+const varDumpModalTools = (settings) => {
     const COLORS = settings.colors
     const AUTO_RUN = settings.autoRun
     const CASCADE = settings.cascade
     const SPECIAL_CLASS = settings.specialClass
-    const collpasingTools = varDumpCollapsingTools(CASCADE, SPECIAL_CLASS)
-
-    /**
-     * Function to grab the slected text from the user.
-     * A little more complex than normal, because we need to
-     * preserve the \n's that we see. They are important for
-     * parsing the var dump, and chrome has a bug that kills them
-     * //http://stackoverflow.com/a/5670825
-     */
-    function getSelectionHtml() {
-        let html = ""
-        if (window.getSelection !== "undefined") {
-            const sel = window.getSelection();
-            if (sel.rangeCount) {
-                let container = document.createElement("div");
-                var len = sel.rangeCount;
-                for (let i = 0; i < len; ++i) {
-                    container.appendChild(sel.getRangeAt(i).cloneContents());
-                }
-                html = container.innerHTML;
-            }
-        } else if (typeof document.selection !== "undefined") {
-            if (document.selection.type === "Text") {
-                html = document.selection.createRange().htmlText;
-            }
-        }
-
-        return html;
-    }
-
-    /**
-     * Take a potential var dump and remove any preceding / trailing
-     * chars that are not related to the dump
-     *
-     * @return the cleaned html
-     */
-    function removeBadChars(html) {
-        // var dumps must start `array` or `object`
-        const arrayStart = html.indexOf("array");
-        const objectStart = html.indexOf("object");
-
-        const arrayEnd = html.lastIndexOf("]");
-        const objectEnd = html.lastIndexOf("}");
-
-        let start = 0;
-        let end = html.length;
-        if(arrayStart > -1 && objectStart > -1) {
-            start = Math.min(arrayStart, objectStart);
-        } else if (arrayStart > -1) {
-            start = arrayStart;
-        } else if (objectStart > -1) {
-            start = objectStart;
-        }
-
-        if(arrayEnd > -1 && objectEnd > -1) {
-            end = Math.max(arrayEnd, objectEnd) + 1;
-        } else if (arrayEnd > -1) {
-            end = arrayEnd + 1;
-        } else if (objectEnd > -1) {
-            end = objectEnd + 1;
-        }
-
-        return html.substr(start, end);
-    }
-
-    /**
-     * Returns string of a var_dump. if no vardumps found, returns false
-     *
-     * Currently takes the niave approach at looking for a var dump right at
-     * the begining of the page, and nowhere else. Only looks for arrays and objects
-     *
-     * returns string if var dump found, false otherwise
-     */
-    function findVarDump() {
-        var toReturn = $("body").html().trim();
-        if(toReturn.substring(0,6) === "object") {
-            return toReturn;
-        }
-
-        if(toReturn.substring(0,5) === "array") {
-            return toReturn;
-        }
-
-        return null;
-    }
-
+    const collapsingTools = varDumpCollapsingTools(CASCADE, SPECIAL_CLASS)
+    const parsingTools = varDumpParsingTools()
+    const displayGenerationTools = varDumpGenerationTools()
 
     function openVarDump() {
         return "<div class='"+SPECIAL_CLASS+"'>"
@@ -156,56 +73,45 @@ const varDumpModalTools = ((settings) => {
      * tree inside.
      *
      * Dump contains the text of the var dump
-     * Explicit is a flag to determin if this is an automatic var dump, or an explicitly user
-     * triggered call.
      */
-    function printModalTree(dump, explicit) {
-        dump = dump.trim();
+    function printModalTree(varDumpObject, explicit) {
+        var $body = $('body')
         var modalOpen = openModalHTML();
         var modalClose = closeModalHTML();
 
-        var varDumpObject;
-        try {
-            varDumpObject = parseVarDump(dump);
-        } catch(e) {
-            if(!explicit) {
-                //we tried to auto run, but didn't find anything. Die quietly
-                return;
-            } else {
-                //the user tied to prettify a var dump, and we failed to parse it. Take Plan 2
-                var failedHeader = failedHeaderHTML(dump);
-                $('body').append(modalOpen + failedHeader + "<pre>" + dump + "</pre>" + modalClose);
-                addCloseListener();
-                return;
-            }
+        if(varDumpObject == null || varDumpObject == undefined) {
+            //the user tied to prettify a var dump, and we failed to parse it. Take Plan 2
+            var failedHeader = failedHeaderHTML(dump);
+            $body.append(modalOpen + failedHeader + "<pre>" + dump + "</pre>" + modalClose);
+            addCloseListener();
+            return;
         }
 
         //generate our header
         var header = headerHTML();
 
         //add out html / styles / listeners to the page
-        $('body').append(generateInlineStyles());
-        $('body').append(modalOpen + header + printVarDump(varDumpObject) + modalClose);
-        collpasingTools.addListeners();
+        $body.append(generateInlineStyles());
+        $body.append(modalOpen + header + displayGenerationTools.getVarDumpHtml(varDumpObject) + modalClose);
+        collapsingTools.addListeners();
     }
 
     function bootstrap_vardump() {
-        var dump = findVarDump();
+        const varDumpObj = parsingTools.parseVarDumpFromPage()
 
         //If we think that the whole page is a var dump
-        if(dump) {
-            printModalTree(dump, false);
+        if(varDumpObj !== undefined && varDumpObj !== null) {
+            printModalTree(varDumpObj);
         }
     }
 
     function run() {
-        var html = getSelectionHtml();
-        html = removeBadChars(html);
-        printModalTree(html, true);
+        const varDumpObj = parsingTools.parseVarDumpFromSelection()
+        printModalTree(varDumpObj);
     }
 
     return {
         run: run,
         autoRun: bootstrap_vardump
     }
-})
+}

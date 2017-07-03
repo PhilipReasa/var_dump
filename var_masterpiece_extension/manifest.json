@@ -30,11 +30,12 @@
         ],
       "js": [
   			"vendor/jquery/jquery.js",
-  			"core/varDumpProcessing.js",
+            "core/var_dump_grammar.js",
+            "core/varDumpParsingTools.js",
+  			"core/varDumpDisplayGenerationTools.js",
   			"core/varDumpCollapsingTools.js",
   			"core/varDumpModalTools.js",
-  			"core/var_dump_grammar.js",
-  			"core/var_dump.js"
+  			"core/varDump.js"
 		  ]
     }
   ],
