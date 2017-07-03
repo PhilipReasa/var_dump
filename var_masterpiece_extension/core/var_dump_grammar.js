@@ -4,8 +4,6 @@
  * http://pegjs.org/
  */
 (function(root) {
-  "use strict";
-
   function peg$subclass(child, parent) {
     function ctor() { this.constructor = child; }
     ctor.prototype = parent.prototype;

@@ -22,8 +22,6 @@ function printVarDump(dumpObject) {
 }
 
 function printObject(object) {
-    "use strict";
-
     var expandCollapseImgSrc = chrome.extension.getURL("images/angle-arrow-down.svg");
     var generatedHTML = "";
     switch (object.type) {

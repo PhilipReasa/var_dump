@@ -15,7 +15,6 @@
 * returns string if var dump found, false otherwise
 */
 function whatShoudWeBeautify() {
-	"use strict";
 	var toReturn = $("body").html().trim();
 	if(toReturn.substring(0,6) === "object") {
 		return toReturn;
@@ -69,7 +68,6 @@ function removeBadChars(html) {
 * collapse, openAll, and closeAll functions are saved ni collapse.js
 */
 function addListners() {
-	"use strict";
 	$('.openClose .openCloseIcon').bind('click', toggleCollapse);
 	$('#expandAll').bind('click', openAll);
 	$('#collapseAll').bind('click', closeAll);
@@ -83,28 +81,22 @@ function addCloseListener() {
 }
 
 function openVarDump() {
-	"use strict";
 	return "<div class='"+SPECIAL_CLASS+"'>"
 }
 
 function closeVarDump() {
-	"use strict";
 	return "</div>";
 }
 
 function openModalHTML() {
-	"use strict";
 	return openVarDump() + "<div class='var_dump_modal'>";
 }
 
 function closeModalHTML() {
-	"use strict";
 	return "</div>" + closeVarDump();
 }
 
 function failedHeaderHTML(dump) {
-	"use strict";
-
     var body = encodeURIComponent(dump);
     body = body.replace(/'/g, "%27");
 
@@ -117,7 +109,6 @@ function failedHeaderHTML(dump) {
 }
 
 function headerHTML() {
-	"use strict";
 	return "<div id='header'>" +
 		  		"<div id='expandAll'><img class='svgIcon' src='" + chrome.extension.getURL("images/chevron-sign-down.svg") + "'> Expand All </div>" +
 				"<div id='collapseAll'><img class='svgIcon rotate180' src='" + chrome.extension.getURL("images/chevron-sign-down.svg") + "'> Collapse All </div>" +
@@ -126,7 +117,6 @@ function headerHTML() {
 }
 
 function getColorVal(color) {
-	"use strict";
 	if(color === undefined) {
 		return "inherit";
 	} else {
@@ -135,7 +125,6 @@ function getColorVal(color) {
 }
 
 function generateInlineStyles() {
-	"use strict";
 	return '' +
 		'<style class="VAR_DUMP-DEADBEEF" type="text/css">' +
 			'.VAR_DUMP-DEADBEEF #var_dump .bool 	{ color:' + getColorVal(COLORS["bool"]) + 	'; } \n' +
@@ -152,8 +141,7 @@ function generateInlineStyles() {
 * MAIN STUFF
 *****************/
 function bootstrap_vardump() {
-	"use strict";
-	var dump = whatShoudWeBeautify(); 
+	var dump = whatShoudWeBeautify();
 
 	//If we think that the whole page is a var dump
 	if(dump) {	
@@ -172,7 +160,6 @@ function bootstrap_vardump() {
 * //http://stackoverflow.com/a/5670825
 */
 function getSelectionHtml() { 
-	"use strict";
     var html = "",
 		sel,
 		container,
@@ -205,8 +192,6 @@ function getSelectionHtml() {
 * triggered call.
 */
 function printModalTree(dump, explicit) {
-	"use strict";
-
 	dump = dump.trim();
 	var modalOpen = openModalHTML();
 	var modalClose = closeModalHTML();
@@ -237,7 +222,6 @@ function printModalTree(dump, explicit) {
 }
 
 chrome.extension.onMessage.addListener(function (message) {
-	"use strict";
     if (message.fn === "printTree") { // sent from context menu
 		var html = getSelectionHtml();
 		html = removeBadChars(html);

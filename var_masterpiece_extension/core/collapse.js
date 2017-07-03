@@ -1,9 +1,4 @@
-/*JSHINT info*/
-/* globals CASCADE*/
-/* exported openAll, closeAll*/
- 
 function toggleCollapse() {
-	"use strict";
 	var collapser = $(this);
 
 	if (collapser.hasClass("closed")) { //if it is closed
@@ -33,12 +28,10 @@ function collapseAllChildren($start) {
 }
 
 function openAll() {
-	"use strict";
 	$("#var_dump").find('*').removeClass('hide'); //remove the hide class from everything
 	$("#var_dump").find('*').removeClass('closed'); // <-- could be way more efficient
 }
 
 function closeAll() {
-	"use strict";
 	collapseAllChildren($("#var_dump"))
 }
