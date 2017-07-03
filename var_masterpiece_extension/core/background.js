@@ -1,7 +1,3 @@
-/*JSHINT info*/
-/* globals chrome*/
-/*jshint sub:true*/ //<-- we have JS reserved words as keys intentionally. This prevent warnings due to that
-
 /*
 * Aux Functions 
 */
@@ -29,7 +25,7 @@ function getColors() {
 * The main code
 */
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
-	if (request.method === "getAllOptions") {
+	if (request.action === "getAllOptions") {
 	  colors = getColors();
 
 	  if(localStorage.autorun === undefined) {

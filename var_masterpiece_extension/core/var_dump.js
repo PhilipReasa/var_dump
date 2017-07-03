@@ -221,7 +221,25 @@ function printModalTree(dump, explicit) {
 	addListners();
 }
 
-chrome.extension.onMessage.addListener(function (message) {
+//system wide configuration settings
+var COLORS;
+var AUTORUN;
+var CASCADE;
+var SPECIAL_CLASS = "VAR_DUMP-DEADBEEF"; //if you change this, you also must change it in scss
+
+//load the globals!
+chrome.extension.sendRequest({action: "getAllOptions"}, function(response) {
+	COLORS = response.colors;
+	AUTORUN = response.autorun;
+	CASCADE = response.cascade;
+
+	//when the data retrieval is done, see if we should try to run:
+	if(AUTORUN === "true") {
+		bootstrap_vardump();
+	}
+});
+
+chrome.extension.onMessage.addListener((message) => {
     if (message.action === "displayVarDump") { // sent from context menu
 		var html = getSelectionHtml();
 		html = removeBadChars(html);

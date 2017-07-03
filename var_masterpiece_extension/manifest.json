@@ -29,7 +29,6 @@
         "css/var_dump.css"
         ],
       "js": [
-  			"core/globals.js", 
   			"vendor/jquery/jquery.js",
   			"core/varDumpProcessing.js",
   			"core/var_dump_grammar.js",

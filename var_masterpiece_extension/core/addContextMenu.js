@@ -1,6 +1,6 @@
 /**
  * This little snippet adds a "var_dump here" element to the context menu (drop down created
- * with a right click). 
+ * with a right click).
  */
 
 chrome.contextMenus.create({
