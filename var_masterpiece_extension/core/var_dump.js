@@ -222,7 +222,7 @@ function printModalTree(dump, explicit) {
 }
 
 chrome.extension.onMessage.addListener(function (message) {
-    if (message.fn === "printTree") { // sent from context menu
+    if (message.action === "displayVarDump") { // sent from context menu
 		var html = getSelectionHtml();
 		html = removeBadChars(html);
 		printModalTree(html, true);
