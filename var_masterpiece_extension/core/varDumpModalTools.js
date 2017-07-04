@@ -26,22 +26,25 @@ window.varDumpModalTools = (settings) => {
         return '</div>' + closeVarMasterpiece();
     }
 
-    function failedHeaderHTML(dump) {
-        let body = encodeURIComponent(dump);
-        body = body.replace(/'/g, '%27');
-
+    function failedHeaderHTML() {
         return '' +
         '<div id="header">' +
             '<div class="closeModal">' +
                 '<img class="svgIcon" src="' + chrome.extension.getURL('images/close.svg') + '">' +
             '</div>' +
-        '</div>' +
+        '</div>'
+    }
 
-        '<div class="failedMessage">' +
-            'We were not able to parse this var_dump. If this is a valid var_dump, please ' +
-            '<a href="mailto:varmasterpiece@gmail.com?subject=Parsing%20Error&body=' + body + '">notify us</a> ' +
-            'so we can get this fixed!' +
-        '</div>';
+    function failedMessageHTML(dump) {
+        let body = encodeURIComponent(dump);
+        body = body.replace(/'/g, '%27');
+
+        return '' +
+            '<div class="failedMessage">' +
+                'We were not able to parse this var_dump. If this is a valid var_dump, please ' +
+                '<a href="mailto:varmasterpiece@gmail.com?subject=Parsing%20Error&body=' + body + '">notify us</a> ' +
+                'so we can get this fixed!' +
+            '</div>';
     }
 
     function headerHTML() {
@@ -108,11 +111,15 @@ window.varDumpModalTools = (settings) => {
 
         if (varDumpObject === null || varDumpObject === undefined) {
             // the user tied to prettify a var dump, and we failed to parse it. Take Plan 2
-            const failedHeader = failedHeaderHTML(parsingTools.getRawSelection());
+            const failedHeader = failedHeaderHTML();
+            const failedMessage = failedMessageHTML(parsingTools.getRawSelection())
             $body.append(
                 modalOpen +
                 failedHeader +
+                '<div id="var_dump">' +
+                failedMessage +
                 '<pre>' + parsingTools.getRawSelection() + '</pre>' +
+                '</div>' +
                 modalClose
             );
             listenerTools.addCloseListener();
