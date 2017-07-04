@@ -15,21 +15,21 @@ chrome.extension.onRequest.addListener((request, sender, sendResponse) => {
 
     function getColors() {
         const colors = {};
-        colors['int'] = getFromLocalStorage("intColor");
-        colors["float"] = getFromLocalStorage("floatColor");
-        colors["string"] = getFromLocalStorage("stringColor");
-        colors["null"] = getFromLocalStorage("nullColor");
-        colors["array"] = getFromLocalStorage("arrayColor");
-        colors["object"] = getFromLocalStorage("objectColor");
-        colors["bool"] = getFromLocalStorage("boolColor");
+        colors.int = getFromLocalStorage('intColor');
+        colors.float = getFromLocalStorage('floatColor');
+        colors.string = getFromLocalStorage('stringColor');
+        colors.null = getFromLocalStorage('nullColor');
+        colors.array = getFromLocalStorage('arrayColor');
+        colors.object = getFromLocalStorage('objectColor');
+        colors.bool = getFromLocalStorage('boolColor');
         return colors;
     }
 
-    if (request.action === "getAllOptions") {
+    if (request.action === 'getAllOptions') {
         const colors = getColors();
 
-        if(localStorage.autorun === undefined) {
-            localStorage.autorun = "true"; // local storage only accepts strings
+        if (localStorage.autorun === undefined) {
+            localStorage.autorun = 'true'; // local storage only accepts strings
         }
 
         sendResponse({
@@ -39,7 +39,7 @@ chrome.extension.onRequest.addListener((request, sender, sendResponse) => {
         });
     }
 
-	if (request.action === 'openOptionsPage') {
-		chrome.runtime.openOptionsPage();
-	}
-});
+    if (request.action === 'openOptionsPage') {
+        chrome.runtime.openOptionsPage();
+    }
+})
