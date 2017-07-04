@@ -21,16 +21,20 @@ const varDumpGenerationTools = () => {
                 var objectName = object.className.namespace.join("\\") + object.className.class;
                 var referenceId = object.referenceId;
                 var propertyCount = object.properties;
+                let propertyText = "properties"
+                if(propertyCount == 1) {
+                    propertyText = "property"
+                }
 
                 generatedHTML += "" +
                     "<li class='openClose'>" +
                     "<span class='svgIcon openCloseIcon'>" +
                     "<img src='" + expandCollapseImgSrc + "'>" +
                     "</span>" +
-                    "<span class='object'>(object) " +
                     "<span class='objectName'>" + objectName + " </span>" +
-                    "<span class='objectRefernce'>[Object ID: " + referenceId + "]</span>" +
-                    "<span class='propertyCount'>[Number of Properties: " + propertyCount + "]</span>" +
+                    "<span class='object'>(object) " +
+                    "<span class='objectRefernce'>[Object ID #" + referenceId + "]</span>" +
+                    "<span class='propertyCount'>[" + propertyCount + " " + propertyText + "]</span>" +
                     "</span>" +
                     "<ul>";
 
@@ -52,13 +56,18 @@ const varDumpGenerationTools = () => {
                 break;
 
             case "array":
+                let elementText = "elements"
+                if(object.count == 1) {
+                    elementText = "element"
+                }
+
                 generatedHTML += "" +
                     "<li class='openClose'>" +
                     "<span class='svgIcon openCloseIcon'>" +
                     "<img src='" + expandCollapseImgSrc + "'>" +
                     "</span>" +
                     "<span class='array'>(array) " +
-                    "<span class='arrayElementCount'>[Number of elements: " + object.count + "]</span>" +
+                    "<span class='arrayElementCount'>[" + object.count + " " + elementText + "]</span>" +
                     "</span>" +
                     "<ul>";
 
