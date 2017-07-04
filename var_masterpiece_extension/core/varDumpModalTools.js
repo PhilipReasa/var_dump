@@ -7,7 +7,7 @@ const varDumpModalTools = (settings) => {
     const AUTO_RUN = settings.autoRun
     const CASCADE = settings.cascade
     const SPECIAL_CLASS = settings.specialClass
-    const collapsingTools = varDumpCollapsingTools(CASCADE, SPECIAL_CLASS)
+    const listenerTools = varDumpListenerTools(CASCADE, SPECIAL_CLASS)
     const parsingTools = varDumpParsingTools()
     const displayGenerationTools = varDumpGenerationTools()
 
@@ -34,7 +34,7 @@ const varDumpModalTools = (settings) => {
         return "" +
         "<div id='header'>" +
             "<div class='closeModal'>" +
-                "<img class='svgIcon' src='" + chrome.extension.getURL("images/cross-mark-on-a-black-circle-background.svg") + "'>" +
+                "<img class='svgIcon' src='" + chrome.extension.getURL("images/close.svg") + "'>" +
             "</div>" +
         "</div>" +
 
@@ -48,16 +48,21 @@ const varDumpModalTools = (settings) => {
     function headerHTML() {
         return "" +
         "<div id='header'>" +
-            "<div id='expandAll'>" +
-                "<img class='svgIcon' src='" + chrome.extension.getURL("images/chevron-sign-down.svg") + "'>" +
-                "Expand All" +
-            "</div>" +
-            "<div id='collapseAll'>" +
-                "<img class='svgIcon rotate180' src='" + chrome.extension.getURL("images/chevron-sign-down.svg") + "'>" +
-                "Collapse All" +
-            "</div>" +
-            "<div class='closeModal'>" +
-                "<img class='svgIcon' src='" + chrome.extension.getURL("images/cross-mark-on-a-black-circle-background.svg") + "'>" +
+            "<div class='iconContainer'>" +
+                "<div id='expandAll'>" +
+                    "<img class='svgIcon' src='" + chrome.extension.getURL("images/chevron-sign-down.svg") + "'>" +
+                    "Expand All" +
+                "</div>" +
+                "<div id='collapseAll'>" +
+                    "<img class='svgIcon rotate180' src='" + chrome.extension.getURL("images/chevron-sign-down.svg") + "'>" +
+                    "Collapse All" +
+                "</div>" +
+                "<div class='closeModal'>" +
+                    "<img class='svgIcon' src='" + chrome.extension.getURL("images/close.svg") + "'>" +
+                "</div>" +
+                "<div class='fullScreen'>" +
+                    "<img class='svgIcon' src='" + chrome.extension.getURL("images/expand.svg") + "'>" +
+                "</div>" +
             "</div>" +
         "</div>";
     }
@@ -98,7 +103,7 @@ const varDumpModalTools = (settings) => {
             //the user tied to prettify a var dump, and we failed to parse it. Take Plan 2
             var failedHeader = failedHeaderHTML(parsingTools.getRawSelection());
             $body.append(modalOpen + failedHeader + "<pre>" + parsingTools.getRawSelection() + "</pre>" + modalClose);
-            collapsingTools.addCloseListener();
+            listenerTools.addCloseListener();
             return;
         }
 
@@ -107,7 +112,7 @@ const varDumpModalTools = (settings) => {
 
         //add out html / styles / listeners to the page
         $body.append(modalOpen + header + displayGenerationTools.getVarDumpHtml(varDumpObject) + modalClose);
-        collapsingTools.addListeners();
+        listenerTools.addListeners();
     }
 
     function bootstrap_vardump() {

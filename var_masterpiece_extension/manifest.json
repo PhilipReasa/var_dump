@@ -33,7 +33,7 @@
             "core/var_dump_grammar.js",
             "core/varDumpParsingTools.js",
   			"core/varDumpDisplayGenerationTools.js",
-  			"core/varDumpCollapsingTools.js",
+  			"core/varDumpListenerTools.js",
   			"core/varDumpModalTools.js",
   			"core/varDump.js"
 		  ]

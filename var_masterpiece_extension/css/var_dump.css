@@ -78,6 +78,14 @@
     box-sizing: border-box;
     overflow: scroll;
     z-index: 50; }
+    .VAR_DUMP-DEADBEEF .var_dump_modal.fullScreen {
+      max-height: 100%;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0; }
+      .VAR_DUMP-DEADBEEF .var_dump_modal.fullScreen #header {
+        width: 100%; }
     .VAR_DUMP-DEADBEEF .var_dump_modal #header {
       position: fixed;
       z-index: 1;
@@ -86,15 +94,19 @@
       background-color: #BC2D09;
       padding: 10px;
       height: 40px; }
+      .VAR_DUMP-DEADBEEF .var_dump_modal #header .iconContainer {
+        position: static; }
       .VAR_DUMP-DEADBEEF .var_dump_modal #header #expandAll,
       .VAR_DUMP-DEADBEEF .var_dump_modal #header #collapseAll {
         cursor: pointer;
         padding-right: 20px;
         float: left;
         color: white; }
+      .VAR_DUMP-DEADBEEF .var_dump_modal #header .fullScreen,
       .VAR_DUMP-DEADBEEF .var_dump_modal #header .closeModal {
         cursor: pointer;
-        float: right; }
+        float: right;
+        padding-left: 10px; }
     .VAR_DUMP-DEADBEEF .var_dump_modal .failedMessage {
       padding: 5px;
       background-color: #BC2D09;

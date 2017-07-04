@@ -1,4 +1,4 @@
-const varDumpCollapsingTools = (cascade, specialClass) => {
+const varDumpListenerTools = (cascade, specialClass) => {
     function toggleCollapse() {
         var $collapser = $(this);
 
@@ -38,10 +38,15 @@ const varDumpCollapsingTools = (cascade, specialClass) => {
         collapseAllChildren($("#var_dump"))
     }
 
+    function toggleFullScreen() {
+        $(".var_dump_modal").toggleClass('fullScreen')
+    }
+
     function addListeners() {
         $('.openClose .openCloseIcon').bind('click', toggleCollapse);
         $('#expandAll').bind('click', openAll);
         $('#collapseAll').bind('click', closeAll);
+        $('.fullScreen').bind('click', toggleFullScreen);
         addCloseListener();
     }
 

@@ -81,7 +81,7 @@
 			  	cursor: pointer;
 			  	transition: transform 0.3s ease;
 
-				&.closed {
+                &.closed {
 					transform: rotate(180deg);
 				}
 		  	}
@@ -129,6 +129,18 @@
 		overflow:scroll;
 		z-index: 50;
 
+        &.fullScreen {
+          max-height: 100%;
+          height: 100%;
+          width: 100%;
+          top: 0;
+          left: 0;
+
+          #header {
+            width: 100%;
+          }
+        }
+
 	  	#header {
 			position: fixed;
 			z-index: 1;
@@ -138,6 +150,10 @@
 			padding: 10px;
 			height: 40px;
 
+            .iconContainer {
+              position: static;
+            }
+
 		  	#expandAll,
 			#collapseAll {
 			  	cursor: pointer;
@@ -146,9 +162,11 @@
 				color: white;
 			}
 
+            .fullScreen,
 			.closeModal  {
 			  	cursor: pointer;
 			  	float:right;
+                padding-left: 10px;
 			}
 		}
 
