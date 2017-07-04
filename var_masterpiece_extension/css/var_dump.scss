@@ -59,6 +59,10 @@
 			font-weight: bold;
 		}
 
+        .objectName {
+          font-weight: bold;
+        }
+
 		#root{
 			margin: 0 0 0 0;
 		}
@@ -162,6 +166,8 @@
 				color: white;
 			}
 
+            .info,
+            .settings,
             .fullScreen,
 			.closeModal  {
 			  	cursor: pointer;

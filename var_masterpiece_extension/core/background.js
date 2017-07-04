@@ -38,4 +38,8 @@ chrome.extension.onRequest.addListener((request, sender, sendResponse) => {
 		  cascade:localStorage.cascade
 	  });
     }
+
+	if (request.action === 'openOptionsPage') {
+		chrome.runtime.openOptionsPage();
+	}
 });

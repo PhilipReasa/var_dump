@@ -60,6 +60,14 @@ const varDumpModalTools = (settings) => {
                 "<div class='closeModal'>" +
                     "<img class='svgIcon' src='" + chrome.extension.getURL("images/close.svg") + "'>" +
                 "</div>" +
+                "<div class='info'>" +
+                    "<a href='http://rece.github.io/var_dump/' target='_blank'>" +
+                        "<img class='svgIcon' src='" + chrome.extension.getURL("images/info.svg") + "'>" +
+                    "</a>" +
+                "</div>" +
+                "<div class='settings'>" +
+                    "<img class='svgIcon' src='" + chrome.extension.getURL("images/gear.svg") + "'>" +
+                "</div>" +
                 "<div class='fullScreen'>" +
                     "<img class='svgIcon' src='" + chrome.extension.getURL("images/expand.svg") + "'>" +
                 "</div>" +

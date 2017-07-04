@@ -42,11 +42,24 @@ const varDumpListenerTools = (cascade, specialClass) => {
         $(".var_dump_modal").toggleClass('fullScreen')
     }
 
+    function openOptions() {
+        chrome.extension.sendRequest({action: "openOptionsPage"})
+
+        //if (chrome.runtime.openOptionsPage) {
+        //    // New way to open options pages, if supported (Chrome 42+).
+        //    chrome.runtime.openOptionsPage();
+        //} else {
+        //    // Reasonable fallback.
+        //    window.open(chrome.runtime.getURL('options/options.html'));
+        //}
+    }
+
     function addListeners() {
         $('.openClose .openCloseIcon').bind('click', toggleCollapse);
         $('#expandAll').bind('click', openAll);
         $('#collapseAll').bind('click', closeAll);
         $('.fullScreen').bind('click', toggleFullScreen);
+        $('.settings').bind('click', openOptions)
         addCloseListener();
     }
 

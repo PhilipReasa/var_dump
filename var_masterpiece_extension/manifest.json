@@ -43,6 +43,9 @@
   "web_accessible_resources":[
     "/images/*"
   ],
-  
-  "options_page": "options/options.html"
+
+  "options_ui": {
+    "page": "options/options.html",
+    "chrome_style": true
+  }
 }
