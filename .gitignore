@@ -9,3 +9,6 @@
 
 # Sass artifacts
 *.css.map
+
+# Packages
+node_modules/
