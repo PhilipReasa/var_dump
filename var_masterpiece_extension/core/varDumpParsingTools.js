@@ -5,8 +5,11 @@ window.varDumpParsingTools = (() => {
      * @returns {object} an object of the parsed text
      */
     function parseVarDump(dumpText) {
-        const trimmedDumpText = dumpText.trim();
         try {
+            // this can throw for bad input (null, undefined, etc)
+            const trimmedDumpText = dumpText.trim();
+
+            // this can throw for a bad var_dump
             return varDumpParser.parse(trimmedDumpText)
         } catch (e) {
             // ignore the error for now. TODO: add better error handling
@@ -81,7 +84,18 @@ window.varDumpParsingTools = (() => {
      * returns string if var dump found, false otherwise
      */
     function findVarDump() {
-        const toReturn = $('body').html().trim();
+        // because this function runs automatically on EVERY page, be paranoid about throwing errors
+        const $body = $('body')
+        if (!$body) {
+            return null;
+        }
+
+        const bodyHtml = $body.html()
+        if (!bodyHtml) {
+            return null
+        }
+
+        const toReturn = bodyHtml.trim();
         if (toReturn.substring(0, 6) === 'object') {
             return toReturn;
         }
