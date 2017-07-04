@@ -9,7 +9,8 @@ const varDumpParsingTools = (() => {
         try {
             return varDumpParser.parse(dumpText)
         } catch(e) {
-            throw e; //error parsing var dump
+            // ignore the error for now. TODO: add better error handling
+            console.log(e)
         }
     }
 
@@ -108,8 +109,14 @@ const varDumpParsingTools = (() => {
         return parseVarDump(dumpText);
     }
 
+    function getRawSelection() {
+        let dumpText = getSelectionHtml()
+        return removeBadChars(dumpText)
+    }
+
     return {
         parseVarDumpFromPage: parseVarDumpFromPage,
-        parseVarDumpFromSelection: parseVarDumpFromSelection
+        parseVarDumpFromSelection: parseVarDumpFromSelection,
+        getRawSelection: getRawSelection
     }
 })

@@ -52,6 +52,7 @@ const varDumpCollapsingTools = (cascade, specialClass) => {
     }
 
     return {
-        addListeners: addListeners
+        addListeners: addListeners,
+        addCloseListener: addCloseListener
     }
 }

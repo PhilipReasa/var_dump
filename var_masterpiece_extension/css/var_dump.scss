@@ -18,8 +18,12 @@
 	#var_dump { //the var dump output
 		font-size: 16px;
 		white-space: pre-wrap;
-	  	padding-left:20px; //offsets the negative left of the +/-
-		
+        margin-top: 40px; //40px is header height
+		padding-top: 5%;
+		padding-bottom: 5%;
+		padding-right: 5%;
+		padding-left: calc(5% + 20px); //offsets the negative left of the +/-
+
 		//elements default colors
 		.prop {
 			font-weight: bold;
@@ -118,7 +122,6 @@
 		box-shadow: 0 0 10px #888;
 		top:10%;
 		left:10%;
-		padding:5%;
 		background-color:white;
 		opacity:.95;
 		border-radius: 2px;
@@ -127,16 +130,20 @@
 		z-index: 50;
 
 	  	#header {
-			height: 25px;
-		  	width:100%;
-		  	border-bottom: 2px solid #BC2D09;
-		  	margin-bottom:10px;
+			position: fixed;
+			z-index: 1;
+			box-sizing: border-box;
+		  	width: 80%;
+			background-color: #BC2D09;
+			padding: 10px;
+			height: 40px;
 
 		  	#expandAll,
 			#collapseAll {
 			  	cursor: pointer;
 				padding-right:20px;
 				float:left;
+				color: white;
 			}
 
 			.closeModal  {
@@ -158,6 +165,7 @@
 	.svgIcon img,
 	img.svgIcon {
 		height: 15px;
+		width: 15px;
 	}
 
 	.rotate180 {
