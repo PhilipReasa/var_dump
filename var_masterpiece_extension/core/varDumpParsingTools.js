@@ -1,17 +1,18 @@
-const varDumpParsingTools = (() => {
+window.varDumpParsingTools = (() => {
     /**
      * Public function that runs the formal grammar parser against the provided text
      * @param dumpText text to be interpreted by the grammar
      * @returns {object} an object of the parsed text
      */
     function parseVarDump(dumpText) {
-        dumpText = dumpText.trim();
+        const trimmedDumpText = dumpText.trim();
         try {
-            return varDumpParser.parse(dumpText)
-        } catch(e) {
+            return varDumpParser.parse(trimmedDumpText)
+        } catch (e) {
             // ignore the error for now. TODO: add better error handling
-            console.log(e)
         }
+
+        return null
     }
 
     /**
@@ -22,21 +23,15 @@ const varDumpParsingTools = (() => {
      * //http://stackoverflow.com/a/5670825
      */
     function getSelectionHtml() {
-        let html = ""
-        if (window.getSelection !== "undefined") {
-            const sel = window.getSelection();
-            if (sel.rangeCount) {
-                let container = document.createElement("div");
-                var len = sel.rangeCount;
-                for (let i = 0; i < len; ++i) {
-                    container.appendChild(sel.getRangeAt(i).cloneContents());
-                }
-                html = container.innerHTML;
+        let html = ''
+        const sel = window.getSelection();
+        const len = sel.rangeCount;
+        if (len) {
+            const container = document.createElement('div');
+            for (let i = 0; i < len; ++i) {
+                container.appendChild(sel.getRangeAt(i).cloneContents());
             }
-        } else if (typeof document.selection !== "undefined") {
-            if (document.selection.type === "Text") {
-                html = document.selection.createRange().htmlText;
-            }
+            html = container.innerHTML;
         }
 
         return html;
@@ -46,19 +41,19 @@ const varDumpParsingTools = (() => {
      * Take a potential var dump and remove any preceding / trailing
      * chars that are not related to the dump
      *
-     * @return the cleaned html
+     * @return {string} the cleaned html
      */
     function removeBadChars(html) {
         // var dumps must start `array` or `object`
-        const arrayStart = html.indexOf("array");
-        const objectStart = html.indexOf("object");
+        const arrayStart = html.indexOf('array');
+        const objectStart = html.indexOf('object');
 
-        const arrayEnd = html.lastIndexOf("]");
-        const objectEnd = html.lastIndexOf("}");
+        const arrayEnd = html.lastIndexOf(']');
+        const objectEnd = html.lastIndexOf('}');
 
         let start = 0;
         let end = html.length;
-        if(arrayStart > -1 && objectStart > -1) {
+        if (arrayStart > -1 && objectStart > -1) {
             start = Math.min(arrayStart, objectStart);
         } else if (arrayStart > -1) {
             start = arrayStart;
@@ -66,7 +61,7 @@ const varDumpParsingTools = (() => {
             start = objectStart;
         }
 
-        if(arrayEnd > -1 && objectEnd > -1) {
+        if (arrayEnd > -1 && objectEnd > -1) {
             end = Math.max(arrayEnd, objectEnd) + 1;
         } else if (arrayEnd > -1) {
             end = arrayEnd + 1;
@@ -86,12 +81,12 @@ const varDumpParsingTools = (() => {
      * returns string if var dump found, false otherwise
      */
     function findVarDump() {
-        var toReturn = $("body").html().trim();
-        if(toReturn.substring(0,6) === "object") {
+        const toReturn = $('body').html().trim();
+        if (toReturn.substring(0, 6) === 'object') {
             return toReturn;
         }
 
-        if(toReturn.substring(0,5) === "array") {
+        if (toReturn.substring(0, 5) === 'array') {
             return toReturn;
         }
 
@@ -110,7 +105,7 @@ const varDumpParsingTools = (() => {
     }
 
     function getRawSelection() {
-        let dumpText = getSelectionHtml()
+        const dumpText = getSelectionHtml()
         return removeBadChars(dumpText)
     }
 

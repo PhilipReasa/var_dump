@@ -2,9 +2,8 @@
  * @param settings {{colors, autoRun, cascade, specialClass}}
  * @type {{run, autoRun}}
  */
-const varDumpModalTools = (settings) => {
+window.varDumpModalTools = (settings) => {
     const COLORS = settings.colors
-    const AUTO_RUN = settings.autoRun
     const CASCADE = settings.cascade
     const SPECIAL_CLASS = settings.specialClass
     const listenerTools = varDumpListenerTools(CASCADE, SPECIAL_CLASS)
@@ -12,11 +11,11 @@ const varDumpModalTools = (settings) => {
     const displayGenerationTools = varDumpGenerationTools()
 
     function openVarMasterpiece() {
-        return "<div class='"+SPECIAL_CLASS+"'>" + generateInlineStyles()
+        return '<div class="' + SPECIAL_CLASS + '">' + generateInlineStyles()
     }
 
     function closeVarMasterpiece() {
-        return "</div>";
+        return '</div>';
     }
 
     function openModalHTML() {
@@ -24,60 +23,60 @@ const varDumpModalTools = (settings) => {
     }
 
     function closeModalHTML() {
-        return "</div>" + closeVarMasterpiece();
+        return '</div>' + closeVarMasterpiece();
     }
 
     function failedHeaderHTML(dump) {
-        var body = encodeURIComponent(dump);
-        body = body.replace(/'/g, "%27");
+        let body = encodeURIComponent(dump);
+        body = body.replace(/'/g, '%27');
 
-        return "" +
-        "<div id='header'>" +
-            "<div class='closeModal'>" +
-                "<img class='svgIcon' src='" + chrome.extension.getURL("images/close.svg") + "'>" +
-            "</div>" +
-        "</div>" +
+        return '' +
+        '<div id="header">' +
+            '<div class="closeModal">' +
+                '<img class="svgIcon" src="' + chrome.extension.getURL('images/close.svg') + '">' +
+            '</div>' +
+        '</div>' +
 
-        "<div class='failedMessage'>" +
-            "We were not able to parse this var_dump. If this is a valid var_dump, please " +
-            "<a href='mailto:varmasterpiece@gmail.com?subject=Parsing%20Error&body=" + body + "'>notify us</a> " +
-            "so we can get this fixed!" +
-        "</div>";
+        '<div class="failedMessage">' +
+            'We were not able to parse this var_dump. If this is a valid var_dump, please ' +
+            '<a href="mailto:varmasterpiece@gmail.com?subject=Parsing%20Error&body=' + body + '">notify us</a> ' +
+            'so we can get this fixed!' +
+        '</div>';
     }
 
     function headerHTML() {
-        return "" +
-        "<div id='header'>" +
-            "<div class='iconContainer'>" +
-                "<div id='expandAll'>" +
-                    "<img class='svgIcon' src='" + chrome.extension.getURL("images/chevron-sign-down.svg") + "'>" +
-                    "Expand All" +
-                "</div>" +
-                "<div id='collapseAll'>" +
-                    "<img class='svgIcon rotate180' src='" + chrome.extension.getURL("images/chevron-sign-down.svg") + "'>" +
-                    "Collapse All" +
-                "</div>" +
-                "<div class='closeModal'>" +
-                    "<img class='svgIcon' src='" + chrome.extension.getURL("images/close.svg") + "'>" +
-                "</div>" +
-                "<div class='info'>" +
-                    "<a href='http://rece.github.io/var_dump/' target='_blank'>" +
-                        "<img class='svgIcon' src='" + chrome.extension.getURL("images/info.svg") + "'>" +
-                    "</a>" +
-                "</div>" +
-                "<div class='settings'>" +
-                    "<img class='svgIcon' src='" + chrome.extension.getURL("images/gear.svg") + "'>" +
-                "</div>" +
-                "<div class='fullScreen'>" +
-                    "<img class='svgIcon' src='" + chrome.extension.getURL("images/expand.svg") + "'>" +
-                "</div>" +
-            "</div>" +
-        "</div>";
+        return '' +
+        '<div id="header">' +
+            '<div class="iconContainer">' +
+                '<div id="expandAll">' +
+                    '<img class="svgIcon" src="' + chrome.extension.getURL('images/chevron-sign-down.svg') + '">' +
+                    'Expand All' +
+                '</div>' +
+                '<div id="collapseAll">' +
+                    '<img class="svgIcon rotate180" src="' + chrome.extension.getURL('images/chevron-sign-down.svg') + '">' +
+                    'Collapse All' +
+                '</div>' +
+                '<div class="closeModal">' +
+                    '<img class="svgIcon" src="' + chrome.extension.getURL('images/close.svg') + '">' +
+                '</div>' +
+                '<div class="info">' +
+                    '<a href="http://rece.github.io/var_dump/" target="_blank">' +
+                        '<img class="svgIcon" src="' + chrome.extension.getURL('images/info.svg') + '">' +
+                    '</a>' +
+                '</div>' +
+                '<div class="settings">' +
+                    '<img class="svgIcon" src="' + chrome.extension.getURL('images/gear.svg') + '">' +
+                '</div>' +
+                '<div class="fullScreen">' +
+                    '<img class="svgIcon" src="' + chrome.extension.getURL('images/expand.svg') + '">' +
+                '</div>' +
+            '</div>' +
+        '</div>';
     }
 
     function getColorVal(color) {
-        if(color === undefined) {
-            return "inherit";
+        if (color === undefined) {
+            return 'inherit';
         } else {
             return color;
         }
@@ -86,13 +85,13 @@ const varDumpModalTools = (settings) => {
     function generateInlineStyles() {
         return '' +
             '<style type="text/css">' +
-            '.' + SPECIAL_CLASS + ' #var_dump .bool 	{ color:' + getColorVal(COLORS["bool"]) + 	'; } \n' +
-            '.' + SPECIAL_CLASS + ' #var_dump .int 	{ color:' + getColorVal(COLORS["int"]) + 	'; } \n' +
-            '.' + SPECIAL_CLASS + ' #var_dump .float { color:' + getColorVal(COLORS["float"]) + 	'; } \n' +
-            '.' + SPECIAL_CLASS + ' #var_dump .null 	{ color:' + getColorVal(COLORS["null"]) + 	'; } \n' +
-            '.' + SPECIAL_CLASS + ' #var_dump .array { color:' + getColorVal(COLORS["array"]) + 	'; } \n' +
-            '.' + SPECIAL_CLASS + ' #var_dump .object { color:' + getColorVal(COLORS["object"]) + '; } \n' +
-            '.' + SPECIAL_CLASS + ' #var_dump .string { color:' + getColorVal(COLORS["string"]) + '; } \n' +
+            '.' + SPECIAL_CLASS + ' #var_dump .bool { color:' + getColorVal(COLORS.bool) + '; } \n' +
+            '.' + SPECIAL_CLASS + ' #var_dump .int { color:' + getColorVal(COLORS.int) + '; } \n' +
+            '.' + SPECIAL_CLASS + ' #var_dump .float { color:' + getColorVal(COLORS.float) + '; } \n' +
+            '.' + SPECIAL_CLASS + ' #var_dump .null { color:' + getColorVal(COLORS.null) + '; } \n' +
+            '.' + SPECIAL_CLASS + ' #var_dump .array { color:' + getColorVal(COLORS.array) + '; } \n' +
+            '.' + SPECIAL_CLASS + ' #var_dump .object { color:' + getColorVal(COLORS.object) + '; } \n' +
+            '.' + SPECIAL_CLASS + ' #var_dump .string { color:' + getColorVal(COLORS.string) + '; } \n' +
             '</style>'
     }
 
@@ -102,32 +101,42 @@ const varDumpModalTools = (settings) => {
      *
      * Dump contains the text of the var dump
      */
-    function printModalTree(varDumpObject, explicit) {
-        var $body = $('body')
-        var modalOpen = openModalHTML();
-        var modalClose = closeModalHTML();
+    function printModalTree(varDumpObject) {
+        const $body = $('body')
+        const modalOpen = openModalHTML();
+        const modalClose = closeModalHTML();
 
-        if(varDumpObject == null || varDumpObject == undefined) {
-            //the user tied to prettify a var dump, and we failed to parse it. Take Plan 2
-            var failedHeader = failedHeaderHTML(parsingTools.getRawSelection());
-            $body.append(modalOpen + failedHeader + "<pre>" + parsingTools.getRawSelection() + "</pre>" + modalClose);
+        if (varDumpObject === null || varDumpObject === undefined) {
+            // the user tied to prettify a var dump, and we failed to parse it. Take Plan 2
+            const failedHeader = failedHeaderHTML(parsingTools.getRawSelection());
+            $body.append(
+                modalOpen +
+                failedHeader +
+                '<pre>' + parsingTools.getRawSelection() + '</pre>' +
+                modalClose
+            );
             listenerTools.addCloseListener();
             return;
         }
 
-        //generate our header
-        var header = headerHTML();
+        // generate our header
+        const header = headerHTML();
 
-        //add out html / styles / listeners to the page
-        $body.append(modalOpen + header + displayGenerationTools.getVarDumpHtml(varDumpObject) + modalClose);
-        listenerTools.addListeners();
+        // add out html / styles / listeners to the page
+        $body.append(
+            modalOpen +
+            header +
+            displayGenerationTools.getVarDumpHtml(varDumpObject) +
+            modalClose
+        )
+        listenerTools.addListeners()
     }
 
-    function bootstrap_vardump() {
+    function bootstrapVardump() {
         const varDumpObj = parsingTools.parseVarDumpFromPage()
 
-        //If we think that the whole page is a var dump
-        if(varDumpObj !== undefined && varDumpObj !== null) {
+        // If we think that the whole page is a var dump
+        if (varDumpObj !== undefined && varDumpObj !== null) {
             printModalTree(varDumpObj);
         }
     }
@@ -139,6 +148,6 @@ const varDumpModalTools = (settings) => {
 
     return {
         run: run,
-        autoRun: bootstrap_vardump
+        autoRun: bootstrapVardump
     }
 }

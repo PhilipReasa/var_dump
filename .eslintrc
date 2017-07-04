@@ -1,7 +1,8 @@
 {
   "extends": "airbnb-base",
   "env": {
-    "webextensions": true
+    "webextensions": true,
+    "browser": true
   },
   "rules": {
     "comma-dangle": "off",
@@ -17,11 +18,11 @@
     "no-plusplus": "off"
   },
   "globals": {
-    "localStorage": true,
+    "$": true,
     "varDumpModalTools": true,
     "varDumpListenerTools": true,
     "varDumpParsingTools": true,
-    "varDumpDisplayGenerationTools": true,
-    "window": true
+    "varDumpGenerationTools": true,
+    "varDumpParser": true
   }
 }
