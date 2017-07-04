@@ -1,3 +1,10 @@
 {
-  "extends": "airbnb-base"
+  "extends": "airbnb-base",
+  "env": {
+    "webextensions": true
+  },
+  "rules": {
+    "comma-dangle": ["error", "never"],
+    "indent": ["error", 4]
+  }
 }

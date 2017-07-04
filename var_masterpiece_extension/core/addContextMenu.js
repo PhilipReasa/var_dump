@@ -4,14 +4,14 @@
  */
 
 chrome.contextMenus.create({
-    "title": "var_dump here",
-    "contexts": ["selection"],
-    "onclick": () => {
-        chrome.tabs.query({ //get current tab
-            "active": true,
-            "currentWindow": true
+    title: 'var_dump here',
+    contexts: ['selection'],
+    onclick: () => {
+        chrome.tabs.query({ // get current tab
+            active: true,
+            currentWindow: true
         }, (tabs) => {
-            chrome.tabs.sendMessage(tabs[0].id, {"action": "displayVarDump"});
+            chrome.tabs.sendMessage(tabs[0].id, { action: 'displayVarDump' });
         });
     }
 });
