@@ -9,13 +9,17 @@
     "no-else-return": "off",
     "no-trailing-spaces": "off",
     "object-shorthand": "off",
-    "semi": "off"
+    "semi": "off",
+    "vars-on-top": "off",
+    "object-curly-spacing": "off",
+    "no-use-before-define": "off"
   },
   "globals": {
     "localStorage": true,
     "varDumpModalTools": true,
     "varDumpListenerTools": true,
     "varDumpParsingTools": true,
-    "varDumpDisplayGenerationTools": true
+    "varDumpDisplayGenerationTools": true,
+    "window": true
   }
 }

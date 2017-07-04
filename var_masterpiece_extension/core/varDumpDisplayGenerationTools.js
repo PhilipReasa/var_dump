@@ -1,29 +1,29 @@
 /**
  * @returns {{getVarDumpHtml: printVarDump}}
  */
-const varDumpGenerationTools = () => {
+window.varDumpGenerationTools = () => {
 
     function printVarDump(dumpObject) {
-        var printString = "<div id='var_dump'><ul id='root'>";
+        let printString = '<div id="var_dump"><ul id="root">';
 
         printString += printObject(dumpObject);
 
-        printString += "</ul></div>";
+        printString += '</ul></div>';
 
         return printString;
     }
 
     function printObject(object) {
-        var expandCollapseImgSrc = chrome.extension.getURL("images/angle-arrow-down.svg");
-        var generatedHTML = "";
+        const expandCollapseImgSrc = chrome.extension.getURL('images/angle-arrow-down.svg');
+        let generatedHTML = '';
         switch (object.type) {
-            case "object":
-                var objectName = object.className.namespace.join("\\") + object.className.class;
-                var referenceId = object.referenceId;
-                var propertyCount = object.properties;
-                let propertyText = "properties"
-                if(propertyCount == 1) {
-                    propertyText = "property"
+            case 'object': {
+                const objectName = object.className.namespace.join("\\") + object.className.class;
+                const referenceId = object.referenceId;
+                const propertyCount = object.properties;
+                let propertyText = 'properties'
+                if (propertyCount === 1) {
+                    propertyText = 'property'
                 }
 
                 generatedHTML += "" +
@@ -40,7 +40,7 @@ const varDumpGenerationTools = () => {
 
                 //for each property in an object, print the property and the value
                 var childObject;
-                for(var i = 0; i < object.values.length; i ++) {
+                for (var i = 0; i < object.values.length; i++) {
                     childObject = object.values[i];
 
                     generatedHTML += "" +
@@ -54,7 +54,7 @@ const varDumpGenerationTools = () => {
                     "</ul>" +
                     "</li>";
                 break;
-
+            }
             case "array":
                 let elementText = "elements"
                 if(object.count == 1) {
@@ -111,6 +111,8 @@ const varDumpGenerationTools = () => {
             case "resource":
                 generatedHTML += "<span class='resource'>(resource) " + object.value + "</span>"
                 break;
+            default:
+                throw new Error('Unexpected element type!')
         }
 
         return generatedHTML;

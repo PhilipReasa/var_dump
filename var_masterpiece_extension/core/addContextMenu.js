@@ -11,7 +11,7 @@ chrome.contextMenus.create({
             active: true,
             currentWindow: true
         }, (tabs) => {
-            chrome.tabs.sendMessage(tabs[0].id, { action: 'displayVarDump' });
+            chrome.tabs.sendMessage(tabs[0].id, {action: 'displayVarDump'});
         });
     }
 });
