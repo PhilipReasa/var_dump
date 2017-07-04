@@ -1,6 +1,6 @@
 {
   "name": "var_masterpiece",
-  "version": "1.3.7",
+  "version": "1.4.0",
   "description": "Debugging too for var_dumps",
   "main": "index.js",
   "directories": {

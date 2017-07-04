@@ -103,14 +103,19 @@
         cursor: pointer;
         padding-right: 20px;
         float: left;
-        color: white; }
+        color: white;
+        padding-top: 3px; }
+        .VAR_DUMP-DEADBEEF .var_dump_modal #header #expandAll img,
+        .VAR_DUMP-DEADBEEF .var_dump_modal #header #collapseAll img {
+          float: left; }
       .VAR_DUMP-DEADBEEF .var_dump_modal #header .info,
       .VAR_DUMP-DEADBEEF .var_dump_modal #header .settings,
       .VAR_DUMP-DEADBEEF .var_dump_modal #header .fullScreen,
       .VAR_DUMP-DEADBEEF .var_dump_modal #header .closeModal {
         cursor: pointer;
         float: right;
-        padding-left: 10px; }
+        padding-left: 10px;
+        padding-top: 2px; }
     .VAR_DUMP-DEADBEEF .var_dump_modal .failedMessage {
       padding: 5px;
       background-color: #BC2D09;
