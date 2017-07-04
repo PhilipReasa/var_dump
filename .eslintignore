@@ -4,3 +4,4 @@ extra_images/
 node_modules/
 test_pages/
 var_masterpiece_extension/vendor/
+var_masterpiece_extension/core/var_dump_grammar.js

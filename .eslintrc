@@ -4,7 +4,18 @@
     "webextensions": true
   },
   "rules": {
-    "comma-dangle": ["error", "never"],
-    "indent": ["error", 4]
+    "comma-dangle": "off",
+    "indent": ["error", 4],
+    "no-else-return": "off",
+    "no-trailing-spaces": "off",
+    "object-shorthand": "off",
+    "semi": "off"
+  },
+  "globals": {
+    "localStorage": true,
+    "varDumpModalTools": true,
+    "varDumpListenerTools": true,
+    "varDumpParsingTools": true,
+    "varDumpDisplayGenerationTools": true
   }
 }

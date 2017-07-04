@@ -14,7 +14,7 @@ chrome.extension.sendRequest({action: "getAllOptions"}, function(response) {
 
 	//when the data retrieval is done, see if we should try to run:
 	if(response.autorun === "true") {
-		varDumpModalToolsInstance.autoRun();
+		varDumpModalToolsInstance.autoRun()
 	}
 });
 
