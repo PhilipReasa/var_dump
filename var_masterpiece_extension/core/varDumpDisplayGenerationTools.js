@@ -32,7 +32,7 @@ window.varDumpGenerationTools = () => {
                 '<img src="' + expandCollapseImgSrc + '">' +
                 '</span>' +
                 '<span class="objectName">' + objectName + '</span>' +
-                '<span class="object">(object) ' +
+                '<span class="object"> (object) ' +
                 '<span class="objectReference">[Object ID #' + referenceId + ']</span>' +
                 '<span class="propertyCount">[' + propertyCount + ' ' + propertyText + ']</span>' +
                 '</span>' +
