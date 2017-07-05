@@ -33,7 +33,7 @@ So here is a simple solution to this problem. Hope it works for you!
 * 1.3.4 -> made manual selections more intelligent/forgiving
 * 1.3.5 -> Object keys now more robust. fixed bug with 1.3.4 release
 * 1.3.6 -> Fixed issue with scoped object keys
-* 1.4.0 -> UI Improvments, New Header Style, Fullscreen, Info Page, Settings link,
+* 1.4.0 -> UI Improvments, New Header Style, Fullscreen, Settings link,
            Under the hood revamp (ES6, Linter, Smaller API footprint)
 
 ### OLD
