@@ -35,6 +35,7 @@ So here is a simple solution to this problem. Hope it works for you!
 * 1.3.6 -> Fixed issue with scoped object keys
 * 1.4.0 -> UI Improvments, New Header Style, Fullscreen, Settings link,
            Under the hood revamp (ES6, Linter, Smaller API footprint)
+* 1.4.1 -> Grammar update (chained property names)
 
 ### OLD
 version.major.feature.bug
