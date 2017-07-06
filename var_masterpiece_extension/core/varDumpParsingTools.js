@@ -90,12 +90,12 @@ window.varDumpParsingTools = (() => {
             return null;
         }
 
-        const bodyHtml = $body.html()
-        if (!bodyHtml) {
+        const bodyText = $body.html()
+        if (!bodyText) {
             return null
         }
 
-        const toReturn = bodyHtml.trim();
+        const toReturn = bodyText.trim();
         if (toReturn.substring(0, 6) === 'object') {
             return toReturn;
         }
