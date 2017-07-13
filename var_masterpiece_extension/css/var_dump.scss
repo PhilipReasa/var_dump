@@ -1,205 +1,203 @@
-
 .VAR_DUMP-DEADBEEF {
-	//A basic CSS reset to avoid any styling collisions
-	font-family: monospace;
-	color: black;
-	padding: 0;
-	margin: 0;
-	border: 0;
-	font-size: 100%;
-	vertical-align: baseline;
-	line-height: 1;
-	
-	* { //Apply the CSS Reset to all elements to give this stylesheet more weight than any existing stylesheets
-		@extend .VAR_DUMP-DEADBEEF;
-	}
-  		
+  //A basic CSS reset to avoid any styling collisions
+  font-family: monospace;
+  color: black;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  line-height: 1;
 
-	#var_dump { //the var dump output
-		font-size: 16px;
-		white-space: pre-wrap;
-        margin-top: 40px; //40px is header height
-		padding-top: 5%;
-		padding-bottom: 5%;
-		padding-right: 5%;
-		padding-left: calc(5% + 20px); //offsets the negative left of the +/-
+  * { //Apply the CSS Reset to all elements to give this stylesheet more weight than any existing stylesheets
+    @extend .VAR_DUMP-DEADBEEF;
+  }
 
-		//elements default colors
-		.prop {
-			font-weight: bold;
-		}
+  #var_dump { //the var dump output
+    font-size: 16px;
+    white-space: pre-wrap;
+    margin-top: 40px; //40px is header height
+    padding-top: 5%;
+    padding-bottom: 5%;
+    padding-right: 5%;
+    padding-left: calc(5% + 20px); //offsets the negative left of the +/-
 
-		.null {
-			color: red;
-		}
+    //elements default colors
+    .prop {
+      font-weight: bold;
+    }
 
-		.bool {
-			color: purple;
-		}
+    .null {
+      color: red;
+    }
 
-		.int {
-			color: blue;
-		}
-		
-		.float {
-			color: orange;
-		}
+    .bool {
+      color: purple;
+    }
 
-		.string {
-			color: green;
-			white-space: pre-wrap;
-		}
+    .int {
+      color: blue;
+    }
 
-		.resource {
-			color: saddlebrown;
-		}
+    .float {
+      color: orange;
+    }
 
-	  	.key {
-		  	float:left; //so that values appear next to their keys
-			font-weight: bold;
-		}
+    .string {
+      color: green;
+      white-space: pre-wrap;
+    }
 
-        .objectName {
-          font-weight: bold;
+    .resource {
+      color: saddlebrown;
+    }
+
+    .key {
+      float: left; //so that values appear next to their keys
+      font-weight: bold;
+    }
+
+    .objectName {
+      font-weight: bold;
+    }
+
+    #root {
+      margin: 0 0 0 0;
+    }
+
+    ul {
+      margin-left: 40px;
+      list-style: none;
+      padding: 0;
+    }
+
+    //utility
+    .openClose {
+      position: relative; //relative, so the the absolutely positioned before element can position based off it
+
+      .openCloseIcon { //the span with the carrot
+        position: absolute;
+        top: 0;
+        left: -20px;
+        display: inline-block;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+
+        &.closed {
+          transform: rotate(180deg);
         }
+      }
+    }
 
-		#root{
-			margin: 0 0 0 0;
-		}
-		
-		ul {
-		  	margin-left:40px;
-		  	list-style: none;
-			padding: 0;
-		}
+    .hide {
+      display: none;
+    }
 
-		//utility
-		.openClose {
-		  	position:relative; //relative, so the the absolutely positioned before element can position based off it
+    .clear {
+      clear: both;
+    }
 
-		  	.openCloseIcon { //the span with the carrot
-				position: absolute;
-				top: 0;
-				left: -20px;
-			  	display: inline-block;
-			  	cursor: pointer;
-			  	transition: transform 0.3s ease;
+    .all {
+      background-color: rgba(146, 116, 51, .1);
+      width: 250px;
+    }
 
-                &.closed {
-					transform: rotate(180deg);
-				}
-		  	}
-		}
+    .closeall {
+      float: right;
+    }
 
-		.hide {
-			display:none;
-		}
+    .closeall:hover {
+      text-decoration: underline;
+      cursor: pointer
+    }
 
-		.clear {
-			clear:both;
-		}
+    .openall:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
 
-		.all {
-			background-color:rgba(146,116,51,.1);
-			width:250px;
-		}
+  .var_dump_modal {
+    max-height: 80%;
+    width: 80%;
+    position: fixed;
+    box-shadow: 0 0 10px #888;
+    top: 10%;
+    left: 10%;
+    background-color: white;
+    opacity: .95;
+    border-radius: 2px;
+    box-sizing: border-box;
+    overflow: scroll;
+    z-index: 50;
 
-		.closeall{
-			float:right; 
-		}
+    &.fullScreen {
+      max-height: 100%;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
 
-		.closeall:hover {
-			text-decoration:underline;
-			cursor:pointer
-		}
+      #header {
+        width: 100%;
+      }
+    }
 
-		.openall:hover {
-			text-decoration:underline;
-			cursor:pointer;
-		}
-	}
+    #header {
+      position: fixed;
+      z-index: 1;
+      box-sizing: border-box;
+      width: 80%;
+      background-color: #BC2D09;
+      padding: 10px;
+      height: 40px;
 
-	.var_dump_modal {
-		max-height:80%;
-		width:80%;
-		position:fixed;
-		box-shadow: 0 0 10px #888;
-		top:10%;
-		left:10%;
-		background-color:white;
-		opacity:.95;
-		border-radius: 2px;
-		box-sizing:border-box;
-		overflow:scroll;
-		z-index: 50;
+      .iconContainer {
+        position: static;
+      }
 
-        &.fullScreen {
-          max-height: 100%;
-          height: 100%;
-          width: 100%;
-          top: 0;
-          left: 0;
+      #expandAll,
+      #collapseAll {
+        cursor: pointer;
+        padding-right: 20px;
+        float: left;
+        color: white;
+        padding-top: 3px;
 
-          #header {
-            width: 100%;
-          }
+        img {
+          float: left;
         }
+      }
 
-	  	#header {
-			position: fixed;
-			z-index: 1;
-			box-sizing: border-box;
-		  	width: 80%;
-			background-color: #BC2D09;
-			padding: 10px;
-			height: 40px;
+      .info,
+      .settings,
+      .fullScreen,
+      .closeModal {
+        cursor: pointer;
+        float: right;
+        padding-left: 10px;
+        padding-top: 2px;
+      }
+    }
 
-            .iconContainer {
-              position: static;
-            }
+    .failedMessage {
+      padding: 5px;
+      background-color: #BC2D09;
+      border-radius: 2px;
+      color: white;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+  }
 
-		  	#expandAll,
-			#collapseAll {
-			  	cursor: pointer;
-				padding-right:20px;
-				float:left;
-				color: white;
-                padding-top: 3px;
+  //utility
+  .svgIcon img,
+  img.svgIcon {
+    height: 15px;
+    width: 15px;
 
-                img {
-                  float: left;
-                }
-			}
+  }
 
-            .info,
-            .settings,
-            .fullScreen,
-			.closeModal  {
-			  	cursor: pointer;
-			  	float:right;
-                padding-left: 10px;
-                padding-top: 2px;
-			}
-		}
-
-		.failedMessage {
-			padding: 5px;
-			background-color: #BC2D09;
-			border-radius: 2px;
-			color: white;
-			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-		}
-	}
-
-	//utility
-	.svgIcon img,
-	img.svgIcon {
-		height: 15px;
-		width: 15px;
-
-	}
-
-	.rotate180 {
-		transform: rotate(180deg);
-	}
+  .rotate180 {
+    transform: rotate(180deg);
+  }
 }
