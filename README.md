@@ -37,6 +37,7 @@ So here is a simple solution to this problem. Hope it works for you!
            Under the hood revamp (ES6, Linter, Smaller API footprint)
 * 1.4.1 -> Grammar update (chained property names)
 * 1.4.2 -> z-index increase to make the modal more likely to be on top
+* 1.4.3 -> fixed issue with scroll bars always showing
 
 ### OLD
 version.major.feature.bug
