@@ -38,6 +38,7 @@ So here is a simple solution to this problem. Hope it works for you!
 * 1.4.1 -> Grammar update (chained property names)
 * 1.4.2 -> z-index increase to make the modal more likely to be on top
 * 1.4.3 -> fixed issue with scroll bars always showing
+* 1.4.4 -> revert bad fix that broke scrolling
 
 ### OLD
 version.major.feature.bug

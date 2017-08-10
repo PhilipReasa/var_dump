@@ -129,6 +129,7 @@
     border-radius: 2px;
     box-sizing: border-box;
     z-index: 9999;
+    overflow: scroll;
 
     &.fullScreen {
       max-height: 100%;

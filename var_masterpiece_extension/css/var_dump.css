@@ -78,7 +78,8 @@
     opacity: .95;
     border-radius: 2px;
     box-sizing: border-box;
-    z-index: 9999; }
+    z-index: 9999;
+    overflow: scroll; }
     .VAR_DUMP-DEADBEEF .var_dump_modal.fullScreen {
       max-height: 100%;
       height: 100%;

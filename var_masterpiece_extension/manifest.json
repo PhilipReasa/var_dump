@@ -3,7 +3,7 @@
 
   "name": "var_masterpiece",
   "description": "Turn a PHP var_dump into a readable, parsable, foldable piece of art! Makes PHP debugging much easier",
-  "version": "1.4.3",
+  "version": "1.4.4",
   
   "icons": {
 	 "16": "images/icon2_16.png",
