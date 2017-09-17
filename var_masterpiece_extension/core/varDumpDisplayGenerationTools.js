@@ -2,10 +2,12 @@
  * @returns {{getVarDumpHtml: printVarDump}}
  */
 window.varDumpGenerationTools = () => {
-    function printVarDump(dumpObject) {
+    function printVarDump(dumpArray) {
         let printString = '<div id="var_dump"><ul id="root">';
 
-        printString += printObject(dumpObject);
+        dumpArray.forEach((varDump) => {
+            printString += printObject(varDump);
+        })
 
         printString += '</ul></div>';
 

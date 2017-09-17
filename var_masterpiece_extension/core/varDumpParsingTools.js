@@ -2,7 +2,7 @@ window.varDumpParsingTools = (() => {
     /**
      * Public function that runs the formal grammar parser against the provided text
      * @param dumpText text to be interpreted by the grammar
-     * @returns {object} an object of the parsed text
+     * @returns {array} an array of the parsed text
      */
     function parseVarDump(dumpText) {
         try {

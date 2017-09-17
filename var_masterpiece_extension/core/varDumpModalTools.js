@@ -99,12 +99,12 @@ window.varDumpModalTools = (settings) => {
      *
      * Dump contains the text of the var dump
      */
-    function printModalTree(varDumpObject) {
+    function printModalTree(varDumpArray) {
         const $body = $('body')
         const modalOpen = openModalHTML();
         const modalClose = closeModalHTML();
 
-        if (varDumpObject === null || varDumpObject === undefined) {
+        if (varDumpArray === null || varDumpArray === undefined) {
             // the user tied to prettify a var dump, and we failed to parse it. Take Plan 2
             const failedHeader = failedHeaderHTML();
             const failedMessage = failedMessageHTML(parsingTools.getRawSelection())
@@ -128,24 +128,24 @@ window.varDumpModalTools = (settings) => {
         $body.append(
             modalOpen +
             header +
-            displayGenerationTools.getVarDumpHtml(varDumpObject) +
+            displayGenerationTools.getVarDumpHtml(varDumpArray) +
             modalClose
         )
         listenerTools.addListeners()
     }
 
     function bootstrapVardump() {
-        const varDumpObj = parsingTools.parseVarDumpFromPage()
+        const varDumpArray = parsingTools.parseVarDumpFromPage()
 
         // If we think that the whole page is a var dump
-        if (varDumpObj !== undefined && varDumpObj !== null) {
-            printModalTree(varDumpObj);
+        if (varDumpArray !== undefined && varDumpArray !== null) {
+            printModalTree(varDumpArray);
         }
     }
 
     function run() {
-        const varDumpObj = parsingTools.parseVarDumpFromSelection()
-        printModalTree(varDumpObj);
+        const varDumpArray = parsingTools.parseVarDumpFromSelection()
+        printModalTree(varDumpArray);
     }
 
     return {
