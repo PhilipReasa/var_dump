@@ -3,7 +3,7 @@
 
   "name": "var_masterpiece",
   "description": "Turn a PHP var_dump into a readable, foldable piece of art! JSONView for var_dump's",
-  "version": "1.5.0",
+  "version": "1.6.0",
   
   "icons": {
 	 "16": "images/icon2_16.png",
@@ -30,6 +30,7 @@
         ],
       "js": [
   			"vendor/jquery/jquery.js",
+  			"vendor/buy.js",
             "core/var_dump_grammar.js",
             "core/varDumpParsingTools.js",
   			"core/varDumpDisplayGenerationTools.js",

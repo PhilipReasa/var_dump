@@ -9,6 +9,7 @@ chrome.extension.sendRequest({action: 'getAllOptions'}, (response) => {
         colors: response.colors,
         autoRun: response.autorun,
         cascade: response.cascade,
+        donated: response.donated,
         specialClass: 'VAR_DUMP-DEADBEEF'
     })
 
