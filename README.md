@@ -41,6 +41,7 @@ So here is a simple solution to this problem. Hope it works for you!
 * 1.4.4 -> revert bad fix that broke scrolling
 * 1.5.0 -> added handling for multiple var_dumps at once
 * 1.6.0 -> added ability to donate
+* 1.6.1 -> hacky fix for purchase callback not working
 
 ### OLD
 version.major.feature.bug
