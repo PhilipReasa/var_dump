@@ -1,7 +1,7 @@
 {
   "name": "var_masterpiece",
   "version": "1.6.1",
-  "description": "Debugging too for var_dumps",
+  "description": "Debugging tool for var_dumps",
   "main": "index.js",
   "directories": {
     "doc": "docs"
