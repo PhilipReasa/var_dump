@@ -105,7 +105,7 @@ window.varDumpGenerationTools = () => {
         }
         case 'string':
         {
-            generatedHTML += '<span class="string">(string) ' + object.value.replace(/</g, '&lt;') + '</span>';
+            generatedHTML += '<span class="string">(string) "' + object.value.replace(/</g, '&lt;') + '"</span>';
             break;
         }
         case 'null':
