@@ -3,7 +3,7 @@
 
   "name": "var_masterpiece",
   "description": "Turn a PHP var_dump into a readable, collapsible piece of art! JSONView for var_dump's",
-  "version": "1.6.3",
+  "version": "1.6.4",
   
   "icons": {
 	 "16": "images/icon2_16.png",

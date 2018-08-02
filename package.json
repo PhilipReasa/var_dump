@@ -1,6 +1,6 @@
 {
   "name": "var_masterpiece",
-  "version": "1.6.1",
+  "version": "1.6.4",
   "description": "Debugging tool for var_dumps",
   "main": "index.js",
   "directories": {
@@ -23,7 +23,7 @@
     "var_dump"
   ],
   "author": "Philip Reasa",
-  "license": "WTFPL",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Rece/var_dump/issues"
   },
