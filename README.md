@@ -42,7 +42,8 @@ So here is a simple solution to this problem. Hope it works for you!
 * 1.5.0 -> added handling for multiple var_dumps at once
 * 1.6.0 -> added ability to donate
 * 1.6.1 -> hacky fix for purchase callback not working
-* 1.6.2 -> removed ability to donate XD
+* 1.6.2 -> removed ability to donate... it wasn't super popular XD
+* 1.6.3 -> fixed bug with multiple var dumps and objects. Also added small enhancement to strings.
 
 ### OLD
 version.major.feature.bug
