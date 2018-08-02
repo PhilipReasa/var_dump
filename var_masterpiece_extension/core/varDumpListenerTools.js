@@ -44,28 +44,12 @@ window.varDumpListenerTools = (cascade, specialClass) => {
         chrome.extension.sendRequest({action: 'openOptionsPage'})
     }
 
-    function purchaseClick() {
-        google.payments.inapp.buy({
-            parameters: {
-                env: 'prod'
-            },
-            sku: 'supporter_donation',
-            success: onPurchase
-        });
-    }
-
-    function onPurchase() {
-        chrome.extension.sendRequest({action: 'saveDonation'})
-        $('.donateIcon').hide();
-    }
-
     function addListeners() {
         $('.openClose .openCloseIcon').bind('click', toggleCollapse);
         $('#expandAll').bind('click', openAll);
         $('#collapseAll').bind('click', closeAll);
         $('.fullScreen').bind('click', toggleFullScreen);
         $('.settings').bind('click', openOptions)
-        $('.donateIcon').bind('click', purchaseClick)
         addCloseListener();
     }
 

@@ -32,24 +32,14 @@ chrome.extension.onRequest.addListener((request, sender, sendResponse) => {
             localStorage.autorun = 'true'; // local storage only accepts strings
         }
 
-        if (localStorage.donated === undefined) {
-            localStorage.donated = 'false';
-        }
-
         sendResponse({
             colors: colors,
             autorun: localStorage.autorun,
             cascade: localStorage.cascade,
-            donated: localStorage.donated
         });
     }
 
     if (request.action === 'openOptionsPage') {
         chrome.runtime.openOptionsPage();
-    }
-
-    if (request.action === 'saveDonation') {
-        localStorage.donated = 'true';
-        localStorage.donatedTime = new Date().getTime();
     }
 })

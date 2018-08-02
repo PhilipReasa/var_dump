@@ -110,7 +110,6 @@
           float: left; }
       .VAR_DUMP-DEADBEEF .var_dump_modal #header .info,
       .VAR_DUMP-DEADBEEF .var_dump_modal #header .settings,
-      .VAR_DUMP-DEADBEEF .var_dump_modal #header .donateIcon,
       .VAR_DUMP-DEADBEEF .var_dump_modal #header .fullScreen,
       .VAR_DUMP-DEADBEEF .var_dump_modal #header .closeModal {
         cursor: pointer;

@@ -6,7 +6,6 @@ window.varDumpModalTools = (settings) => {
     const COLORS = settings.colors
     const CASCADE = settings.cascade
     const SPECIAL_CLASS = settings.specialClass
-    const DONATED = settings.donated
     const listenerTools = varDumpListenerTools(CASCADE, SPECIAL_CLASS)
     const parsingTools = varDumpParsingTools()
     const displayGenerationTools = varDumpGenerationTools()
@@ -70,19 +69,11 @@ window.varDumpModalTools = (settings) => {
                     '<img class="svgIcon" src="' + chrome.extension.getURL('images/expand.svg') + '">' +
                 '</div>'
 
-        let donateIcon = '';
-        if (DONATED !== 'true') {
-            donateIcon +=
-                '<div class="donateIcon">' +
-                    '<img title="I support this extension for free. Say thanks by purchasing in the web store. No worries if you can\'t :)" class="svgIcon" src="' + chrome.extension.getURL('images/gift.svg') + '">' +
-                '</div>'
-        }
-
         const headerEnd = '' +
             '</div>' +
         '</div>';
 
-        return headerStart + donateIcon + headerEnd;
+        return headerStart + headerEnd;
     }
 
     function getColorVal(color) {

@@ -5,26 +5,10 @@ let varDumpModalToolsInstance
  * and then autorun if enabled
  */
 chrome.extension.sendRequest({action: 'getAllOptions'}, (response) => {
-
-    // this little snipit makes sure that we have hidden the gift box after a donation
-    google.payments.inapp.getPurchases({
-        parameters: {env: 'prod'},
-        success: (purchases) => {
-            const activePurchases = purchases.response.details.filter((element) => {
-                return element.state === 'ACTIVE'
-            })
-
-            if (activePurchases.length > 0) {
-                chrome.extension.sendRequest({action: 'saveDonation'})
-            }
-        },
-    });
-
     varDumpModalToolsInstance = varDumpModalTools({
         colors: response.colors,
         autoRun: response.autorun,
         cascade: response.cascade,
-        donated: response.donated,
         specialClass: 'VAR_DUMP-DEADBEEF'
     })
 
