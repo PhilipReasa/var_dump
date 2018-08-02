@@ -30,7 +30,6 @@
         ],
       "js": [
   			"vendor/jquery/jquery.js",
-  			"vendor/buy.js",
             "core/var_dump_grammar.js",
             "core/varDumpParsingTools.js",
   			"core/varDumpDisplayGenerationTools.js",
