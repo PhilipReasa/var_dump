@@ -76,10 +76,10 @@ window.varDumpParsingTools = (() => {
     }
 
     /**
-     * Returns string of a var_dump. if no vardumps found, returns false
+     * Returns string of a var_dump. if no var_dumps found, returns false
      *
      * Currently takes the niave approach at looking for a var dump right at
-     * the begining of the page, and nowhere else. Only looks for arrays and objects
+     * the beginning of the page, and nowhere else. Only looks for arrays and objects
      *
      * returns string if var dump found, false otherwise
      */
