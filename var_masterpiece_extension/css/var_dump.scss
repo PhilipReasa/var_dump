@@ -16,7 +16,6 @@
   #var_dump { //the var dump output
     font-size: 16px;
     white-space: pre-wrap;
-    margin-top: 40px; //40px is header height
     padding-top: 5%;
     padding-bottom: 5%;
     padding-right: 5%;
@@ -144,10 +143,10 @@
     }
 
     #header {
-      position: fixed;
+      position: sticky;
       z-index: 1;
       box-sizing: border-box;
-      width: 80%;
+      width: 100%;
       background-color: #BC2D09;
       padding: 10px;
       height: 40px;
