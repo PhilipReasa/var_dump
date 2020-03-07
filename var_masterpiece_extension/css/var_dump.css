@@ -10,7 +10,6 @@
   .VAR_DUMP-DEADBEEF #var_dump {
     font-size: 16px;
     white-space: pre-wrap;
-    margin-top: 40px;
     padding-top: 5%;
     padding-bottom: 5%;
     padding-right: 5%;
@@ -89,10 +88,10 @@
       .VAR_DUMP-DEADBEEF .var_dump_modal.fullScreen #header {
         width: 100%; }
     .VAR_DUMP-DEADBEEF .var_dump_modal #header {
-      position: fixed;
+      position: sticky;
       z-index: 1;
       box-sizing: border-box;
-      width: 80%;
+      width: 100%;
       background-color: #BC2D09;
       padding: 10px;
       height: 40px; }
