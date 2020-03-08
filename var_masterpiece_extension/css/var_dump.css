@@ -95,6 +95,7 @@
       width: 80%;
       background-color: #BC2D09;
       padding: 10px;
+      padding-right: 25px;
       height: 40px; }
       .VAR_DUMP-DEADBEEF .var_dump_modal #header .iconContainer {
         position: static; }
@@ -107,7 +108,8 @@
         padding-top: 3px; }
         .VAR_DUMP-DEADBEEF .var_dump_modal #header #expandAll img,
         .VAR_DUMP-DEADBEEF .var_dump_modal #header #collapseAll img {
-          float: left; }
+          float: left;
+          margin-right: 5px; }
       .VAR_DUMP-DEADBEEF .var_dump_modal #header .info,
       .VAR_DUMP-DEADBEEF .var_dump_modal #header .settings,
       .VAR_DUMP-DEADBEEF .var_dump_modal #header .fullScreen,
