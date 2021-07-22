@@ -122,7 +122,7 @@ window.varDumpGenerationTools = () => {
             break;
         }
         default: {
-            throw new Error('Unexpected element type!')
+            generatedHTML += '<span class="undefined">' + object.value + '</span>'
         }
         }
 
