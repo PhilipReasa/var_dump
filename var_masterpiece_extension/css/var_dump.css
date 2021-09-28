@@ -19,6 +19,10 @@
       font-weight: bold; }
     .VAR_DUMP-DEADBEEF #var_dump .null {
       color: red; }
+    .VAR_DUMP-DEADBEEF #var_dump .recursion {
+      color: red; }
+    .VAR_DUMP-DEADBEEF #var_dump .undefined {
+      color: gray; }
     .VAR_DUMP-DEADBEEF #var_dump .bool {
       color: purple; }
     .VAR_DUMP-DEADBEEF #var_dump .int {
