@@ -21,40 +21,42 @@ So here is a simple solution to this problem. Hope it works for you!
 ## Versioning
 
 ### NEW
+
 [semver](http://semver.org/): MAJOR.MINOR.PATCH
 
-* 1.1.2 -> updated manifest description.
-* 1.1.3 -> Hacky fix for issue caused by `\n` in strings
-* 1.2.0 -> rewrote parser to use formal grammar + PEGjs
-* 1.3.0 -> updated grammar. Added elegant error handling
-* 1.3.1 -> fixed a small CSS issue
-* 1.3.2 -> improved support of float types
-* 1.3.3 -> updated grammar to support references and resources
-* 1.3.4 -> made manual selections more intelligent/forgiving
-* 1.3.5 -> Object keys now more robust. fixed bug with 1.3.4 release
-* 1.3.6 -> Fixed issue with scoped object keys
-* 1.4.0 -> UI improvements, new header style, full-screen mode, settings link,
-           Under the hood revamp (ES6, Linter, Smaller API footprint)
-* 1.4.1 -> Grammar update (chained property names)
-* 1.4.2 -> z-index increase to make the modal more likely to be on top
-* 1.4.3 -> fixed issue with scroll bars always showing
-* 1.4.4 -> revert bad fix that broke scrolling
-* 1.5.0 -> added handling for multiple var_dumps at once
-* 1.6.0 -> added ability to donate
-* 1.6.1 -> hacky fix for purchase callback not working
-* 1.6.2 -> removed ability to donate... it wasn't super popular XD
-* 1.6.3 -> fixed bug with multiple var dumps and objects. Also added small enhancement to strings.
-* 1.6.4 -> Lost track of branches. Fixing previous release.
-* 1.6.5 -> Fixed visual bug. Thanks @spajak
+- 1.1.2 -> updated manifest description.
+- 1.1.3 -> Hacky fix for issue caused by `\n` in strings
+- 1.2.0 -> rewrote parser to use formal grammar + PEGjs
+- 1.3.0 -> updated grammar. Added elegant error handling
+- 1.3.1 -> fixed a small CSS issue
+- 1.3.2 -> improved support of float types
+- 1.3.3 -> updated grammar to support references and resources
+- 1.3.4 -> made manual selections more intelligent/forgiving
+- 1.3.5 -> Object keys now more robust. fixed bug with 1.3.4 release
+- 1.3.6 -> Fixed issue with scoped object keys
+- 1.4.0 -> UI improvements, new header style, full-screen mode, settings link,
+  Under the hood revamp (ES6, Linter, Smaller API footprint)
+- 1.4.1 -> Grammar update (chained property names)
+- 1.4.2 -> z-index increase to make the modal more likely to be on top
+- 1.4.3 -> fixed issue with scroll bars always showing
+- 1.4.4 -> revert bad fix that broke scrolling
+- 1.5.0 -> added handling for multiple var_dumps at once
+- 1.6.0 -> added ability to donate
+- 1.6.1 -> hacky fix for purchase callback not working
+- 1.6.2 -> removed ability to donate... it wasn't super popular XD
+- 1.6.3 -> fixed bug with multiple var dumps and objects. Also added small enhancement to strings.
+- 1.6.4 -> Lost track of branches. Fixing previous release.
+- 1.6.5 -> Fixed visual bug. Thanks @spajak
+- 1.6.6 -> Added styles for recursive and undefined case. Thanks @namvarii
+- 1.6.7 -> minor cleanup
 
 ### OLD
+
 version.major.feature.bug
 
-* 1.0.0.# -> bug fixes
-* 1.0.1.0 -> added statistics, some options
-* 1.0.2.0 -> upgraded options page appearance, new icon
-* 1.1.0.0 -> re-wrote a significant portion of code. Better html structure. Slightly better visuals. Removed statistics.
-* 1.1.0.# -> small fixes caused by significant rewrite
-* 1.1.0.5 -> Removed font awesome dependency to fix bug reported on chrome web store
-
-
+- 1.0.0.# -> bug fixes
+- 1.0.1.0 -> added statistics, some options
+- 1.0.2.0 -> upgraded options page appearance, new icon
+- 1.1.0.0 -> re-wrote a significant portion of code. Better html structure. Slightly better visuals. Removed statistics.
+- 1.1.0.# -> small fixes caused by significant rewrite
+- 1.1.0.5 -> Removed font awesome dependency to fix bug reported on chrome web store

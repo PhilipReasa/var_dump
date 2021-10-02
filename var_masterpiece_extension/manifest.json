@@ -3,46 +3,37 @@
 
   "name": "var_masterpiece",
   "description": "Turn a PHP var_dump into a readable, collapsible piece of art! JSONView for var_dump's",
-  "version": "1.6.5",
-  
+  "version": "1.6.7",
+
   "icons": {
-	 "16": "images/icon2_16.png",
-	 "48": "images/icon2_48.png",
-	 "128": "images/icon2_128.png"
+    "16": "images/icon2_16.png",
+    "48": "images/icon2_48.png",
+    "128": "images/icon2_128.png"
   },
-  
-  "permissions": [
-    "contextMenus"
-  ],
-  
+
+  "permissions": ["contextMenus"],
+
   "background": {
-    "scripts": [
-		"core/addContextMenu.js",
-		"core/background.js"
-	]
+    "scripts": ["core/addContextMenu.js", "core/background.js"]
   },
-  
+
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "css": [
-        "css/var_dump.css"
-        ],
+      "css": ["css/var_dump.css"],
       "js": [
-  			"vendor/jquery/jquery.js",
-            "core/var_dump_grammar.js",
-            "core/varDumpParsingTools.js",
-  			"core/varDumpDisplayGenerationTools.js",
-  			"core/varDumpListenerTools.js",
-  			"core/varDumpModalTools.js",
-  			"core/varDump.js"
-		  ]
+        "vendor/jquery/jquery.js",
+        "core/var_dump_grammar.js",
+        "core/varDumpParsingTools.js",
+        "core/varDumpDisplayGenerationTools.js",
+        "core/varDumpListenerTools.js",
+        "core/varDumpModalTools.js",
+        "core/varDump.js"
+      ]
     }
   ],
 
-  "web_accessible_resources":[
-    "/images/*"
-  ],
+  "web_accessible_resources": ["/images/*"],
 
   "options_ui": {
     "page": "options/options.html",
