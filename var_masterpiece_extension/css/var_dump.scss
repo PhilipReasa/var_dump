@@ -9,11 +9,13 @@
   vertical-align: baseline;
   line-height: 1;
 
-  * { //Apply the CSS Reset to all elements to give this stylesheet more weight than any existing stylesheets
+  * {
+    //Apply the CSS Reset to all elements to give this stylesheet more weight than any existing stylesheets
     @extend .VAR_DUMP-DEADBEEF;
   }
 
-  #var_dump { //the var dump output
+  #var_dump {
+    //the var dump output
     font-size: 16px;
     white-space: pre-wrap;
     margin-top: 40px; //40px is header height
@@ -75,7 +77,8 @@
     .openClose {
       position: relative; //relative, so the the absolutely positioned before element can position based off it
 
-      .openCloseIcon { //the span with the carrot
+      .openCloseIcon {
+        //the span with the carrot
         position: absolute;
         top: 0;
         left: -20px;
@@ -98,7 +101,7 @@
     }
 
     .all {
-      background-color: rgba(146, 116, 51, .1);
+      background-color: rgba(146, 116, 51, 0.1);
       width: 250px;
     }
 
@@ -108,7 +111,7 @@
 
     .closeall:hover {
       text-decoration: underline;
-      cursor: pointer
+      cursor: pointer;
     }
 
     .openall:hover {
@@ -125,7 +128,7 @@
     top: 10%;
     left: 10%;
     background-color: white;
-    opacity: .95;
+    opacity: 0.95;
     border-radius: 2px;
     box-sizing: border-box;
     z-index: 9999;
@@ -148,8 +151,8 @@
       z-index: 1;
       box-sizing: border-box;
       width: 80%;
-      background-color: #BC2D09;
-      padding: 10px;
+      background-color: #bc2d09;
+      padding: 10px 30px;
       height: 40px;
 
       .iconContainer {
@@ -182,7 +185,7 @@
 
     .failedMessage {
       padding: 5px;
-      background-color: #BC2D09;
+      background-color: #bc2d09;
       border-radius: 2px;
       color: white;
       font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -194,7 +197,6 @@
   img.svgIcon {
     height: 15px;
     width: 15px;
-
   }
 
   .rotate180 {
