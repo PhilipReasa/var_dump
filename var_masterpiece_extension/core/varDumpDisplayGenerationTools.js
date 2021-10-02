@@ -117,8 +117,12 @@ window.varDumpGenerationTools = () => {
             generatedHTML += '<span class="resource">(resource) ' + object.value + '</span>'
             break;
         }
+	case 'recursion': {
+            generatedHTML += '<span class="recursion">*' + object.value + '*</span>'
+            break;
+        }
         default: {
-            throw new Error('Unexpected element type!')
+            generatedHTML += '<span class="undefined">' + object.value + '</span>'
         }
         }
 

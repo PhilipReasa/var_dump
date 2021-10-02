@@ -159,8 +159,14 @@
       z-index: 1;
       box-sizing: border-box;
       width: 80%;
+<<<<<<< HEAD
       background-color: #bc2d09;
       padding: 10px 30px;
+=======
+      background-color: #BC2D09;
+      padding: 10px;
+      padding-right: 25px;
+>>>>>>> d498073129afd13090e95adc3d17abf387d5fe58
       height: 40px;
 
       .iconContainer {
