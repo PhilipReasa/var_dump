@@ -49,6 +49,7 @@ So here is a simple solution to this problem. Hope it works for you!
 - 1.6.5 -> Fixed visual bug. Thanks @spajak
 - 1.6.6 -> Added styles for recursive and undefined case. Thanks @namvarii
 - 1.6.7 -> minor cleanup
+- 1.6.8 -> Manifest v3 Update
 
 ### OLD
 

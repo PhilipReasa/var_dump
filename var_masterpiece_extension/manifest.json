@@ -1,9 +1,9 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
 
   "name": "var_masterpiece",
   "description": "Turn a PHP var_dump into a readable, collapsible piece of art! JSONView for var_dump's",
-  "version": "1.6.7",
+  "version": "1.6.8",
 
   "icons": {
     "16": "images/icon2_16.png",
@@ -11,10 +11,11 @@
     "128": "images/icon2_128.png"
   },
 
-  "permissions": ["contextMenus"],
+  "permissions": ["contextMenus", "storage"],
 
   "background": {
-    "scripts": ["core/addContextMenu.js", "core/background.js"]
+    "service_worker": "core/serviceWorker.js",
+    "type": "module"
   },
 
   "content_scripts": [
@@ -33,10 +34,15 @@
     }
   ],
 
-  "web_accessible_resources": ["/images/*"],
+  "web_accessible_resources": [
+    {
+      "resources": ["/images/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
 
   "options_ui": {
     "page": "options/options.html",
-    "chrome_style": true
+    "open_in_tab": false
   }
 }

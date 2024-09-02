@@ -1,7 +1,7 @@
 {
   "name": "var_masterpiece",
-  "version": "1.6.4",
-  "description": "Debugging tool for var_dumps",
+  "version": "1.6.8",
+  "description": "Debugging tool for PHP var_dumps",
   "main": "index.js",
   "directories": {
     "doc": "docs"
@@ -25,7 +25,7 @@
   "author": "Philip Reasa",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Rece/var_dump/issues"
+    "url": "https://github.com/PhilipReasa/var_dump/issues"
   },
-  "homepage": "https://github.com/Rece/var_dump#readme"
+  "homepage": "https://github.com/PhilipReasa/var_dump#readme"
 }
