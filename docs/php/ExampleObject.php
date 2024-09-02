@@ -9,10 +9,10 @@ class ExampleObject {
     		"Associative Arrays?" => "Apperantly :P"
     	),
     	"Custimizable Data Type Coloring",
-        "Automatically Runs", 
+        "Automatically Runs",
         "Selectivly Run Within A Page"
     );
-    public $GitHub = "Contribute here: https://github.com/Rece/var_dump";
+    public $GitHub = "Contribute here: https://github.com/PhilipReasa/var_dump";
     public $TestBooleans = true;
     public $TestInts = 1;
     public $TestFloats = 3.14;

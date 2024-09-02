@@ -1,7 +1,7 @@
 // Save this script as `options.js`
 
 // Saves options to localStorage.
-function save_options() {
+async function save_options() {
   var intColor = document.getElementById("int-color").value;
   var floatColor = document.getElementById("float-color").value;
   var stringColor = document.getElementById("string-color").value;
@@ -10,57 +10,78 @@ function save_options() {
   var arrayColor = document.getElementById("array-color").value;
   var nullColor = document.getElementById("null-color").value;
 
-  chrome.storage.local["intColor"] = intColor;
-  chrome.storage.local["floatColor"] = floatColor;
-  chrome.storage.local["stringColor"] = stringColor;
-  chrome.storage.local["boolColor"] = boolColor;
-  chrome.storage.local["objectColor"] = objectColor;
-  chrome.storage.local["arrayColor"] = arrayColor;
-  chrome.storage.local["nullColor"] = nullColor;
-  chrome.storage.local["cascade"] = document.getElementById("y-cas").checked;
-  chrome.storage.local["autorun"] = document.getElementById("y-autoR").checked;
+  await chrome.storage.local.set({
+    intColor: intColor,
+    floatColor: floatColor,
+    stringColor: stringColor,
+    boolColor: boolColor,
+    objectColor: objectColor,
+    arrayColor: arrayColor,
+    nullColor: nullColor,
+    cascade: document.getElementById("y-cas").checked,
+    autorun: document.getElementById("y-autoR").checked,
+  });
 
   // let user know options were saved.
   alert("options saved!");
 }
 
 // Restores select box state to saved value from localStorage.
-function restore_options() {
-  var intColor = chrome.storage.local["intColor"];
-  var floatColor = chrome.storage.local["floatColor"];
-  var stringColor = chrome.storage.local["stringColor"];
-  var boolColor = chrome.storage.local["boolColor"];
-  var objectColor = chrome.storage.local["objectColor"];
-  var arrayColor = chrome.storage.local["arrayColor"];
-  var nullColor = chrome.storage.local["nullColor"];
+async function restore_options() {
+  const colorPromise = new Promise((resolve) => {
+    const colorKeys = [
+      "intColor",
+      "floatColor",
+      "stringColor",
+      "boolColor",
+      "objectColor",
+      "arrayColor",
+      "nullColor",
+    ];
+    chrome.storage.local.get(colorKeys).then((vals) => {
+      console.log(vals);
+      resolve(
+        colorKeys.reduce((acc, key) => {
+          console.log(acc, key);
+          acc[key] = vals[key] === undefined ? "default" : vals[key];
+          return acc;
+        }, {}),
+      );
+    });
+  });
 
-  //first time restore fix
-  intColor = intColor == undefined ? "default" : intColor;
-  floatColor = floatColor == undefined ? "default" : floatColor;
-  stringColor = stringColor == undefined ? "default" : stringColor;
-  boolColor = boolColor == undefined ? "default" : boolColor;
-  objectColor = objectColor == undefined ? "default" : objectColor;
-  arrayColor = arrayColor == undefined ? "default" : arrayColor;
-  nullColor = nullColor == undefined ? "default" : nullColor;
+  const otherPromise = new Promise((resolve) => {
+    chrome.storage.local
+      .get(["cascade", "autorun"])
+      .then((vals) => resolve([vals["cascade"], vals["autorun"]]));
+  });
 
-  document.getElementById("int-color").value = intColor;
-  document.getElementById("float-color").value = floatColor;
-  document.getElementById("string-color").value = stringColor;
-  document.getElementById("bool-color").value = boolColor;
-  document.getElementById("object-color").value = objectColor;
-  document.getElementById("array-color").value = arrayColor;
-  document.getElementById("null-color").value = nullColor;
+  colors = await colorPromise;
+  console.log(colors);
+  const [cascade, autorun] = await otherPromise;
+
+  document.getElementById("int-color").value = colors.intColor;
+  document.getElementById("float-color").value = colors.floatColor;
+  document.getElementById("string-color").value = colors.stringColor;
+  document.getElementById("bool-color").value = colors.boolColor;
+  document.getElementById("object-color").value = colors.objectColor;
+  document.getElementById("array-color").value = colors.arrayColor;
+  document.getElementById("null-color").value = colors.nullColor;
   document.getElementById("y-cas").checked =
-    chrome.storage.local["cascade"] === "true";
+    cascade === "true" || cascade === true;
   document.getElementById("n-cas").checked =
-    chrome.storage.local["cascade"] === "false";
+    cascade === "false" || cascade === false;
   document.getElementById("y-autoR").checked =
-    chrome.storage.local["autorun"] === "true";
+    autorun === "true" || autorun === true;
   document.getElementById("n-autoR").checked =
-    chrome.storage.local["autorun"] === "false";
+    autorun === "false" || autorun === false;
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  restore_options();
-  document.querySelector("#save").addEventListener("click", save_options);
+document.addEventListener("DOMContentLoaded", () => {
+  (async () => {
+    await restore_options();
+    document.querySelector("#save").addEventListener("click", save_options);
+  })();
+
+  return true;
 });

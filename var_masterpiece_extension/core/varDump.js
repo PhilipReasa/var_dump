@@ -5,6 +5,7 @@ let varDumpModalToolsInstance;
  * and then autorun if enabled
  */
 chrome.runtime.sendMessage({ action: "getAllOptions" }, (response) => {
+  console.log("response", response);
   varDumpModalToolsInstance = varDumpModalTools({
     colors: response.colors,
     autoRun: response.autorun,
@@ -13,7 +14,7 @@ chrome.runtime.sendMessage({ action: "getAllOptions" }, (response) => {
   });
 
   // when the data retrieval is done, see if we should try to run:
-  if (response.autorun === "true") {
+  if (response.autorun === "true" || response.autorun === true) {
     varDumpModalToolsInstance.autoRun();
   }
 });

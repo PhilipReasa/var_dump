@@ -5,7 +5,7 @@ class foo
     var $AuthorName = "Philip Reasa";
     var $ExtensionAbilities = array("Tree Nesting Structure", "Custimizable Data Type Coloring",
         "Colapse/Expand", "Automatically Run", "Run Within A Page");
-    var $GitHub = "Contribute here: https://github.com/Rece/var_dump";
+    var $GitHub = "Contribute here: https://github.com/PhilipReasa/var_dump";
     var $TestAssociativeArrays = array("testing" => "It works!");
     var $TestBooleans = true;
     var $TestInts = 1;
@@ -16,5 +16,3 @@ class foo
 
 $test1 = new foo;
 var_dump($test1);
-
-
