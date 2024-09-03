@@ -1,4 +1,7 @@
 const CONTEXT_MENU_ID = "var_dump_here";
+const ACTION_DISPLAY_VAR_DUMP = "displayVarDump";
+const ACTION_GET_ALL_OPTIONS = "getAllOptions";
+const ACTION_OPEN_OPTIONS_PAGE = "openOptionsPage";
 
 /**
  * This little snippet adds a "var_dump here" element to the context menu (drop down created
@@ -15,7 +18,7 @@ chrome.contextMenus.removeAll(() => {
 
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === CONTEXT_MENU_ID) {
-    chrome.tabs.sendMessage(tab.id, { action: "displayVarDump" });
+    chrome.tabs.sendMessage(tab.id, { action: ACTION_DISPLAY_VAR_DUMP });
   }
 });
 
@@ -56,7 +59,7 @@ chrome.runtime.onMessage.addListener((request, _sender, sendResponse) => {
       return colors;
     }
 
-    if (request.action === "getAllOptions") {
+    if (request.action === ACTION_GET_ALL_OPTIONS) {
       const colors = await getColors();
 
       const autoRunConfig = await getRawValueFromLocalStorage("autorun");
@@ -71,7 +74,7 @@ chrome.runtime.onMessage.addListener((request, _sender, sendResponse) => {
       });
     }
 
-    if (request.action === "openOptionsPage") {
+    if (request.action === ACTION_OPEN_OPTIONS_PAGE) {
       chrome.runtime.openOptionsPage();
     }
   })();

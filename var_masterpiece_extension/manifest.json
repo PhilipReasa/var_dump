@@ -3,7 +3,7 @@
 
   "name": "var_masterpiece",
   "description": "Turn a PHP var_dump into a readable, collapsible piece of art! JSONView for var_dump's",
-  "version": "1.6.8",
+  "version": "1.6.9",
 
   "icons": {
     "16": "images/icon2_16.png",
@@ -14,7 +14,7 @@
   "permissions": ["contextMenus", "storage"],
 
   "background": {
-    "service_worker": "core/serviceWorker.js",
+    "service_worker": "core/service_worker/serviceWorker.js",
     "type": "module"
   },
 
@@ -24,12 +24,13 @@
       "css": ["css/var_dump.css"],
       "js": [
         "vendor/jquery/jquery.js",
-        "core/var_dump_grammar.js",
-        "core/varDumpParsingTools.js",
-        "core/varDumpDisplayGenerationTools.js",
-        "core/varDumpListenerTools.js",
-        "core/varDumpModalTools.js",
-        "core/varDump.js"
+        "core/content_scripts/constants.js",
+        "core/content_scripts/var_dump_grammar.js",
+        "core/content_scripts/varDumpParsingTools.js",
+        "core/content_scripts/varDumpDisplayGenerationTools.js",
+        "core/content_scripts/varDumpListenerTools.js",
+        "core/content_scripts/varDumpModalTools.js",
+        "core/content_scripts/varDump.js"
       ]
     }
   ],

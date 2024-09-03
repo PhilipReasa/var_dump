@@ -1,6 +1,6 @@
 {
   "name": "var_masterpiece",
-  "version": "1.6.8",
+  "version": "1.6.9",
   "description": "Debugging tool for PHP var_dumps",
   "main": "index.js",
   "directories": {
