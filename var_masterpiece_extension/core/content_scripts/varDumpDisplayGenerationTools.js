@@ -23,10 +23,7 @@
             object.className.namespace.join("\\") + object.className.class;
           const referenceId = object.referenceId;
           const propertyCount = object.properties;
-          let propertyText = "properties";
-          if (propertyCount === 1) {
-            propertyText = "property";
-          }
+          const propertyText = propertyCount === 1 ? "property" : "properties";
 
           generatedHTML +=
             "" +
@@ -52,9 +49,7 @@
             "<ul>";
 
           // for each property in an object, print the property and the value
-          for (let i = 0; i < object.values.length; i++) {
-            const childObject = object.values[i];
-
+          object.values.forEach((childObject) => {
             generatedHTML +=
               "" +
               "<li>" +
@@ -63,16 +58,13 @@
               ": </span>" +
               printObject(childObject.value) +
               "</li>";
-          }
+          });
 
           generatedHTML += "" + "</ul>" + "</li>";
           break;
         }
         case "array": {
-          let elementText = "elements";
-          if (object.count === 1) {
-            elementText = "element";
-          }
+          const elementText = object.count === 1 ? "element" : "elements";
 
           generatedHTML +=
             "" +
@@ -92,9 +84,7 @@
             "<ul>";
 
           // for each value in the array, print the key and the value
-          for (let i = 0; i < object.values.length; i++) {
-            const childObject = object.values[i];
-
+          object.values.forEach((childObject) => {
             generatedHTML +=
               "" +
               "<li>" +
@@ -103,7 +93,7 @@
               ": </span>" +
               printObject(childObject.value) +
               "</li>";
-          }
+          });
 
           generatedHTML += "" + "</ul>" + "</li>";
           break;

@@ -55,7 +55,6 @@
     }
 
     function addListeners() {
-      console.log("aaaaa");
       $(".openClose .openCloseIcon").bind("click", toggleCollapse);
       $("#expandAll").bind("click", openAll);
       $("#collapseAll").bind("click", closeAll);
@@ -65,9 +64,7 @@
     }
 
     function addCloseListener() {
-      console.log("bbbb");
       $(".closeModal").bind("click", () => {
-        console.log("cccccc");
         $(`.${specialClass}`).remove();
       });
     }

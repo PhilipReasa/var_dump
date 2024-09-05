@@ -39,10 +39,8 @@ async function restore_options() {
       "nullColor",
     ];
     chrome.storage.local.get(colorKeys).then((vals) => {
-      console.log(vals);
       resolve(
         colorKeys.reduce((acc, key) => {
-          console.log(acc, key);
           acc[key] = vals[key] === undefined ? "default" : vals[key];
           return acc;
         }, {}),
@@ -57,7 +55,6 @@ async function restore_options() {
   });
 
   colors = await colorPromise;
-  console.log(colors);
   const [cascade, autorun] = await otherPromise;
 
   document.getElementById("int-color").value = colors.intColor;

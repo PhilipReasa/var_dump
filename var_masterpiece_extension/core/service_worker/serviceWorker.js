@@ -59,23 +59,40 @@ chrome.runtime.onMessage.addListener((request, _sender, sendResponse) => {
       return colors;
     }
 
-    if (request.action === ACTION_GET_ALL_OPTIONS) {
-      const colors = await getColors();
+    async function coerceToBoolean(keyName, val) {
+      const coercedVal =
+        val === undefined || val === null || val === "true" || !!val;
 
-      const autoRunConfig = await getRawValueFromLocalStorage("autorun");
-      if (autoRunConfig === undefined) {
-        chrome.storage.local.set({ autorun: "true" });
-      }
-
-      sendResponse({
-        colors: colors,
-        autorun: await getRawValueFromLocalStorage("autorun"),
-        cascade: await getRawValueFromLocalStorage("cascade"),
+      return new Promise((resolve, _reject) => {
+        chrome.storage.local.set({ [keyName]: coercedVal }, (newData) => {
+          return resolve(newData[keyName]);
+        });
       });
     }
 
-    if (request.action === ACTION_OPEN_OPTIONS_PAGE) {
-      chrome.runtime.openOptionsPage();
+    switch (request.action) {
+      case ACTION_GET_ALL_OPTIONS:
+        const colors = await getColors();
+
+        const autoRunConfig = await coerceToBoolean(
+          "autorun",
+          await getRawValueFromLocalStorage("autorun"),
+        );
+
+        const cascadeConfig = await coerceToBoolean(
+          "cascade",
+          await getRawValueFromLocalStorage("cascade"),
+        );
+
+        sendResponse({
+          colors: colors,
+          autorun: autoRunConfig,
+          cascade: cascadeConfig,
+        });
+        break;
+      case ACTION_OPEN_OPTIONS_PAGE:
+        chrome.runtime.openOptionsPage();
+        break;
     }
   })();
 
