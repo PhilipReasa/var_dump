@@ -65,7 +65,7 @@ chrome.runtime.onMessage.addListener((request, _sender, sendResponse) => {
 
       return new Promise((resolve, _reject) => {
         chrome.storage.local.set({ [keyName]: coercedVal }, (newData) => {
-          return resolve(newData[keyName]);
+          return resolve(coercedVal);
         });
       });
     }
@@ -76,12 +76,12 @@ chrome.runtime.onMessage.addListener((request, _sender, sendResponse) => {
 
         const autoRunConfig = await coerceToBoolean(
           "autorun",
-          await getRawValueFromLocalStorage("autorun"),
+          await getRawValueFromLocalStorage("autorun")
         );
 
         const cascadeConfig = await coerceToBoolean(
           "cascade",
-          await getRawValueFromLocalStorage("cascade"),
+          await getRawValueFromLocalStorage("cascade")
         );
 
         sendResponse({

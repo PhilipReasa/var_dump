@@ -71,11 +71,11 @@
             object(ExampleObject)#1 (8) { ["ExtensionName"]=> string(15)
             "Var_Masterpiece" ["AuthorName"]=> string(12) "Philip Reasa"
             ["ExtensionAbilities"]=> array(4) { ["Tree Nesting Structure"]=>
-            array(3) { ["Arbitrary Debpth?"]=> string(4) "Yup!" ["Expanding and
+            array(3) { ["Arbitrary Depth?"]=> string(4) "Yup!" ["Expanding and
             Collapsing?"]=> string(7) "You bet" ["Associative Arrays?"]=>
-            string(13) "Apperantly :P" } [0]=> string(31) "Custimizable Data
+            string(13) "Apparently :P" } [0]=> string(31) "Customizable Data
             Type Coloring" [1]=> string(18) "Automatically Runs" [2]=>
-            string(28) "Selectivly Run Within A Page" } ["GitHub"]=> string(49)
+            string(28) "Selectively Run Within A Page" } ["GitHub"]=> string(49)
             "Contribute here: https://github.com/PhilipReasa/var_dump"
             ["TestBooleans"]=> bool(true) ["TestInts"]=> int(1) ["TestFloats"]=>
             float(3.14) ["TestNulls"]=> NULL }
@@ -157,108 +157,177 @@
             </div>
           </div>
         </div>
-        <div id="var_dump">
-          <ul id="root">
-            <li class="openClose">
-              <span class="svgIcon openCloseIcon"
-                ><img src="img/angle-arrow-down.svg" /></span
-              ><span class="objectName">ExampleObject</span
-              ><span class="object">
-                (object)
-                <span class="objectReference">[Object ID #1]</span
-                ><span class="propertyCount">[8 properties]</span></span
-              >
-              <ul>
-                <li>
-                  <span class="key">ExtensionName: </span
-                  ><span class="string">(string) Var_Masterpiece</span>
-                </li>
-                <li>
-                  <span class="key">AuthorName: </span
-                  ><span class="string">(string) Philip Reasa</span>
-                </li>
-                <li>
-                  <span class="key">ExtensionAbilities: </span>
-                </li>
+        <div class="VAR_DUMP-DEADBEEF">
+          <style type="text/css">
+            .VAR_DUMP-DEADBEEF #var_dump .bool {
+              color: null;
+            }
+            .VAR_DUMP-DEADBEEF #var_dump .int {
+              color: null;
+            }
+            .VAR_DUMP-DEADBEEF #var_dump .float {
+              color: null;
+            }
+            .VAR_DUMP-DEADBEEF #var_dump .null {
+              color: null;
+            }
+            .VAR_DUMP-DEADBEEF #var_dump .array {
+              color: null;
+            }
+            .VAR_DUMP-DEADBEEF #var_dump .object {
+              color: null;
+            }
+            .VAR_DUMP-DEADBEEF #var_dump .string {
+              color: null;
+            }
+          </style>
+          <div class="var_dump_modal">
+            <div id="header">
+              <div class="iconContainer">
+                <div id="expandAll">
+                  <img
+                    class="svgIcon"
+                    src="chrome-extension://chfhddogiigmfpkcmgfpolalagdcamkl/images/chevron-sign-down.svg"
+                  />Expand All
+                </div>
+                <div id="collapseAll">
+                  <img
+                    class="svgIcon rotate180"
+                    src="chrome-extension://chfhddogiigmfpkcmgfpolalagdcamkl/images/chevron-sign-down.svg"
+                  />Collapse All
+                </div>
+                <div class="closeModal">
+                  <img
+                    class="svgIcon"
+                    src="chrome-extension://chfhddogiigmfpkcmgfpolalagdcamkl/images/close.svg"
+                  />
+                </div>
+                <div class="settings">
+                  <img
+                    class="svgIcon"
+                    src="chrome-extension://chfhddogiigmfpkcmgfpolalagdcamkl/images/gear.svg"
+                  />
+                </div>
+                <div class="fullScreen">
+                  <img
+                    class="svgIcon"
+                    src="chrome-extension://chfhddogiigmfpkcmgfpolalagdcamkl/images/expand.svg"
+                  />
+                </div>
+              </div>
+            </div>
+            <div id="var_dump">
+              <ul id="root">
                 <li class="openClose">
                   <span class="svgIcon openCloseIcon"
-                    ><img src="img/angle-arrow-down.svg" /></span
-                  ><span class="array"
-                    >(array)
-                    <span class="arrayElementCount">[4 elements]</span></span
+                    ><img
+                      src="chrome-extension://chfhddogiigmfpkcmgfpolalagdcamkl/images/angle-arrow-down.svg" /></span
+                  ><span class="objectName">foo</span
+                  ><span class="object">
+                    (object) <span class="objectReference">[Object ID #1]</span
+                    ><span class="propertyCount">[10 properties]</span></span
                   >
                   <ul>
                     <li>
-                      <span class="key">Tree Nesting Structure: </span>
+                      <span class="key">ExtensionName: </span
+                      ><span class="string">(string) "Var_Masterpiece"</span>
                     </li>
+                    <li>
+                      <span class="key">AuthorName: </span
+                      ><span class="string">(string) "Philip Reasa"</span>
+                    </li>
+                    <li><span class="key">ExtensionAbilities: </span></li>
                     <li class="openClose">
                       <span class="svgIcon openCloseIcon"
-                        ><img src="img/angle-arrow-down.svg" /></span
+                        ><img
+                          src="chrome-extension://chfhddogiigmfpkcmgfpolalagdcamkl/images/angle-arrow-down.svg" /></span
                       ><span class="array"
                         >(array)
                         <span class="arrayElementCount"
-                          >[3 elements]</span
+                          >[5 elements]</span
                         ></span
                       >
                       <ul>
                         <li>
-                          <span class="key">Arbitrary Debpth?: </span
-                          ><span class="string">(string) Yup!</span>
+                          <span class="key">0: </span
+                          ><span class="string"
+                            >(string) "Tree Nesting Structure"</span
+                          >
                         </li>
                         <li>
-                          <span class="key">Expanding and Collapsing?: </span
-                          ><span class="string">(string) You bet</span>
+                          <span class="key">1: </span
+                          ><span class="string"
+                            >(string) "Customizable Data Type Coloring"</span
+                          >
                         </li>
                         <li>
-                          <span class="key">Associative Arrays?: </span
-                          ><span class="string">(string) Apperantly :P</span>
+                          <span class="key">2: </span
+                          ><span class="string"
+                            >(string) "Collapse/Expand"</span
+                          >
+                        </li>
+                        <li>
+                          <span class="key">3: </span
+                          ><span class="string"
+                            >(string) "Automatically Run"</span
+                          >
+                        </li>
+                        <li>
+                          <span class="key">4: </span
+                          ><span class="string"
+                            >(string) "Run Within A Page"</span
+                          >
                         </li>
                       </ul>
                     </li>
                     <li>
-                      <span class="key">0: </span
+                      <span class="key">GitHub: </span
                       ><span class="string"
-                        >(string) Custimizable Data Type Coloring</span
+                        >(string) "Contribute here:
+                        https://github.com/PhilipReasa/var_dump"</span
                       >
                     </li>
-                    <li>
-                      <span class="key">1: </span
-                      ><span class="string">(string) Automatically Runs</span>
+                    <li><span class="key">TestAssociativeArrays: </span></li>
+                    <li class="openClose">
+                      <span class="svgIcon openCloseIcon"
+                        ><img
+                          src="chrome-extension://chfhddogiigmfpkcmgfpolalagdcamkl/images/angle-arrow-down.svg" /></span
+                      ><span class="array"
+                        >(array)
+                        <span class="arrayElementCount">[1 element]</span></span
+                      >
+                      <ul>
+                        <li>
+                          <span class="key">testing: </span
+                          ><span class="string">(string) "It works!"</span>
+                        </li>
+                      </ul>
                     </li>
                     <li>
-                      <span class="key">2: </span
-                      ><span class="string"
-                        >(string) Selectivly Run Within A Page</span
-                      >
+                      <span class="key">TestBooleans: </span
+                      ><span class="bool">(boolean) true </span>
+                    </li>
+                    <li>
+                      <span class="key">TestInts: </span
+                      ><span class="int">(integer) 1 </span>
+                    </li>
+                    <li>
+                      <span class="key">TestFloats: </span
+                      ><span class="float">(float) 1.004 </span>
+                    </li>
+                    <li>
+                      <span class="key">TestNulls: </span
+                      ><span class="null">(null) NULL</span>
+                    </li>
+                    <li>
+                      <span class="key">Private:foo:private: </span
+                      ><span class="bool">(boolean) true </span>
                     </li>
                   </ul>
                 </li>
-                <li>
-                  <span class="key">GitHub: </span
-                  ><span class="string"
-                    >(string) Contribute here:
-                    https://github.com/Rece/var_dump</span
-                  >
-                </li>
-                <li>
-                  <span class="key">TestBooleans: </span
-                  ><span class="bool">(boolean) true </span>
-                </li>
-                <li>
-                  <span class="key">TestInts: </span
-                  ><span class="int">(integer) 1 </span>
-                </li>
-                <li>
-                  <span class="key">TestFloats: </span
-                  ><span class="float">(float) 3.14 </span>
-                </li>
-                <li>
-                  <span class="key">TestNulls: </span
-                  ><span class="null">(null) NULL</span>
-                </li>
               </ul>
-            </li>
-          </ul>
+            </div>
+          </div>
         </div>
       </div>
     </div>

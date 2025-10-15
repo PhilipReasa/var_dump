@@ -5,7 +5,7 @@
     const SPECIAL_CLASS = settings.specialClass;
     const listenerTools = var_dump_extension_DEADBEEF.varDumpListenerTools(
       CASCADE,
-      SPECIAL_CLASS,
+      SPECIAL_CLASS
     );
     const parsingTools = var_dump_extension_DEADBEEF.varDumpParsingTools();
     const displayGenerationTools =
@@ -48,9 +48,7 @@
         "" +
         '<div class="failedMessage">' +
         "We were not able to parse this var_dump. If this is a valid var_dump, please " +
-        '<a href="mailto:varmasterpiece@gmail.com?subject=Parsing%20Error&body=' +
-        body +
-        '">notify us</a> ' +
+        '<a target="_blank" href="https://github.com/PhilipReasa/var_dump/issues">notify us</a> ' +
         "so we can get this fixed!" +
         "</div>"
       );
@@ -169,7 +167,7 @@
             parsingTools.getRawSelection() +
             "</pre>" +
             "</div>" +
-            modalClose,
+            modalClose
         );
         listenerTools.addCloseListener();
         return;
@@ -183,7 +181,7 @@
         modalOpen +
           header +
           displayGenerationTools.getVarDumpHtml(varDumpArray) +
-          modalClose,
+          modalClose
       );
       listenerTools.addListeners();
     }
